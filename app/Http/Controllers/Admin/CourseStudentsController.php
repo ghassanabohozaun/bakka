@@ -25,6 +25,20 @@ class CourseStudentsController extends Controller
 
     public function store(Request $request){
 
+
+        $course = Course::findOrFail($request->id);
+        if(!$course){
+            return redirect()->route('admin.not.found');
+        }
+        $courseStudent =   $course->students()->attach($request->student_id);
+
+        if($courseStudent){
+            return $this->returnSuccessMessage(__('general.add_success_message'));
+        }else{
+            return $this->returnError(__('general.add_error_message') , 404);
+        }
+
+
     }
     public function destroy(Request $request)
     {

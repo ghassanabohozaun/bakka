@@ -132,8 +132,6 @@
             }
         });
 
-
-
         // add new course mawhob
         $('body').on('click', '.add_new_course_student', function(e) {
             e.preventDefault();
@@ -142,7 +140,6 @@
 
             $('#form_add_new_course_student').find('#id').val(id);
         });
-
 
         // close add new course mawhob  modal by cancel
         $('body').on('click', '#cancel_add_new_course_student_btn', function(e) {

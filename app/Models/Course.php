@@ -20,7 +20,7 @@ class Course extends Model
 
     // relations
     public function students(){
-        return $this->belongsToMany(Student::class,'course_student')->orderBy('id','desc')->withPivot('id')->withPivot('enrolled_date');
+        return $this->belongsToMany(Student::class,'course_student')->orderByPivot('id','desc')->withPivot('id')->withPivot('enrolled_date');
     }
 
 }

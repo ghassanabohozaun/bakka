@@ -19,44 +19,38 @@
                     <div class="card card-custom card-shadowless rounded-top-0">
                         <!--begin::Body-->
                         <div class="card-body p-0">
+                            <div class="row justify-content-center">
+                                <div class="col-xl-12">
 
-                            <div class="col-xl-12 col-xxl-10">
-
-                                <div class="row justify-content-center">
-                                    <div class="col-xl-12">
-
-                                        <!--begin::Group-->
-                                        <div class=" form-group row">
-                                            <label class="col-xl-3 col-lg-3 col-form-label">
-                                                ID
-                                            </label>
-                                            <div class="col-lg-9 col-xl-9">
-                                                <input type="text" class="form-control" id="id"
-                                                    name="id">
-                                            </div>
+                                    <!--begin::Group-->
+                                    <div class=" form-group row d-none">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            ID
+                                        </label>
+                                        <div class="col-lg-9 col-xl-9">
+                                            <input type="hidden" class="form-control" id="id" name="id">
                                         </div>
-                                        <!--end::Group-->
-
-                                        <br />
-                                        <!--begin::Group-->
-                                        <div class="form-group row">
-                                            <label class="col-xl-3 col-lg-3 col-form-label">
-                                                {{ __('courses.student_name') }}
-                                            </label>
-                                            <div class="col-lg-9 col-xl-9">
-                                                <select class="form-control" id="student_id_select2" style="width: 100%"
-                                                    name="student_id">
-                                                    <option></option>
-                                                </select>
-                                                <span class="form-text text-danger" id="student_id_error"></span>
-                                            </div>
-                                        </div>
-                                        <!--end::Group-->
-
                                     </div>
+                                    <!--end::Group-->
+
+                                    <br />
+                                    <!--begin::Group-->
+                                    <div class="form-group row">
+                                        <label class="col-xl-4 col-lg-4 col-form-label">
+                                            {{ __('courses.student_name') }}
+                                        </label>
+                                        <div class="col-lg-4 col-xl-8">
+                                            <select class="form-control" id="student_id_select2" style="width: 100%"
+                                                name="student_id">
+                                                <option></option>
+                                            </select>
+                                            <span class="form-text text-danger" id="student_id_error"></span>
+                                        </div>
+                                    </div>
+                                    <!--end::Group-->
+
                                 </div>
                             </div>
-
                         </div>
                     </div>
 

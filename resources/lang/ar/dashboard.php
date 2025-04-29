@@ -38,7 +38,7 @@ return [
     'welcome_message_details' => 'نرحب بك في لوحة تحكم الموقع   ، توفر لك هذه اللوحة تحكم كامل بالموقع .  ',
     'profile' => 'الملف الشخصي',
     'sign_out' => 'تسجيل خروج',
-    'copy_rights' => 'SPCALTAWIL',
+    'copy_rights' => 'اكاديمة بكا',
     'return_to_dashboard' => 'العودة الي لوحة التحكم',
     'page_not_found' => 'الصفحة غير متاحة',
     'return_to_dashboard_message' => 'يمكنك الرجوع الي الصفحة السابقة او التواصل مع الدعم الفني',

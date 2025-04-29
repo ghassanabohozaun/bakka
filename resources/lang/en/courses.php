@@ -55,6 +55,7 @@ return [
     'show_course_details' => 'Show Course Details',
     'no_courses_found' => 'No Courses Found',
     'no_students_found' => 'No Students Found',
+    'student_enrolled_course'=>'The student is enrolled in the course',
 
     // enroll
     'student_name' => 'Student Name',

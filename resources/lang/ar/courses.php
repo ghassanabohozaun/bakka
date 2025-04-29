@@ -55,6 +55,7 @@ return [
     'show_course_details' => 'عرض تفاصيل الدورة',
     'no_courses_found' => 'لا يوجد دورات حالياً',
     'no_students_found' => 'لا يوجد طلاب حالياً',
+    'student_enrolled_course'=>'الطالب مسجل في هذه الدورة',
 
     // enroll
     'student_name' => 'اسم الطالب',

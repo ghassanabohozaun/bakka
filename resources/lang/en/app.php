@@ -4,6 +4,7 @@ return [
     'dashboard' => 'Dashboard Management',
     'settings' => 'Settings Management',
     'admins' => 'Admins Management',
+    'notifications' => 'Notifications Management',
     'landing-page' => 'Landing Page Managment',
     'roles' => 'Roles Management',
     'users' => 'Users Management',

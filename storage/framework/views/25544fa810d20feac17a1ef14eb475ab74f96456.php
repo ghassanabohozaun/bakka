@@ -158,7 +158,6 @@
         $('#modal_add_new_course_student').on('hidden.bs.modal',
             function(e) {
                 e.preventDefault();
-                $.notifyClose();
                 $('#modal_add_new_course_student').modal('hide');
                 $('#form_add_new_course_student')[0].reset();
                 $("#student_id_select2").val('').trigger('change');
@@ -195,6 +194,11 @@
                 success: function(data) {
                     KTApp.unblockPage();
                     if (data.status == true) {
+                        // refresh notifications
+                        $('#notify_section').load("<?php echo route('admin.get.notifications'); ?>");
+                        $(".notifications_count").load(location.href +
+                            " .notifications_count");
+
                         Swal.fire({
                             title: data.msg,
                             text: "",
@@ -205,7 +209,37 @@
                             }
                         });
                         $('.enroll_new_student_button').click(function() {
+
                             $('#myTable').load(location.href + (' #myTable'));
+                            $('#modal_add_new_course_student').modal('hide');
+                            $('#form_add_new_course_student')[0].reset();
+                            $("#student_id_select2").val('').trigger('change');
+                            $('#student_id').css('border-color', '');
+                            $('#student_id_error').text('');
+
+                        });
+                    } else {
+                        // refresh notifications
+                        $('#notify_section').load("<?php echo route('admin.get.notifications'); ?>");
+                        $(".notifications_count").load(location.href +
+                            " .notifications_count");
+                        Swal.fire({
+                            title: data.msg,
+                            text: "",
+                            icon: "error",
+                            allowOutsideClick: false,
+                            customClass: {
+                                confirmButton: 'enroll_new_student_button_faild'
+                            }
+                        });
+                        $('.enroll_new_student_button_faild').click(function() {
+                            $('#myTable').load(location.href + (' #myTable'));
+                            $('#modal_add_new_course_student').modal('hide');
+                            $('#form_add_new_course_student')[0].reset();
+                            $("#student_id_select2").val('').trigger('change');
+                            $('#student_id').css('border-color', '');
+                            $('#student_id_error').text('');
+
                         });
                     }
                 }, //end success

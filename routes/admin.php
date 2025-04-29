@@ -8,16 +8,18 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FAQController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\NotificationsController;
 use App\Http\Controllers\Admin\PhotoAlbumsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\SlidersController;
+use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\SupportCenterController;
 use App\Http\Controllers\Admin\TestimonialsController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideosController;
-use App\Http\Controllers\Admin\StudentController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -114,6 +116,15 @@ Route::group(
             Route::post('/update', 'RolesController@update')->name('admin.role.update');
         });
 
+        ///////////////////////////////////////////////////////////////////
+        // Notifications Routes
+    Route::group(['prefix' => 'notifications', 'middleware' => 'can:notifications'], function () {
+        Route::get('/', [NotificationsController::class, 'index'])->name('admin.notifications');
+         Route::get('/get/admin/notifications', [NotificationsController::class, 'getNotifications'])->name('admin.get.notifications');
+        Route::get('/get/one/admin/notification', [NotificationsController::class, 'getOneNotification'])->name('admin.get.one.notification');
+        Route::post('/admin/notification/make/read', [NotificationsController::class, 'makeRead'])->name('admin.notification.make.read');
+    });
+
         /////////////////////////////////////////////////////////////////////////////////////////////
         /// students routes
         Route::group(['prefix' => 'students', 'middleware' => 'can:students'], function () {
@@ -147,7 +158,6 @@ Route::group(
             // enroll
             Route::get('/{id?}/students/', [CourseStudentsController::class, 'index'])->name('admin.course.enroll.student');
             Route::post('/enroll-student', [CourseStudentsController::class, 'store'])->name('admin.course.enroll.student.store');
-            Route::post('/delete-enroll-student', [CourseStudentsController::class, 'destroy'])->name('admin.course.enroll.student.delete');
             Route::post('/delete-enroll-student', [CourseStudentsController::class, 'destroy'])->name('admin.course.enroll.student.delete');
             Route::get('/get-all-students-name', [CourseStudentsController::class, 'getAllStudentsName'])->name('admin.get.all.students.name');
         });

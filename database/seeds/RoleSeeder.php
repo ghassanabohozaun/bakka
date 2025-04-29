@@ -22,6 +22,7 @@ class RoleSeeder extends Seeder
             'permissions' => json_encode([
                 'dashboard',
                 'settings',
+                'notifications',
                 'admins',
                 'roles',
                 'users',

@@ -5,6 +5,7 @@ return [
         'dashboard' => 'app.dashboard',
         'settings' => 'app.settings',
         'admins' => 'app.admins',
+        'notifications' => 'app.notifications',
         'roles' => 'app.roles',
         'users' => 'app.users',
         'landing-page' => 'app.landing-page',

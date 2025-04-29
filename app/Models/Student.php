@@ -22,6 +22,6 @@ class Student extends Authenticatable
 
     // relations
     public function courses(){
-        return $this->belongsToMany(Course::class,'course_student')->withPivot('id')->withPivot('enrolled_date');
+        return $this->belongsToMany(Course::class,'course_student')->orderBy('id','desc')->withPivot('id')->withPivot('enrolled_date');
     }
 }

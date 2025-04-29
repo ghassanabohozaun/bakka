@@ -350,6 +350,7 @@
             todayHighlight: true,
         });
 
+        // add course
         $('#courses_add_form').on('submit', function(e) {
             e.preventDefault();
             //////////////////////////////////////////////////////////////

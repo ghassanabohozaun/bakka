@@ -1,0 +1,23 @@
+<section class="our-mission ">
+    <div class=" container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-6 col-md-9">
+                <div class="box-mission p-5  my-5 text-center position-relative">
+                    <img class="right-top" src="{!! asset('site/img/cotachen.svg') !!}" alt=" our_mission_en">
+                    <img class="left-bottom" src="{!! asset('site/img/cotachen.svg') !!}" alt=" our_mission_en">
+                    <h2 class=" text-bold mb-2" data-aos="fade-down" data-aos-duration="1000">
+                        {!! trans('site.our_vision') !!}
+                    </h2>
+                    <p class=" fs-20" data-aos="fade-down" data-aos-duration="500">
+                        Eum error laboriosam voluptatibus dignissimos id enim. Officiis occaecati sunt illum omnis
+                        accusantium. Omnis earum doloremque sunt vitae asperiores itaque. Est dolorem rem aperiam sit
+                        quae. Tempore eveniet similique incidunt vel.
+                        Eum error laboriosam voluptatibus dignissimos id enim. Officiis occaecati sunt illum omnis
+                        accusantium. Omnis earum doloremque sunt vitae asperiores itaque. Est dolorem rem aperiam sit
+                        quae. Tempore eveniet similique incidunt vel.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

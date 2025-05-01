@@ -2,6 +2,10 @@
 
 return [
     'student_update' => 'Student Update',
+    'profile' => 'Student Profile',
+    'activited' => 'Activited',
+    'Frozen' => 'Frozen',
+    'enrolled_courses' => 'Enrolled Courses',
 
     'name_ar' => 'Student Name | Arabic',
     'name_en' => 'Studdet Name | English',

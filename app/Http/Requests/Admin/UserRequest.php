@@ -29,6 +29,7 @@ class UserRequest extends FormRequest
             'password' => 'required|min:6',
             'gender' => 'required|in:male,female',
             'role_id' => 'required',
+            'notification_id'=>'sometimes',
             'photo' => 'required|image|mimes:jpg,jpeg,png|max:1024',
             'mobile' => 'required',
         ];

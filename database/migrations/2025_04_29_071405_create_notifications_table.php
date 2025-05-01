@@ -22,8 +22,8 @@ return new class extends Migration
             $table->enum('notify_status', ['send', 'received'])->default('received');
             $table->enum('notify_class', ['read', 'unread'])->default('unread');
             $table->enum('notify_for', ['admin', 'student'])->default('admin');
-            $table->bigInteger('admin_id')->nullable();
-            $table->bigInteger('student_id')->nullable();
+            $table->foreignId('admin_id')->constrained('admins')->cascadeOnDelete();
+            $table->foreignId('student_id')->constrained('students')->cascadeOnDelete();
             $table->timestamps();
         });
     }

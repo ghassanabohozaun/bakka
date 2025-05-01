@@ -35,7 +35,7 @@
                                 <div><span class="">0</span><i class="fas fa-bell"></i></div>
                             </a>
                             <div class="p-2 br-5 box-noty" uk-dropdown="mode: click ; pos: top-right">
-                                <span id="orange_student_notify_section"></span>
+                                <span id="orange_student_notify_section">1</span>
                             </div>
 
                         </div>

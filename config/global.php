@@ -6,6 +6,7 @@ return [
         'settings' => 'app.settings',
         'admins' => 'app.admins',
         'notifications' => 'app.notifications',
+        'revenues' => 'app.revenues',
         'roles' => 'app.roles',
         'users' => 'app.users',
         'landing-page' => 'app.landing-page',

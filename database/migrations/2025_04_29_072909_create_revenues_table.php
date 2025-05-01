@@ -14,7 +14,7 @@ return new class extends Migration {
     {
         Schema::create('revenues', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('student_id')->constrained('students')->cascadeOnDelete();
+            $table->foreignId('student_id')->constrained(table: 'students')->cascadeOnDelete();
             $table->string('date')->nullable();
             $table->float('value')->nullable();
             $table->string('revenue_for')->nullable();
@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->text('payer_id')->nullable();
             $table->text('payment_id')->nullable();
             $table->text('token')->nullable();
-            $table->enum('payment_method', ['dashboard','payment_gate'])->default('dashboard');
+            $table->enum('payment_method', ['dashboard','payment_gateway'])->default('dashboard');
             $table->timestamps();
         });
     }

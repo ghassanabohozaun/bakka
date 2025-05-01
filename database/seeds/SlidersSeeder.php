@@ -19,7 +19,6 @@ class SlidersSeeder extends Seeder
 
         $faker = Faker::create();
 
-
         for($i = 1 ; $i <= 2 ; $i++){
             Slider::create( [
                 'title_en' => $faker->sentence(5) . ' | ' .$i,
@@ -36,6 +35,5 @@ class SlidersSeeder extends Seeder
                 'language' => 'ar_en',
             ]);
         }
-
     }
 }

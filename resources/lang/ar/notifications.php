@@ -9,4 +9,6 @@ return [
     'details_ar' => 'التفاصيل | عربي',
     'details_en' => 'التفاصيل | انجليزي',
     'date' => 'التاريخ',
+
+    'no_notifications_found'=>'لا يوجد اشعارات حالياً',
 ];

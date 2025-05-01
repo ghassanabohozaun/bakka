@@ -18,7 +18,7 @@ class SettingsController extends Controller
     public function index()
     {
         $title = __('settings.settings');
-        return view('admin.settings', compact('title'));
+        return view('admin.home.settings', compact('title'));
     }
     ////////////////////////////////////////////////////////
     /// store Settings

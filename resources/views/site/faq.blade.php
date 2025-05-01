@@ -36,6 +36,7 @@
                                     <div class="faq_question">
                                         {!! $faq->{'question_' . Lang()} !!}
                                     </div>
+
                                     <div class="answercont">
                                         <div class="faq_answer"> {!! $faq->{'answer_' . Lang()} !!}</div>
                                     </div>

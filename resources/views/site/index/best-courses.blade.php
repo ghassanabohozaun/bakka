@@ -75,11 +75,27 @@
                                 </div> --}}
 
                                 <div class="row justify-content-between align-items-center">
+
                                     <div class="col-auto">
-                                        <a href="#" class="btn btn-primary br-30 text-bold "
-                                            data-id="{!! $course->id !!}">
-                                            {!! trans('site.enroll_now') !!}
-                                        </a>
+                                        @if (student()->check())
+                                            @if (App\Models\CourseStudent::where('student_id', student()->id())->where('course_id', $course->id)->get()->count())
+                                                <a href="javascript:void(0)" class="btn btn-primary br-30 text-bold"
+                                                    data-id="{!! $course->id !!}">
+                                                    {!! trans('site.previously_enrolled') !!}
+                                                </a>
+                                            @else
+                                                <a href="{!! route('student.checkout', $course->id) !!}"
+                                                    class="btn btn-primary br-30 text-bold "
+                                                    data-id="{!! $course->id !!}">
+                                                    {!! trans('site.enroll_now') !!}
+                                                </a>
+                                            @endif
+                                        @else
+                                            <a href="{!! route('get.student.login') !!}" class="btn btn-primary br-30 text-bold "
+                                                data-id="{!! $course->id !!}">
+                                                {!! trans('site.enroll_now') !!}
+                                            </a>
+                                        @endif
                                     </div>
 
                                     <div class="col-auto d-flex align-items-center">
@@ -102,65 +118,9 @@
 
         </div>
 
-
-        {{-- <div class="d-none">
-            @if (student()->check())
-                <input type="hidden" id="mawhob_id" value="{!! student()->user()->id !!}" />
-            @endif
-        </div> --}}
-
     </section>
 @endif
 
 @push('js')
-    {{-- <script type="text/javascript">
-        //////////////////////////////////////////////////////////////////////////////////////
-        //  Auth Student alert and enroll
-        $('body').on('click', '.auth_student_best_course_enroll_button', function(e) {
-
-            var course_id = $(this).data('id');
-            var mawhob_id = $('#mawhob_id').val();
-            e.preventDefault();
-            Swal.fire({
-                icon: 'question',
-                title: '{!! trans('site.do_you_want_to_enroll_in_course') !!}',
-                allowOutsideClick: false,
-                showDenyButton: false,
-                showCancelButton: true,
-                cancelButtonText: `{!! trans('site.cancel') !!}`,
-                confirmButtonText: `{!! trans('site.ok') !!}`,
-                customClass: {
-                    confirmButton: 'ok_enroll_in_course_button'
-                }
-
-            });
-            $('.ok_enroll_in_course_button').click(function() {
-                window.location.href = "{!! route('student.course.checkout') !!}" + '/' + course_id;
-            });
-
-        });
-
-
-        //////////////////////////////////////////////////////////////////////////////////////
-        // Not Auth Student alert
-        $('body').on('click', '.not_auth_student_best_course_enroll_button', function(e) {
-            e.preventDefault();
-            Swal.fire({
-                icon: 'info',
-                title: '{!! trans('site.sign_in_firstly') !!}',
-                allowOutsideClick: false,
-                showDenyButton: false,
-                showCancelButton: true,
-                cancelButtonText: `{!! trans('site.cancel') !!}`,
-                confirmButtonText: `{!! trans('site.login') !!}`,
-                customClass: {
-                    confirmButton: 'login_button'
-                }
-
-            });
-            $('.login_button').click(function() {
-                window.location.href = "{!! route('get.student.login') !!}";
-            });
-        });
-    </script> --}}
+    <script type="text/javascript"></script>
 @endpush

@@ -23,6 +23,7 @@ class RoleSeeder extends Seeder
                 'dashboard',
                 'settings',
                 'notifications',
+                'revenues',
                 'admins',
                 'roles',
                 'users',

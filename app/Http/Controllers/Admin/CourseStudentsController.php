@@ -11,8 +11,8 @@ use App\Models\Student;
 use App\Traits\GeneralTrait;
 use DB;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 
+use Carbon\Carbon;
 class CourseStudentsController extends Controller
 {
     use GeneralTrait;
@@ -76,7 +76,6 @@ class CourseStudentsController extends Controller
     }
 
     // add admin notification
-
     public function addAdminNotification($course, $student_id)
     {
         Notification::create([
@@ -87,7 +86,7 @@ class CourseStudentsController extends Controller
             'notify_status' => 'send',
             'notify_class' => 'unread',
             'notify_for' => 'admin',
-            'admin_id'=>admin()->user()->id,
+            'admin_id' => admin()->user()->id,
             'student_id' => $student_id,
         ]);
     }
@@ -103,7 +102,7 @@ class CourseStudentsController extends Controller
             'notify_status' => 'send',
             'notify_class' => 'unread',
             'notify_for' => 'student',
-            'admin_id'=>admin()->user()->id,
+            'admin_id' => admin()->user()->id,
             'student_id' => $student_id,
         ]);
     }
@@ -118,7 +117,7 @@ class CourseStudentsController extends Controller
                 return redirect()->route('admin.not.found');
             }
             if ($courseStudent->delete()) {
-                $revenue = Revenue::where('revenue_for' ,$courseStudent->course_id )->where('student_id' , $courseStudent->student_id)->first();
+                $revenue = Revenue::where('revenue_for', $courseStudent->course_id)->where('student_id', $courseStudent->student_id)->first();
                 $revenue->delete();
                 return $this->returnSuccessMessage(__('general.delete_success_message'));
             } else {
@@ -141,6 +140,7 @@ class CourseStudentsController extends Controller
                         $q->orWhere($field, 'like', "%{$search}%");
                     }
                 })
+                // ->where('freeze',  '!=','')
                 ->where('deleted_at', null)
                 ->get();
         }

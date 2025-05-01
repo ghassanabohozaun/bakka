@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     'dashboard' => 'Dashboard',
     'home' => 'Home',
     'settings' => 'Settings',
@@ -9,6 +8,8 @@ return [
     'site_languages' => 'Site Languages',
     'show_all' => 'Show All',
     'users' => 'Users',
+    'notifications' => 'Notifications',
+    'revenues' => 'Revenues',
 
     'admin' => 'Admin',
     'add_new_user' => 'Add New User',
@@ -16,14 +17,13 @@ return [
 
     'permissions' => 'Permissions',
     'add_new_permission' => 'Add New Permission',
-     'landing_page' => 'Landing Page',
+    'landing_page' => 'Landing Page',
     'index' => 'Website Index',
     'static_strings' => 'Static Strings',
 
     'faqs' => 'FAQ',
     'trashed_faq' => 'Trashed FAQ',
     'add_new_faq' => 'Add New FAQ',
-
 
     'videos' => 'Videos',
     'trashed_videos' => 'Trashed Videos',
@@ -40,8 +40,6 @@ return [
     'support_center' => 'Support Center',
     'add_new_support_center' => 'Add New Support Center',
 
-
-
     'services' => 'Services',
     'trashed_services' => 'Trashed Services',
     'add_new_service' => 'Add New Service',
@@ -54,7 +52,6 @@ return [
     'trashed_articles' => 'Trashed Articles',
     'add_new_article' => 'Add New Article',
 
-
     'students' => 'Students',
     'trashed_students' => 'Trashed Students',
     'add_new_student' => 'Add New Student',
@@ -62,6 +59,4 @@ return [
     'courses' => 'Courses',
     'trashed_courses' => 'Trashed Courses',
     'add_new_course' => 'Add New Course',
-
-
 ];

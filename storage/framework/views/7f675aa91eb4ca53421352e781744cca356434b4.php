@@ -37,6 +37,7 @@
                                         <?php echo $faq->{'question_' . Lang()}; ?>
 
                                     </div>
+
                                     <div class="answercont">
                                         <div class="faq_answer"> <?php echo $faq->{'answer_' . Lang()}; ?></div>
                                     </div>

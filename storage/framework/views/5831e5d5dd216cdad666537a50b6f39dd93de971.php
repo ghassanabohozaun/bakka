@@ -83,7 +83,7 @@
                                                     <tbody>
                                                         <?php $__empty_1 = true; $__currentLoopData = $students; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $student): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                                             <tr>
-                                                                <td><?php echo $loop->iteration; ?> || <?php echo $student->id; ?></td>
+                                                                <td><?php echo $loop->iteration; ?></td>
                                                                 <td>
                                                                     <?php echo $__env->make('admin.students.parts.photo', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                                                                 </td>

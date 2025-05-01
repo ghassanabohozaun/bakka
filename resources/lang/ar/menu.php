@@ -8,6 +8,9 @@ return [
     'site_languages' => 'لغات الموقع',
     'show_all' => 'عرض الكل',
     'users' => 'المستخدمين',
+    'notifications' => 'الإشعارات',
+    'revenues' => 'الإيرادات',
+
     'admin' => 'المدير',
     'add_new_user' => 'إضافة مستخدم جديد',
     'trashed_users' => 'المستخدمين المحذوفين',
@@ -20,7 +23,6 @@ return [
     'faqs' => 'الأسئلة الشائعة',
     'trashed_faq' => ' الأسئلة الشائعة المحذوفة',
     'add_new_faq' => 'إضافة سؤال شائع',
-
 
     'videos' => 'الفيديوهات',
     'trashed_videos' => 'الفيديوهات المحذوفة',
@@ -49,7 +51,6 @@ return [
     'trashed_articles' => 'المقالات المحذوفة',
     'add_new_article' => 'اضافة مقال جديد',
 
-
     'students' => 'الطلاب',
     'trashed_students' => 'الطلاب المحذوفة',
     'add_new_student' => 'إضافة طالب جديد',
@@ -57,7 +58,4 @@ return [
     'courses' => 'الدورات',
     'trashed_courses' => 'الدورات المحذوفة',
     'add_new_course' => 'إضافة دورة جديد',
-
-
-
 ];

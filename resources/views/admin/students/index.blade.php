@@ -80,7 +80,7 @@
                                                     <tbody>
                                                         @forelse($students as $student)
                                                             <tr>
-                                                                <td>{!! $loop->iteration !!} || {!! $student->id !!}</td>
+                                                                <td>{!! $loop->iteration !!}</td>
                                                                 <td>
                                                                     @include('admin.students.parts.photo')
                                                                 </td>

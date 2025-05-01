@@ -1,3 +1,8 @@
+<a href="<?php echo e(route('admin.students.profile', $student->id)); ?>" class="btn btn-hover-info btn-icon btn-pill "
+    title="<?php echo e(__('students.profile')); ?>">
+    <i class="fa fa-eye fa-1x"></i>
+</a>
+
 <a href="<?php echo e(route('admin.students.edit', $student->id)); ?>" class="btn btn-hover-primary btn-icon btn-pill "
     title="<?php echo e(__('general.edit')); ?>">
     <i class="fa fa-edit fa-1x"></i>

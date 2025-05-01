@@ -25,7 +25,7 @@
 
 
 
-        <?php if($courses->isEmpty()): ?>
+        <?php if($studentCourses->isEmpty()): ?>
             <h1 class="py-4  fs-30 justify-content-center">
                 <img src="<?php echo asset('site/images/noRecordFound.svg'); ?>" class="img-fluid" id="no_data_img" title="<?php echo trans('site.no_date'); ?>">
             </h1>

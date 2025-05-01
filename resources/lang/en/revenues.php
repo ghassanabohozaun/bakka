@@ -2,6 +2,7 @@
 
 return [
     'enroll_course' => 'Enroll Course',
+    'enroll' => 'Enroll',
 
     'search_name' => 'Name',
     'enter_search_name' => 'Enter Name',
@@ -14,5 +15,7 @@ return [
     'student_id' => 'Student',
     'value' => 'Value',
     'details' => 'Details',
+    'revenue_for'=>'Revenue For',
+    'no_revenues_found'=>'No Revenues Found',
 
 ];

@@ -18,6 +18,7 @@ class AdminSeeder extends Seeder
             'email' => 'admin@admin.com',
             'password' => bcrypt('123456'),
             'status' => 'on',
+            'notification_id'=>1,
             'role_id' => Role::pluck('id')->first(),
         ]);
     }

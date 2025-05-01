@@ -13,15 +13,22 @@ class Admin extends Authenticatable
     use SoftDeletes;
 
     protected $table = 'admin';
-    protected $fillable = [
-        'name', 'email', 'password', 'photo', 'mobile', 'gender', 'status',
-        'role_id', 'last_login_at', 'last_login_ip', 'remember_token'
-    ];
+    protected $fillable = ['name', 'email', 'password', 'photo', 'mobile', 'gender', 'status', 'role_id', 'notification_id', 'last_login_at', 'last_login_ip', 'remember_token'];
     protected $hidden = ['created_at', 'updated_at', 'remember_token'];
-    /////////////////////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // relations
+
     /// role
-    public function role(){
-        return $this->belongsTo(Role::class,'role_id');
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+
+    // notifications
+    public function notifications()
+    {
+        $this->hasMany(Notification::class);
     }
     //////////////////////////////////// accessors ///////////////////////
     /// Gender accessors
@@ -34,20 +41,19 @@ class Admin extends Authenticatable
         }
     }
 
-
-    public function hasAbility($permissions){
+    public function hasAbility($permissions)
+    {
         $role = $this->role;
-        if(!$role){
+        if (!$role) {
             return false;
         }
-        foreach($role->permissions as $permission){
-            if(is_array($permissions) && in_array($permission, $permissions)){
+        foreach ($role->permissions as $permission) {
+            if (is_array($permissions) && in_array($permission, $permissions)) {
                 return true;
-            }else if (is_string($permissions) && strcmp($permissions ,$permission)==0){
+            } elseif (is_string($permissions) && strcmp($permissions, $permission) == 0) {
                 return true;
             }
         }
         return false;
     }
-
 }

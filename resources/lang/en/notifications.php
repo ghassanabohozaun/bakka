@@ -11,4 +11,6 @@ return [
     'details_en' => 'Details | en',
     'date' => 'Date',
 
+    'no_notifications_found'=>'No Notifications Found',
+
 ];

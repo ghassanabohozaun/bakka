@@ -5,6 +5,7 @@ return [
     'settings' => 'Settings Management',
     'admins' => 'Admins Management',
     'notifications' => 'Notifications Management',
+    'revenues' => 'Revenues Management',
     'landing-page' => 'Landing Page Managment',
     'roles' => 'Roles Management',
     'users' => 'Users Management',

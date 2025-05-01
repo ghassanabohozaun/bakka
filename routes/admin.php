@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\NotificationsController;
 use App\Http\Controllers\Admin\PhotoAlbumsController;
+use App\Http\Controllers\Admin\RevenuesController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\SlidersController;
@@ -19,7 +20,6 @@ use App\Http\Controllers\Admin\TestimonialsController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideosController;
 use Illuminate\Support\Facades\Route;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -36,11 +36,11 @@ Route::group(
         'middleware' => ['auth:admin', 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
     ],
     function () {
-        //////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// not found page
 
         Route::get('/notFound', [DashboardController::class, 'notFound'])->name('admin.not.found');
-        /////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// dashboard
         // Route::get('/', [DashboardController::class, 'index'])
         //     ->name('admin.dashboard')
@@ -49,7 +49,7 @@ Route::group(
             ->name('admin.dashboard')
             ->middleware('can:dashboard');
 
-        /////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// settings
         Route::group(['middleware' => 'can:settings'], function () {
             Route::get('settings', [SettingsController::class, 'index'])
@@ -62,7 +62,23 @@ Route::group(
             Route::post('switch-frontend-lang', [SettingsController::class, 'switchFrontendLang'])->name('switch.frontend.lang');
             Route::post('switch-disabled-forms', [SettingsController::class, 'switchDisabledForms'])->name('switch.disabled.forms');
         });
-        /////////////////////////////////////////////////////////////////////////////////////////////
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Notifications Routes
+        Route::group(['prefix' => 'notifications', 'middleware' => 'can:notifications'], function () {
+            Route::get('/', [NotificationsController::class, 'index'])->name('admin.notifications');
+            Route::get('/get/admin/notifications', [NotificationsController::class, 'getNotifications'])->name('admin.get.notifications');
+            Route::get('/get/one/admin/notification', [NotificationsController::class, 'getOneNotification'])->name('admin.get.one.notification');
+            Route::post('/admin/notification/make/read', [NotificationsController::class, 'makeRead'])->name('admin.notification.make.read');
+        });
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Revenues Routes
+        Route::group(['prefix' => 'revenues', 'middleware' => 'can:revenues'], function () {
+            Route::get('/', [RevenuesController::class, 'index'])->name('admin.revenues');
+        });
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// admin routes
 
         Route::group(['middleware' => 'can:admins'], function () {
@@ -70,7 +86,7 @@ Route::group(
             Route::get('/get-admin-by-id', [AdminsController::class, 'getAdminById'])->name('get.admin.by.id');
             Route::post('/admin-update', [AdminsController::class, 'adminUpdate'])->name('admin.update');
         });
-        /////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// users routes
         Route::group(['prefix' => 'users', 'middleware' => 'can:users'], function () {
             Route::get('/', [UserController::class, 'index'])->name('users');
@@ -85,7 +101,7 @@ Route::group(
             Route::post('/restore', [UserController::class, 'restore'])->name('user.restore');
         });
 
-        /////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // home
         Route::group(['prefix' => 'landing-page', 'middleware' => 'can:landing-page'], function () {
             // sliders routes
@@ -103,7 +119,7 @@ Route::group(
             });
         });
 
-        /////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// roles routes
 
         Route::group(['prefix' => 'roles', 'middleware' => 'can:roles'], function () {
@@ -116,16 +132,7 @@ Route::group(
             Route::post('/update', 'RolesController@update')->name('admin.role.update');
         });
 
-        ///////////////////////////////////////////////////////////////////
-        // Notifications Routes
-    Route::group(['prefix' => 'notifications', 'middleware' => 'can:notifications'], function () {
-        Route::get('/', [NotificationsController::class, 'index'])->name('admin.notifications');
-         Route::get('/get/admin/notifications', [NotificationsController::class, 'getNotifications'])->name('admin.get.notifications');
-        Route::get('/get/one/admin/notification', [NotificationsController::class, 'getOneNotification'])->name('admin.get.one.notification');
-        Route::post('/admin/notification/make/read', [NotificationsController::class, 'makeRead'])->name('admin.notification.make.read');
-    });
-
-        /////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// students routes
         Route::group(['prefix' => 'students', 'middleware' => 'can:students'], function () {
             Route::get('/', [StudentController::class, 'index'])->name('admin.students');
@@ -138,9 +145,10 @@ Route::group(
             Route::post('/force-delete', [StudentController::class, 'forceDelete'])->name('admin.students.force.delete');
             Route::post('/restore', [StudentController::class, 'restore'])->name('admin.students.restore');
             Route::post('/change-freeze', [StudentController::class, 'changeFreeze'])->name('admin.students.change.freeze');
+            Route::get('/profile/{id?}', [StudentController::class, 'profile'])->name('admin.students.profile');
         });
 
-        /////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// courses routes
         Route::group(['prefix' => 'courses', 'middleware' => 'can:courses'], function () {
             Route::get('/', [CourseController::class, 'index'])->name('admin.courses');
@@ -162,7 +170,7 @@ Route::group(
             Route::get('/get-all-students-name', [CourseStudentsController::class, 'getAllStudentsName'])->name('admin.get.all.students.name');
         });
 
-        /////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// videos routes
         Route::group(['prefix' => 'videos', 'middleware' => 'can:videos'], function () {
             Route::get('/', [VideosController::class, 'index'])->name('admin.videos');
@@ -178,7 +186,7 @@ Route::group(
             Route::get('/view.video', [VideosController::class, 'viewVideo'])->name('admin.videos.view');
         });
 
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// photo albums routes
         Route::group(['prefix' => 'photo-albums', 'middleware' => 'can:photos'], function () {
             Route::get('/', [PhotoAlbumsController::class, 'index'])->name('admin.photo.albums');
@@ -196,7 +204,7 @@ Route::group(
             Route::post('/change-status', [PhotoAlbumsController::class, 'changeStatus'])->name('admin.photo.albums.change.status');
         });
 
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// faq routes
         Route::group(['prefix' => 'faqs', 'middleware' => 'can:faqs'], function () {
             Route::get('/', [FAQController::class, 'index'])->name('admin.faqs');
@@ -211,7 +219,7 @@ Route::group(
             Route::post('/change-status', [FAQController::class, 'changeStatus'])->name('admin.faqs.change.status');
         });
 
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // services routes
         Route::group(['prefix' => 'services', 'middllware' => 'can:services'], function () {
             Route::get('/', [ServicesController::class, 'index'])->name('admin.services');
@@ -226,7 +234,7 @@ Route::group(
             Route::post('/update', [ServicesController::class, 'update'])->name('admin.services.update');
         });
 
-        ///////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // testimonials routes
         Route::group(['prefix' => 'testimonials', 'middleware' => 'can:testimonials'], function () {
             Route::get('/', [TestimonialsController::class, 'index'])->name('admin.testimonials');
@@ -241,7 +249,7 @@ Route::group(
             Route::post('/change-status', [TestimonialsController::class, 'changeStatus'])->name('admin.testimonial.change-status');
         });
 
-        /////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// articles  routes
         Route::group(['prefix' => 'articles', 'middleware' => 'can:articles'], function () {
             Route::get('/', [ArticlesController::class, 'index'])->name('admin.articles');
@@ -256,7 +264,7 @@ Route::group(
             Route::post('/change-status', [ArticlesController::class, 'changeStatus'])->name('admin.articles.change.status');
         });
 
-        ///////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // news routes
         Route::group(['prefix' => 'news', 'middleware' => 'can:news'], function () {
             Route::get('/', [NewsController::class, 'index'])->name('admin.news');
@@ -271,7 +279,7 @@ Route::group(
             Route::post('/change-status', [NewsController::class, 'changeStatus'])->name('admin.news.change.status');
         });
 
-        /////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// support center routes
         Route::group(['prefix' => 'support-center', 'middleware' => 'can:support-center'], function () {
             Route::get('/', [SupportCenterController::class, 'index'])->name('admin.support.center');
@@ -285,12 +293,12 @@ Route::group(
     },
 );
 
-/////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Guest => that mean:must not be admin => because any one must be able to access login page
 Route::group(['namespace' => 'Admin', 'middleware' => 'guest:admin'], function () {
     Route::get('/', [LoginController::class, 'getLogin'])->name('get.admin.login');
     Route::post('/', [LoginController::class, 'doLogin'])->name('admin.login');
 });
-/////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Logout
 Route::get('logout', [LoginController::class, 'logout'])->name('admin.logout');

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Student\StudentDashboardController;
 use App\Http\Controllers\Student\StudentLoginController;
+use App\Http\Controllers\Student\StudentNotiticationsController;
 use App\Http\Controllers\Student\StudentSignUpController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,10 +19,18 @@ Route::group(
     ],
     function () {
         Route::get('/portfolio', [StudentDashboardController::class, 'index'])->name('student.portfolio');
+        //courses
         Route::get('/courses', [StudentDashboardController::class, 'courses'])->name('student.courses');
         Route::get('/courses-paging', [StudentDashboardController::class, 'coursesPaging'])->name('courses.paging');
+        // update account
         Route::get('/update-account', [StudentDashboardController::class, 'getUpdateAccount'])->name('student.update.account');
         Route::post('/update-account', [StudentDashboardController::class, 'updateAccount'])->name('student.update.account');
+        //checkout and enroll
+        Route::get('/checkout/{id?}', [StudentDashboardController::class, 'checkout'])->name('student.checkout');
+        Route::post('/enroll/course', [StudentDashboardController::class, 'enrollCourse'])->name('student.enroll.course');
+
+       // notifications
+       Route::get('/notifications' , [StudentNotiticationsController::class,'getAllNotifications'])->name('student.get.all.notificatoins');
     },
 );
 

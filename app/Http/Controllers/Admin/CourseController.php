@@ -43,12 +43,12 @@ class CourseController extends Controller
 
         $site_lang_en = setting()->site_lang_en;
 
-        $service =  Course::create(
+        $course =  Course::create(
             [
                 'title_en_slug' => slug($request->title_en),
                 'title_ar_slug' => $site_lang_en == 'on' ? slug($request->title_ar) : '',
-                'title_en' => $request->title_en,
-                'title_ar' => $site_lang_en == 'on' ? $request->title_ar : '',
+                'title_ar' =>  $request->title_ar ,
+                'title_en' => $site_lang_en == 'on' ? $request->title_en : '',
                 'description_ar' => $request->description_ar,
                 'description_en' => $site_lang_en == 'on' ? $request->description_en : '',
                 'hours' => $request->hours,
@@ -64,7 +64,7 @@ class CourseController extends Controller
             ]
         );
 
-        if ($service) {
+        if ($course) {
             return $this->returnSuccessMessage(__('general.add_success_message'));
         } else {
             return $this->returnError('general.add_error_message', 404);
@@ -127,8 +127,8 @@ class CourseController extends Controller
             [
                 'title_en_slug' => slug($request->title_en),
                 'title_ar_slug' => $site_lang_en == 'on' ? slug($request->title_ar) : '',
-                'title_en' => $request->title_en,
-                'title_ar' => $site_lang_en == 'on' ? $request->title_ar : '',
+                'title_ar' =>  $request->title_ar ,
+                'title_en' => $site_lang_en == 'on' ? $request->title_en : '',
                 'description_ar' => $request->description_ar,
                 'description_en' => $site_lang_en == 'on' ? $request->description_en : '',
                 'hours' => $request->hours,

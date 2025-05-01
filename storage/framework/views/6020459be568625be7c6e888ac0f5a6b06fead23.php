@@ -57,10 +57,27 @@
 
                     <div class="row justify-content-between align-items-center">
                         <div class="col-auto">
-                            <a href="#" class="btn btn-primary br-30 text-bold">
-                                <?php echo trans('site.enroll_now'); ?>
+                            <?php if(student()->check()): ?>
+                                <?php if(App\Models\CourseStudent::where('student_id', student()->id())->where('course_id', $course->id)->get()->count()): ?>
+                                    <a href="javascript:void(0)" class="btn btn-primary br-30 text-bold"
+                                        data-id="<?php echo $course->id; ?>">
+                                        <?php echo trans('site.previously_enrolled'); ?>
 
-                            </a>
+                                    </a>
+                                <?php else: ?>
+                                    <a href="<?php echo route('student.checkout', $course->id); ?>" class="btn btn-primary br-30 text-bold "
+                                        data-id="<?php echo $course->id; ?>">
+                                        <?php echo trans('site.enroll_now'); ?>
+
+                                    </a>
+                                <?php endif; ?>
+                            <?php else: ?>
+                                <a href="<?php echo route('get.student.login'); ?>" class="btn btn-primary br-30 text-bold "
+                                    data-id="<?php echo $course->id; ?>">
+                                    <?php echo trans('site.enroll_now'); ?>
+
+                                </a>
+                            <?php endif; ?>
                         </div>
 
                         <div class="col-auto d-flex align-items-center">

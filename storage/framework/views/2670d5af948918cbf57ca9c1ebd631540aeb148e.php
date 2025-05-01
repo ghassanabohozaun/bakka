@@ -1,12 +1,12 @@
 <div class="row">
-    <?php $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php $__currentLoopData = $studentCourses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="col-lg-6 col-md-6 mb-6">
             <div class="item-course small-img">
                 <div class="img-course">
                     <?php if($course->photo): ?>
-                        <img src="<?php echo asset('adminBoard/uploadedImages/courses/' . $course->photo); ?>" alt="<?php echo Lang() == 'ar' ? $course->title_ar : $course->title_en; ?>">
+                        <img src="<?php echo asset('adminBoard/uploadedImages/courses/' . $course->photo); ?>" alt="<?php echo $course->{'title_' . Lang()}; ?>">
                     <?php else: ?>
-                        <img src="<?php echo asset('site/images/courses.jpg'); ?>" alt="<?php echo Lang() == 'ar' ? $course->title_ar : $course->title_en; ?>">
+                        <img src="<?php echo asset('site/images/courses.jpg'); ?>" alt="<?php echo $course->{'title_' . Lang()}; ?>">
                     <?php endif; ?>
                 </div>
                 <div class="content-item">
@@ -26,14 +26,23 @@
                     </div>
                     <div class="fs-16 text-bold my-2 text-dark">
                         <a href="#">
-                            <?php echo $course->{'title_' . Lang()}; ?>
+                            <?php if(Lang() == 'en' && !$course->title_en): ?>
+                                <?php echo $course->title_ar; ?>
 
+                            <?php else: ?>
+                                <?php echo $course->{'title_' . Lang()}; ?>
 
+                            <?php endif; ?>
                         </a>
                     </div>
                     <p class="mb-3 fs-12">
-                        <?php echo $course->{'description_' . Lang()}; ?>
+                        <?php if(Lang() == 'en' && !$course->description_en): ?>
+                            <?php echo $course->description_ar; ?>
 
+                        <?php else: ?>
+                            <?php echo $course->{'description_' . Lang()}; ?>
+
+                        <?php endif; ?>
                     </p>
 
                 </div>
@@ -48,7 +57,7 @@
     <div class="container">
         <div class="row">
             <div class="pagination_section">
-                <?php echo e($courses->links('vendor.pagination.bootstrap-4')); ?>
+                <?php echo e($studentCourses->links('vendor.pagination.bootstrap-4')); ?>
 
             </div>
         </div>

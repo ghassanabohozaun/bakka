@@ -33,7 +33,9 @@
 
 
             <li class="menu-item  menu-item-submenu
-                    @if (str_contains(url()->current(), 'settings') || str_contains(url()->current(), '/admin/admin')) menu-item-open @endif"
+                    @if (str_contains(url()->current(), 'settings') ||
+                            str_contains(url()->current(), '/notifications') ||
+                            str_contains(url()->current(), '/revenues')) menu-item-open @endif"
                 aria-haspopup="true" data-menu-toggle="hover" style="margin-top: -25px">
                 <a href="javascript:;" class="menu-link menu-toggle">
                     <span class="svg-icon menu-icon">
@@ -60,7 +62,8 @@
                     <ul class="menu-subnav">
 
                         @can('settings')
-                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                            <li class="menu-item  menu-item-submenu  @if (str_contains(url()->current(), 'settings')) menu-item-active @endif"
+                                aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="{{ route('get.admin.settings') }}" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-dot"><span></span></i>
                                     <span class="menu-text">{{ __('menu.settings') }}</span>
@@ -68,14 +71,25 @@
                             </li>
                         @endcan
 
-                        {{-- @can('admins')
-                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="{{ route('get.admin') }}" class="menu-link menu-toggle">
+                        @can('notifications')
+                            <li class="menu-item  menu-item-submenu  @if (str_contains(url()->current(), 'notifications')) menu-item-active @endif"
+                                aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="{{ route('admin.notifications') }}" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-dot"><span></span></i>
-                                    <span class="menu-text">{{ __('menu.admin') }}</span>
+                                    <span class="menu-text">{{ __('menu.notifications') }}</span>
                                 </a>
                             </li>
-                        @endcan --}}
+                        @endcan
+
+                        @can('revenues')
+                            <li class="menu-item  menu-item-submenu  @if (str_contains(url()->current(), 'revenues')) menu-item-active @endif"
+                                aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="{{ route('admin.revenues') }}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                    <span class="menu-text">{{ __('menu.revenues') }}</span>
+                                </a>
+                            </li>
+                        @endcan
 
                     </ul>
                 </div>
@@ -146,7 +160,8 @@
                                 </span>
                             </li>
 
-                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                            <li class="menu-item  menu-item-submenu @if (str_contains(url()->current(), 'users')) menu-item-active @endif"
+                                aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="{{ route('users') }}" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-dot"><span></span></i>
                                     <span class="menu-text">{{ __('menu.users') }}</span>
@@ -195,7 +210,8 @@
                         <i class="menu-arrow"></i>
                         <ul class="menu-subnav">
 
-                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                            <li class="menu-item  menu-item-submenu @if (str_contains(url()->current(), 'sliders')) menu-item-active @endif"
+                                aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="{!! route('admin.sliders') !!}" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-dot"><span></span></i>
                                     <span class="menu-text">{{ __('menu.sliders') }}</span>

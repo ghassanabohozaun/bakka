@@ -297,6 +297,7 @@
                             icon: 'success',
                             title: data.msg,
                         });
+                        $('#student_profile_photo').load(location.href + (' #student_profile_photo'));
                         setTimeout(function() {
                             window.location.href = "{!! route('student.update.account') !!}"
                         }, 2500);

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->enum('gender', ['male','female'])->default('male');
             $table->string('freeze');
             $table->string('photo');
+            $table->foreignId('revenue_id')->nullable()->constrained(table: 'revenues')->cascadeOnDelete();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

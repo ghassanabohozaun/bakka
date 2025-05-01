@@ -11,6 +11,8 @@ return [
     'sign_up' => 'Sign Up',
     'be_in_touch' => 'Be In Touch',
     'cancel' => 'Cancel',
+    'ok'=>'OK',
+
     'portfolio' => 'Portfolio',
     'update_account' => 'Update Account',
     'courses' => 'Courses',
@@ -35,6 +37,13 @@ return [
     'faq'=>'FAQ',
     'no_faqs'=>'No Frequently Asked Questions',
     'latest'=>'Latest',
+    'previously_enrolled' => 'previously Enrolled',
+    'checkout' => 'Checkout',
+    'course_details' => 'Course Details',
+    'coures_enrolled'=>'Thank You , Course Enrolled',
+    'coures_not_enrolled'=>'Sorry , Course Not Enrolled',
+
+
     // contact
     'full_name' => 'Full Name',
     'email' => 'Email',

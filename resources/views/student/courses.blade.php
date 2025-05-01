@@ -26,7 +26,7 @@
 
 
 
-        @if ($courses->isEmpty())
+        @if ($studentCourses->isEmpty())
             <h1 class="py-4  fs-30 justify-content-center">
                 <img src="{!! asset('site/images/noRecordFound.svg') !!}" class="img-fluid" id="no_data_img" title="{!! trans('site.no_date') !!}">
             </h1>

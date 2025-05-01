@@ -1,7 +1,7 @@
 <div class="col-lg-3">
-    <div class="left-list-cp">
+    <div class="left-list-cp" id="student_profile_photo">
         <div class="content-user">
-            <div class="flex-with-img d-flex">
+            <div class="flex-with-img d-flex ">
                 <?php if(student()->user()->photo == null): ?>
                     <?php if(student()->user()->gender == 'male'): ?>
                         <div class="img-user">
@@ -39,7 +39,15 @@
                     </li>
                     <li>
                         <span class="icon"><i class="fa fa-user"></i></span>
-                        <span class="text"><?php echo student()->user()->gender; ?></span>
+                        <span class="text">
+                            <?php if(student()->user()->gender == 'male'): ?>
+                                <?php echo __('general.male'); ?>
+
+                            <?php else: ?>
+                                <?php echo __('general.female'); ?>
+
+                            <?php endif; ?>
+                        </span>
                     </li>
                 </ul>
             </div>

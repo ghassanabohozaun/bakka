@@ -2,6 +2,10 @@
 
 return [
     'student_update' => 'تعديل الطالب',
+    'profile' => 'الملف الشخصي للطالب',
+    'activited' => 'فعال',
+    'Frozen' => 'مجمد',
+    'enrolled_courses' => 'الدورات المسجلة',
 
     'name_ar' => 'اسم الطالب | عربي',
     'name_en' => 'اسم الطالب | انجليزي',
@@ -36,7 +40,6 @@ return [
     'mimes' => 'يجب ان تكون صورة باحدي الصيغ jpeg , jpg,png',
     'image_max' => 'حجم الصورة المسموح به 1 ميجا فقط',
     'photo_required' => 'صورة الطالب مطلوبة',
-
 
     'no_students_found' => 'لا يوجد طلاب حالياً',
 ];

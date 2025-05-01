@@ -33,7 +33,9 @@
 
 
             <li class="menu-item  menu-item-submenu
-                    <?php if(str_contains(url()->current(), 'settings') || str_contains(url()->current(), '/admin/admin')): ?> menu-item-open <?php endif; ?>"
+                    <?php if(str_contains(url()->current(), 'settings') ||
+                            str_contains(url()->current(), '/notifications') ||
+                            str_contains(url()->current(), '/revenues')): ?> menu-item-open <?php endif; ?>"
                 aria-haspopup="true" data-menu-toggle="hover" style="margin-top: -25px">
                 <a href="javascript:;" class="menu-link menu-toggle">
                     <span class="svg-icon menu-icon">
@@ -60,7 +62,8 @@
                     <ul class="menu-subnav">
 
                         <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('settings')): ?>
-                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                            <li class="menu-item  menu-item-submenu  <?php if(str_contains(url()->current(), 'settings')): ?> menu-item-active <?php endif; ?>"
+                                aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="<?php echo e(route('get.admin.settings')); ?>" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-dot"><span></span></i>
                                     <span class="menu-text"><?php echo e(__('menu.settings')); ?></span>
@@ -68,7 +71,25 @@
                             </li>
                         <?php endif; ?>
 
-                        
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('notifications')): ?>
+                            <li class="menu-item  menu-item-submenu  <?php if(str_contains(url()->current(), 'notifications')): ?> menu-item-active <?php endif; ?>"
+                                aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="<?php echo e(route('admin.notifications')); ?>" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                    <span class="menu-text"><?php echo e(__('menu.notifications')); ?></span>
+                                </a>
+                            </li>
+                        <?php endif; ?>
+
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('revenues')): ?>
+                            <li class="menu-item  menu-item-submenu  <?php if(str_contains(url()->current(), 'revenues')): ?> menu-item-active <?php endif; ?>"
+                                aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="<?php echo e(route('admin.revenues')); ?>" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                    <span class="menu-text"><?php echo e(__('menu.revenues')); ?></span>
+                                </a>
+                            </li>
+                        <?php endif; ?>
 
                     </ul>
                 </div>
@@ -140,7 +161,8 @@
                                 </span>
                             </li>
 
-                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                            <li class="menu-item  menu-item-submenu <?php if(str_contains(url()->current(), 'users')): ?> menu-item-active <?php endif; ?>"
+                                aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="<?php echo e(route('users')); ?>" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-dot"><span></span></i>
                                     <span class="menu-text"><?php echo e(__('menu.users')); ?></span>
@@ -190,7 +212,8 @@
                         <i class="menu-arrow"></i>
                         <ul class="menu-subnav">
 
-                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                            <li class="menu-item  menu-item-submenu <?php if(str_contains(url()->current(), 'sliders')): ?> menu-item-active <?php endif; ?>"
+                                aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="<?php echo route('admin.sliders'); ?>" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-dot"><span></span></i>
                                     <span class="menu-text"><?php echo e(__('menu.sliders')); ?></span>

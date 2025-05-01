@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StudentRequest;
+use App\Models\Course;
+use App\Models\CourseStudent;
 use App\Models\Student;
 use App\Traits\GeneralTrait;
-use Illuminate\Http\Request;
 use File;
+use Illuminate\Http\Request;
+
 class StudentController extends Controller
 {
     use GeneralTrait;
@@ -95,12 +98,12 @@ class StudentController extends Controller
             }
         }
 
-        // if(!empty($request->input('password')));
-        if(!empty($student->password)){
-            $password = bcrypt($student->password);
-        }else{
+        if (!empty($request->input('password'))) {
+            $password = bcrypt($request->password);
+        } else {
             $password = $student->password;
         }
+
 
         $student->update([
             'name_ar' => $request->name_ar,
@@ -192,5 +195,17 @@ class StudentController extends Controller
             }
             return $this->returnSuccessMessage(__('general.change_status_success_message'));
         }
+    }
+
+    public function profile($id = null){
+        if(!$id){
+            return redirect()->route('admin.not.found');
+        }
+        $student = Student::find($id);
+        $courses = $student->courses;
+
+        $title = __('students.profile');
+        return view('admin.students.profile' , compact('title','student','courses'));
+
     }
 }

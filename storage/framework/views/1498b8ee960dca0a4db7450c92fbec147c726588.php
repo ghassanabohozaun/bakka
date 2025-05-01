@@ -7,8 +7,8 @@
 
     <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
         <ul class="navbar-nav  d-flex align-items-center justify-content-between w-100">
-            <li class="nav-item  active col ">
-                <a class="nav-link" href="<?php echo route('index'); ?>">
+            <li class="nav-item  col ">
+                <a class="nav-link   " href="<?php echo route('index'); ?>">
                     <?php echo __('site.index'); ?>
 
                     <span class="sr-only">(current)</span>

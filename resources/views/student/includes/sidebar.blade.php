@@ -1,7 +1,7 @@
 <div class="col-lg-3">
-    <div class="left-list-cp">
+    <div class="left-list-cp" id="student_profile_photo">
         <div class="content-user">
-            <div class="flex-with-img d-flex">
+            <div class="flex-with-img d-flex ">
                 @if (student()->user()->photo == null)
                     @if (student()->user()->gender == 'male')
                         <div class="img-user">
@@ -43,7 +43,13 @@
                     </li>
                     <li>
                         <span class="icon"><i class="fa fa-user"></i></span>
-                        <span class="text">{!! student()->user()->gender !!}</span>
+                        <span class="text">
+                            @if (student()->user()->gender == 'male')
+                                {!! __('general.male') !!}
+                            @else
+                                {!! __('general.female') !!}
+                            @endif
+                        </span>
                     </li>
                 </ul>
             </div>

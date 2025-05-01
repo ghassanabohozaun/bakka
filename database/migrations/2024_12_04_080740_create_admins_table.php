@@ -22,8 +22,8 @@ class CreateAdminsTable extends Migration
             $table->string('mobile')->nullable();
             $table->enum('gender', ['male', 'female'])->default('male');
             $table->string('status')->nullable();
-            $table->integer('role_id')->unsigned()->nullable();
-            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->foreignId('role_id')->constrained('roles')->cascadeOnDelete();
+            $table->foreignId('notification_id')->nullable()->constrained('notifications')->cascadeOnDelete();
             $table->datetime('last_login_at')->nullable();
             $table->string('last_login_ip')->nullable();
             $table->string('remember_token')->nullable();

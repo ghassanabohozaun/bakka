@@ -29,10 +29,10 @@
                         <div class="col-lg-10">
                             <div class="  p-5 text-center">
                                 <div class="title-block-login text-bold text-warning fs-24">
-                                    {!! trans('site.login') !!}
+                                    {!! __('site.login') !!}
                                 </div>
                                 <div class="fs-12 my-3">
-                                    {!! trans('site.login_description') !!}
+                                    {!! __('site.login_description') !!}
 
                                 </div>
                                 <form action="{!! route('student.login') !!}" method="POST" enctype="multipart/form-data">
@@ -46,9 +46,9 @@
 
 
                                     <div class="form-group text-left mt-4">
-                                        <label for="Mobile" class=" ">{!! trans('students.email') !!}</label>
+                                        <label for="Mobile" class=" ">{!! __('students.email') !!}</label>
                                         <input type="email" class="form-control" id="email" name="email"
-                                            autocomplete="off" placeholder="{!! trans('students.enter_email') !!}">
+                                            autocomplete="off" placeholder="{!! __('students.enter_email') !!}">
 
                                         @error('mawhob_mobile_no')
                                             <span class="text-danger font-weight-bold">{{ $message }}</span>
@@ -57,9 +57,9 @@
 
 
                                     <div class="form-group text-left">
-                                        <label for="exampleInputPassword1">{!! trans('students.password') !!}</label>
+                                        <label for="exampleInputPassword1">{!! __('students.password') !!}</label>
                                         <input type="password" class="form-control" id="password" name="password"
-                                            placeholder="{!! trans('students.enter_password') !!}">
+                                            placeholder="{!! __('students.enter_password') !!}">
                                         @error('password')
                                             <span class="text-danger font-weight-bold">{{ $message }}</span>
                                         @enderror
@@ -67,12 +67,12 @@
 
 
                                     <div class="form-group  text-left">
-                                        {!! trans('site.dont_have_account') !!}
+                                        {!! __('site.dont_have_account') !!}
                                         <a href="{!! route('student.signup') !!}" class=" text-dark text-bold">
-                                            {!! trans('site.create_account') !!}
+                                            {!! __('site.create_account') !!}
                                         </a>
                                     </div>
-                                    <button class="btn btn-primary px-5 br-20">{!! trans('site.login') !!}
+                                    <button class="btn btn-primary px-5 br-20">{!! __('site.login') !!}
                                     </button>
                                 </form>
                             </div>

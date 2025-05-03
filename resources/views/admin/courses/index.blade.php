@@ -75,9 +75,8 @@
                                                             <th>{!! __('courses.hours') !!}</th>
                                                             <th>{!! __('courses.cost') !!}</th>
                                                             <th>{!! __('courses.discount') !!}</th>
-                                                            <th>{!! __('courses.start_at') !!}</th>
-                                                            <th>{!! __('courses.end_at') !!}</th>
-                                                            <th>{!! __('courses.active') !!}</th>
+                                                            <th>{!! __('courses.students_count') !!}</th>
+
                                                             <th>{!! __('courses.status') !!}</th>
                                                             <th class="text-center" style="width: 100px;">
                                                                 {!! __('general.actions') !!}</th>
@@ -87,31 +86,21 @@
                                                         @forelse($courses as $course)
                                                             <tr>
                                                                 <td>{!! $loop->iteration !!}</td>
-                                                                <td>
-                                                                    @include('admin.courses.parts.photo')
-                                                                </td>
+                                                                <td>@include('admin.courses.parts.photo')</td>
                                                                 <td>{{ $course->title_ar }}</td>
                                                                 @if (setting()->site_lang_en)
                                                                     <td>{{ $course->title_en }}</td>
                                                                 @endif
                                                                 <td>{{ $course->hours }}</td>
-                                                                <td>{{ $course->cost }}</td>
-                                                                <td>{{ $course->discount }}</td>
-                                                                <td>{{ $course->start_at }}</td>
-                                                                <td>{{ $course->end_at }}</td>
-                                                                <td>
-                                                                    @include('admin.courses.parts.active')
-                                                                </td>
-                                                                <td>
-                                                                    @include('admin.courses.parts.status')
-                                                                </td>
-                                                                <td>
-                                                                    @include('admin.courses.parts.options')
-                                                                </td>
+                                                                <td> @include('admin.courses.parts.cost')</td>
+                                                                <td>@include('admin.courses.parts.discount')</td>
+                                                                <td> @include('admin.courses.parts.students-count')</td>
+                                                                <td> @include('admin.courses.parts.status')</td>
+                                                                <td>@include('admin.courses.parts.options')</td>
                                                             </tr>
                                                         @empty
                                                             <tr>
-                                                                <td colspan="12" class="text-center">
+                                                                <td colspan="10" class="text-center">
                                                                     {!! __('courses.no_courses_found') !!}
                                                                 </td>
                                                             </tr>
@@ -119,7 +108,7 @@
                                                     </tbody>
                                                     <tfoot>
                                                         <tr>
-                                                            <td colspan="12">
+                                                            <td colspan="10">
                                                                 <div class="float-right">
                                                                     {!! $courses->appends(request()->all())->links() !!}
                                                                 </div>

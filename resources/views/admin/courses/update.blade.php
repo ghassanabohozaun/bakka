@@ -203,13 +203,13 @@
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            {{ trans('courses.hours') }}
+                                                            {{ __('courses.hours') }}
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input value="{!! $course->hours !!}"
                                                                 class="form-control form-control-solid form-control-lg"
                                                                 name="hours" id="hours" type="text"
-                                                                placeholder=" {{ trans('courses.enter_hours') }}"
+                                                                placeholder=" {{ __('courses.enter_hours') }}"
                                                                 autocomplete="off" />
                                                             <span class="form-text text-danger" id="hours_error"></span>
                                                         </div>
@@ -220,13 +220,13 @@
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            {{ trans('courses.cost') }}
+                                                            {{ __('courses.cost') }}
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input value="{!! $course->cost !!}"
                                                                 class="form-control form-control-solid form-control-lg"
                                                                 name="cost" id="cost" type="text"
-                                                                placeholder=" {{ trans('courses.enter_cost') }}"
+                                                                placeholder=" {{ __('courses.enter_cost') }}"
                                                                 autocomplete="off" />
                                                             <span class="form-text text-danger" id="cost_error"></span>
                                                         </div>
@@ -237,18 +237,18 @@
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            {{ trans('courses.discount') }}
+                                                            {{ __('courses.discount') }}
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input value="{!! $course->discount !!}"
                                                                 class="form-control form-control-solid form-control-lg"
                                                                 name="discount" id="discount" type="text"
-                                                                placeholder=" {{ trans('courses.enter_discount') }}"
+                                                                placeholder=" {{ __('courses.enter_discount') }}"
                                                                 autocomplete="off" />
                                                             <span class="form-text text-danger"
                                                                 id="discount_error"></span>
                                                             <span class="form-text text-muted">
-                                                                {{ trans('courses.discount_note') }}
+                                                                {{ __('courses.discount_note') }}
                                                             </span>
                                                         </div>
                                                     </div>
@@ -257,14 +257,14 @@
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            {{ trans('courses.start_at') }}
+                                                            {{ __('courses.start_at') }}
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <div class="input-group start_at">
                                                                 <input type="text" value="{!! $course->start_at !!}"
                                                                     class="form-control" id="start_at" name="start_at"
                                                                     readonly
-                                                                    placeholder="{{ trans('courses.enter_start_at') }}" />
+                                                                    placeholder="{{ __('courses.enter_start_at') }}" />
                                                                 <div class="input-group-append">
                                                                     <span class="input-group-text"><i
                                                                             class="la la-calendar-check-o"></i>
@@ -281,14 +281,14 @@
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            {{ trans('courses.end_at') }}
+                                                            {{ __('courses.end_at') }}
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <div class="input-group end_at">
                                                                 <input type="text" value="{!! $course->end_at !!}"
                                                                     class="form-control" id="end_at" name="end_at"
                                                                     readonly
-                                                                    placeholder="{{ trans('courses.enter_end_at') }}" />
+                                                                    placeholder="{{ __('courses.enter_end_at') }}" />
                                                                 <div class="input-group-append">
                                                                     <span class="input-group-text"><i
                                                                             class="la la-calendar-check-o"></i>
@@ -305,11 +305,11 @@
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            {{ trans('courses.zoom_link') }}
+                                                            {{ __('courses.zoom_link') }}
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <textarea rows="3" class="form-control form-control-solid form-control-lg" name="zoom_link" id="zoom_link"
-                                                                type="text" placeholder=" {{ trans('courses.enter_zoom_link') }}" autocomplete="off">{!! $course->zoom_link !!}</textarea>
+                                                                type="text" placeholder=" {{ __('courses.enter_zoom_link') }}" autocomplete="off">{!! $course->zoom_link !!}</textarea>
                                                             <span class="form-text text-danger"
                                                                 id="zoom_link_error"></span>
                                                         </div>

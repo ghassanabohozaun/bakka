@@ -9,9 +9,13 @@ use App\Models\Notification;
 class StudentNotiticationsController extends Controller
 {
     //index
-    public function index(){
-
-        $notifications  = Notification::get();
-        return view("student.includes.notifications", compact("notifications"));
+    public function index()
+    {
+        $notifications = Notification::where('student_id', student()->id())
+            ->where('notify_class', 'unread')
+            ->where('notify_for', 'student')
+            ->orderByDesc('created_at')
+            ->get();
+        return view('student.includes.notifications', compact('notifications'));
     }
 }

@@ -2,35 +2,35 @@
     <div class=" container">
         <div class="row justify-content-center align-items-center">
             <div class="col-lg-5">
-                <h2 class=" text-bold text-center mb-3"><?php echo trans('site.be_in_touch'); ?></h2>
+                <h2 class=" text-bold text-center mb-3"><?php echo __('site.be_in_touch'); ?></h2>
                 <form method="POST" enctype="multipart/form-data" action="<?php echo route('send.contact'); ?>"
                     id="form_contact_message_send">
                     <?php echo csrf_field(); ?>
 
                     <div class="form-group">
                         <input type="text" class="form-control" id="name" name="name" autocomplete="off"
-                            placeholder="<?php echo trans('site.full_name'); ?>">
+                            placeholder="<?php echo __('site.full_name'); ?>">
                     </div>
 
                     <div class="form-group">
                         <input type="text" class="form-control" id="email" name="email" autocomplete="off"
-                            placeholder="<?php echo trans('site.email'); ?>">
+                            placeholder="<?php echo __('site.email'); ?>">
                     </div>
 
                     <div class="form-group">
                         <input type="text" class="form-control" id="mobile" name="mobile" autocomplete="off"
-                            placeholder="<?php echo trans('site.mobile'); ?>">
+                            placeholder="<?php echo __('site.mobile'); ?>">
                     </div>
 
                     <div class="form-group">
                         <input type="text" class="form-control" id="title" name="title" autocomplete="off"
-                            placeholder="<?php echo trans('site.title'); ?>">
+                            placeholder="<?php echo __('site.title'); ?>">
                     </div>
 
 
                     <div class="form-group">
                         <textarea class="form-control" rows="3" id="message" name="message" autocomplete="off"
-                            placeholder="<?php echo trans('site.message'); ?>"></textarea>
+                            placeholder="<?php echo __('site.message'); ?>"></textarea>
                     </div>
 
 
@@ -44,14 +44,14 @@
 
                         <div class="form-group mb-4">
                             <input id="captcha" type="text" class="form-control"
-                                placeholder="<?php echo trans('site.enter_captcha'); ?>" name="captcha" autocomplete="off">
+                                placeholder="<?php echo __('site.enter_captcha'); ?>" name="captcha" autocomplete="off">
                             <span class="form-text text-danger" id="captcha_error"></span>
                         </div>
                     </div>
 
                     <div class="form-group text-center">
                         <button type="submit" class="btn btn-primary w-50 br-10">
-                            <?php echo trans('site.send'); ?>
+                            <?php echo __('site.send'); ?>
 
                         </button>
                     </div>
@@ -103,23 +103,23 @@
             },
             messages: {
                 name: {
-                    required: '<?php echo e(trans('site.it_is_required')); ?>',
+                    required: '<?php echo e(__('site.it_is_required')); ?>',
                 },
                 email: {
-                    required: '<?php echo e(trans('site.it_is_required')); ?>',
-                    email: '<?php echo e(trans('site.it_is_email')); ?>',
+                    required: '<?php echo e(__('site.it_is_required')); ?>',
+                    email: '<?php echo e(__('site.it_is_email')); ?>',
                 },
                 mobile: {
-                    required: '<?php echo e(trans('site.it_is_required')); ?>',
+                    required: '<?php echo e(__('site.it_is_required')); ?>',
                 },
                 title: {
-                    required: '<?php echo e(trans('site.it_is_required')); ?>',
+                    required: '<?php echo e(__('site.it_is_required')); ?>',
                 },
                 message: {
-                    required: '<?php echo e(trans('site.it_is_required')); ?>',
+                    required: '<?php echo e(__('site.it_is_required')); ?>',
                 },
                 captcha: {
-                    required: '<?php echo e(trans('site.it_is_required')); ?>',
+                    required: '<?php echo e(__('site.it_is_required')); ?>',
                 },
             },
         });

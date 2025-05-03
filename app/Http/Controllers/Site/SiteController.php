@@ -110,14 +110,13 @@ class SiteController extends Controller
     /// Courses
     public function courses()
     {
-        $title = trans('site.courses');
+        $title = __('site.courses');
 
         if (Lang() == 'ar') {
             //////  Courses
             $courses = Course::withoutTrashed()
                 ->orderByDesc('created_at')
                 ->where('status', 'on')
-                ->where('active', 'on')
                 ->where(function ($q) {
                     $q->where('language', 'ar')->orWhere('language', 'ar_en');
                 })
@@ -129,7 +128,6 @@ class SiteController extends Controller
             $courses = Course::withoutTrashed()
                 ->orderByDesc('created_at')
                 ->where('status', 'on')
-                ->where('active', 'on')
                 ->where(function ($q) {
                     $q->where('language', 'en')->orWhere('language', 'ar_en');
                 })
@@ -147,7 +145,6 @@ class SiteController extends Controller
                 $courses = Course::withoutTrashed()
                     ->orderByDesc('created_at')
                     ->where('status', 'on')
-                    ->where('active', 'on')
                     ->where(function ($q) {
                         $q->where('language', 'ar')->orWhere('language', 'ar_en');
                     })
@@ -157,7 +154,6 @@ class SiteController extends Controller
                 $courses = Course::withoutTrashed()
                     ->orderByDesc('created_at')
                     ->where('status', 'on')
-                    ->where('active', 'on')
                     ->where(function ($q) {
                         $q->where('language', 'en')->orWhere('language', 'ar_en');
                     })

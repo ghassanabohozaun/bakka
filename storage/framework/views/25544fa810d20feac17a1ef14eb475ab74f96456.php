@@ -88,19 +88,19 @@
             },
             language: {
                 inputTooShort: function() {
-                    return "<?php echo trans('general.inputTooShort'); ?>";
+                    return "<?php echo __('general.inputTooShort'); ?>";
                 },
                 inputTooLong: function() {
-                    return "<?php echo trans('general.inputTooLong'); ?>";
+                    return "<?php echo __('general.inputTooLong'); ?>";
                 },
                 errorLoading: function() {
-                    return "<?php echo trans('general.errorLoading'); ?>";
+                    return "<?php echo __('general.errorLoading'); ?>";
                 },
                 noResults: function() {
-                    return "<span><?php echo trans('general.noResults2'); ?>";
+                    return "<span><?php echo __('general.noResults2'); ?>";
                 },
                 searching: function() {
-                    return " <?php echo trans('general.searching'); ?>";
+                    return " <?php echo __('general.searching'); ?>";
                 }
             },
             ajax: {

@@ -40,15 +40,15 @@ class CourseRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => trans('courses.required'),
-            'required_without' => trans('courses.required'),
-            'required_if' => trans('courses.required'),
-            'in' => trans('courses.in'),
-            'image' => trans('courses.image'),
-            'mimes' => trans('courses.mimes'),
-            'max' => trans('courses.image_max'),
-            'photo.required' => trans('courses.photo_required'),
-            'numeric' => trans('courses.numeric'),
+            'required' => __('courses.required'),
+            'required_without' => __('courses.required'),
+            'required_if' => __('courses.required'),
+            'in' => __('courses.in'),
+            'image' => __('courses.image'),
+            'mimes' => __('courses.mimes'),
+            'max' => __('courses.image_max'),
+            'photo.required' => __('courses.photo_required'),
+            'numeric' => __('courses.numeric'),
         ];
     }
 }

@@ -18,15 +18,11 @@ class NotificationsController extends Controller
     /// index
     public function index()
     {
-
-        $title = trans('menu.notifications');
-
+        $title = __('menu.notifications');
         $notifications = Notification::with('admin')
         ->orderByDesc('created_at')
-        ->where('admin_id' , admin()->user()->id)
         ->where('notify_for','admin')
         ->paginate(15);
-
         return view('admin.home.notifications', compact('title','notifications'));
     }
 
@@ -36,7 +32,10 @@ class NotificationsController extends Controller
     /// get admin notifications
     public function getNotifications()
     {
-        $notifications = Notification::orderByDesc('created_at')->where('notify_for', 'admin')->take(15)->get();
+        $notifications = Notification::orderByDesc('created_at')
+        ->where('notify_for', 'admin')
+        ->take(15)
+        ->get();
         return view('admin.includes.notifications', compact('notifications'));
     }
 

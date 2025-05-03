@@ -162,7 +162,7 @@
             }).then(function(result) {
                 if (result.value) {
                     //////////////////////////////////////
-                    // Delete User
+                    // Delete stident
                     $.ajax({
                         url: '{!! route('admin.students.force.delete') !!}',
                         data: {
@@ -186,6 +186,19 @@
                                 $('.delete_student_button').click(function() {
                                     $('#myTable').load(location.href + (' #myTable'));
                                 });
+                            } else {
+
+                                Swal.fire({
+                                    title: "{!! __('general.warning') !!}",
+                                    text: data.msg,
+                                    icon: "warning",
+                                    allowOutsideClick: false,
+                                    customClass: {
+                                        confirmButton: 'delete_student_error_button'
+                                    }
+                                });
+                                $('.delete_student_error_button').click(function() {});
+
                             }
                         }, //end success
                     });

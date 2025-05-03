@@ -414,7 +414,7 @@
                         'Dec'
                     ],
                     datasets: [{
-                        label: '<?php echo trans('dashboard.chart_article'); ?>',
+                        label: '<?php echo __('dashboard.chart_article'); ?>',
                         data: articleData,
                         backgroundColor: ['red', 'orange', 'yellow', 'green', 'blue', 'violet',
                             'purple', 'pink', 'indigo', 'silver', 'gold', 'brown'

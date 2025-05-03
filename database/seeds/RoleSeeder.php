@@ -33,7 +33,6 @@ class RoleSeeder extends Seeder
                 'faqs',
                 'videos',
                 'photos',
-                'services',
                 'testimonials',
                 'articles',
                 'support-center',

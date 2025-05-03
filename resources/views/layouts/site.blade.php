@@ -17,8 +17,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{!! asset('adminBoard/uploadedImages/logos/' . setting()->site_icon) !!}">
     @if (Lang() == 'ar')
         <link href="{!! asset('site/css/style-ar.css') !!}" rel="stylesheet">
+        <link href="{!! asset('site/css/whatsapp-rtl.css') !!}" rel="stylesheet">
     @else
         <link href="{!! asset('site/css/style-en.css') !!}" rel="stylesheet">
+        <link href="{!! asset('site/css/whatsapp-ltr.css') !!}" rel="stylesheet">
     @endif
     <link href="{!! asset('site/css/pagination.css') !!}" rel="stylesheet">
     <link rel="stylesheet" href="{!! asset('site/css/bootstrap-datepicker.min.css') !!}" />
@@ -47,6 +49,7 @@
     <script src="{!! asset('site/js/bootstrap-datepicker.min.js') !!}"></script>
     <script src="{!! asset('site/js/testimonials.js') !!}"></script>
     <script src="{!! asset('site/js/faqs.js') !!}"></script>
+    <script src="{!! asset('site/js/whatsapp.js') !!}"></script>
 
 
     @stack('js')

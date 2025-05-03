@@ -42,4 +42,6 @@ return [
     'photo_required' => 'صورة الطالب مطلوبة',
 
     'no_students_found' => 'لا يوجد طلاب حالياً',
+    'cannot_be_deleted_because_it_have_courses ' => 'لا يمكن حذف الطالب  لانه مسجل في بعض الدورات',
+
 ];

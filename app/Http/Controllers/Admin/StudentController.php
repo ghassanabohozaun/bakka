@@ -168,6 +168,13 @@ class StudentController extends Controller
             if (!$student) {
                 return redirect()->route('admin.not.found');
             }
+
+
+            $studentCourses = CourseStudent::where('student_id', $request->id)->get();
+            if (!$studentCourses->isEmpty()) {
+                return $this->returnError(__('students.cannot_be_deleted_because_it_have_courses'), 500);
+            }
+
             if ($student->forceDelete()) {
                 if (!empty($student->photo)) {
                     $photo_path = public_path('/adminBoard/uploadedImages/students//' . $student->photo);

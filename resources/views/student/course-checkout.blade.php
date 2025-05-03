@@ -56,20 +56,20 @@
                                 <div class="row mt-1 mx-0 bg-light p-2 br-5">
                                     <div class="col-lg-6 px-1">
                                         <div class="fs-12">
-                                            <span>{!! trans('site.start_at') !!}</span>
+                                            <span>{!! __('site.start_at') !!}</span>
                                             <span dir="{!! Lang() == 'ar' ? 'rtl' : 'ltr' !!}"> {!! $course->start_at !!} </span>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 px-1">
                                         <div class="fs-12 text-right">
-                                            <span>{!! trans('site.end_at') !!}</span>
+                                            <span>{!! __('site.end_at') !!}</span>
                                             <span dir="{!! Lang() == 'ar' ? 'rtl' : 'ltr' !!}"> {!! $course->end_at !!} </span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div>
-                                    <div class="fs-18 mt-3 text-bold mb-2">{!! trans('site.course_details') !!}</div>
+                                    <div class="fs-18 mt-3 text-bold mb-2">{!! __('site.course_details') !!}</div>
                                     <div class="fs-14 mb-4">
                                         {!! Lang() == 'ar' ? $course->description_ar : $course->description_en !!}
                                     </div>
@@ -92,7 +92,7 @@
 
                                                 <button type="submit" class=" btn btn-primary   btn-block mt-2">
                                                     <div class=" d-flex align-items-center justify-content-between">
-                                                        <div>{!! trans('site.enroll_now') !!}</div>
+                                                        <div>{!! __('site.enroll_now') !!}</div>
                                                         <div></div>
                                                     </div>
                                                 </button>
@@ -139,7 +139,7 @@
                             allowOutsideClick: false,
                             showDenyButton: false,
                             showCancelButton: false,
-                            confirmButtonText: `{!! trans('site.ok') !!}`,
+                            confirmButtonText: `{!! __('site.ok') !!}`,
                             customClass: {
                                 confirmButton: 'success_student_enroll_course_button'
                             }
@@ -154,7 +154,7 @@
                             allowOutsideClick: false,
                             showDenyButton: false,
                             showCancelButton: false,
-                            confirmButtonText: `{!! trans('site.ok') !!}`,
+                            confirmButtonText: `{!! __('site.ok') !!}`,
                             customClass: {
                                 confirmButton: 'error_student_enroll_course_button'
                             }

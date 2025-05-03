@@ -77,9 +77,8 @@
                                                             <th><?php echo __('courses.hours'); ?></th>
                                                             <th><?php echo __('courses.cost'); ?></th>
                                                             <th><?php echo __('courses.discount'); ?></th>
-                                                            <th><?php echo __('courses.start_at'); ?></th>
-                                                            <th><?php echo __('courses.end_at'); ?></th>
-                                                            <th><?php echo __('courses.active'); ?></th>
+                                                            <th><?php echo __('courses.students_count'); ?></th>
+
                                                             <th><?php echo __('courses.status'); ?></th>
                                                             <th class="text-center" style="width: 100px;">
                                                                 <?php echo __('general.actions'); ?></th>
@@ -89,31 +88,21 @@
                                                         <?php $__empty_1 = true; $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                                             <tr>
                                                                 <td><?php echo $loop->iteration; ?></td>
-                                                                <td>
-                                                                    <?php echo $__env->make('admin.courses.parts.photo', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                                                                </td>
+                                                                <td><?php echo $__env->make('admin.courses.parts.photo', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></td>
                                                                 <td><?php echo e($course->title_ar); ?></td>
                                                                 <?php if(setting()->site_lang_en): ?>
                                                                     <td><?php echo e($course->title_en); ?></td>
                                                                 <?php endif; ?>
                                                                 <td><?php echo e($course->hours); ?></td>
-                                                                <td><?php echo e($course->cost); ?></td>
-                                                                <td><?php echo e($course->discount); ?></td>
-                                                                <td><?php echo e($course->start_at); ?></td>
-                                                                <td><?php echo e($course->end_at); ?></td>
-                                                                <td>
-                                                                    <?php echo $__env->make('admin.courses.parts.active', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                                                                </td>
-                                                                <td>
-                                                                    <?php echo $__env->make('admin.courses.parts.status', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                                                                </td>
-                                                                <td>
-                                                                    <?php echo $__env->make('admin.courses.parts.options', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                                                                </td>
+                                                                <td> <?php echo $__env->make('admin.courses.parts.cost', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></td>
+                                                                <td><?php echo $__env->make('admin.courses.parts.discount', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></td>
+                                                                <td> <?php echo $__env->make('admin.courses.parts.students-count', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></td>
+                                                                <td> <?php echo $__env->make('admin.courses.parts.status', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></td>
+                                                                <td><?php echo $__env->make('admin.courses.parts.options', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></td>
                                                             </tr>
                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                                             <tr>
-                                                                <td colspan="12" class="text-center">
+                                                                <td colspan="10" class="text-center">
                                                                     <?php echo __('courses.no_courses_found'); ?>
 
                                                                 </td>
@@ -122,7 +111,7 @@
                                                     </tbody>
                                                     <tfoot>
                                                         <tr>
-                                                            <td colspan="12">
+                                                            <td colspan="10">
                                                                 <div class="float-right">
                                                                     <?php echo $courses->appends(request()->all())->links(); ?>
 

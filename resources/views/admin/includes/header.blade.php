@@ -197,22 +197,6 @@
                 $('#notify_section').load("{!! route('admin.get.notifications') !!}");
                 $(".notifications_count").load(location.href + " .notifications_count");
             });
-
-
-            // $.ajax({
-            //     url: "{!! route('admin.notification.make.read') !!}",
-            //     type: "post",
-            //     data: {
-            //         id,
-            //         id
-            //     },
-            //     dataType: "JSON",
-            //     success: function(data) {
-            //         console.log(data);
-            //         $('#notify_section').load("{!! route('admin.get.notifications') !!}");
-            //         $(".notifications_count").load(location.href + " .notifications_count");
-            //     }
-            // })
         });
     </script>
 @endpush

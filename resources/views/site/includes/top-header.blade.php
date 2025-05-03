@@ -13,7 +13,7 @@
             @if (student()->check())
                 <!-- begin:user image --------------------------------------------------->
                 <div class="col-auto pr-0">
-                    <a href="{!! route('student.portfolio') !!}" class="img-after-login  br-5 fs-14">
+                    <a href="{!! route('student.courses') !!}" class="img-after-login  br-5 fs-14">
                         @if (student()->user()->photo == null)
                             @if (student()->user()->gender == 'male')
                                 <img src="{{ asset('adminBoard/images/male.jpeg') }}" alt="">
@@ -28,25 +28,18 @@
                 <!-- end:user image --------------------------------------------------->
                 <!-- begin:user notifications --------------------------------------------------->
 
-                <div class="col-auto px-2  ">
-                    <a href="#" class="bell-after-login student_notifications_count">
-                        <div> <span>0</span><i class="fas fa-bell"></i></div>
-                    </a>
-                    <div class="p-2 br-5 box-noty" uk-dropdown="mode: click ; pos: top-right">
-                        <span id="student_notify_section"></span>
-                    </div>
-                </div>
+                <div class="col-auto px-2" id="student_notifications_section"></div>
 
                 <!-- end:user notifications --------------------------------------------------->
             @else
                 <div class="col-auto pl-0">
                     <a href="{!! route('get.student.login') !!}" class="btn btn-primary px-3 br-20 fs-14">
-                        {!! trans('site.login') !!}
+                        {!! __('site.login') !!}
                     </a>
                 </div>
                 <div class="col-auto pl-0">
                     <a href="{!! route('student.signup') !!}" class=" btn btn-outline-light br-20 mx-1 fs-14">
-                        {!! trans('site.sign_up') !!}
+                        {!! __('site.sign_up') !!}
                     </a>
                 </div>
             @endif
@@ -56,13 +49,13 @@
                 @if (Lang() == 'ar')
                     <div class="col-auto pl-0">
                         <a href="/en" class="btn btn-outline-light br-50 fs-14 w-h">
-                            {!! trans('site.ar') !!}
+                            {!! __('site.ar') !!}
                         </a>
                     </div>
                 @else
                     <div class="col-auto pl-0">
                         <a href="/ar" class="btn btn-outline-light br-20 fs-14 w-h">
-                            {!! trans('site.en') !!}
+                            {!! __('site.en') !!}
                         </a>
                     </div>
                 @endif
@@ -74,5 +67,8 @@
 
 
 @push('js')
-    <script type="text/javascript"></script>
+    <script type="text/javascript">
+        //Notifications
+        $('#student_notifications_section').load("{!! route('student.get.header.notificatoins') !!}");
+    </script>
 @endpush

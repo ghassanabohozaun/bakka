@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CourseRequest;
 use App\Models\Course;
+use App\Models\CourseStudent;
 use App\Traits\GeneralTrait;
-use Illuminate\Http\Request;
 use File;
+use Illuminate\Http\Request;
+
 class CourseController extends Controller
 {
     use GeneralTrait;
@@ -197,6 +199,12 @@ class CourseController extends Controller
             if (!$course) {
                 return redirect()->route('admin.not.found');
             }
+
+            $studentCourses = CourseStudent::where('course_id', $request->id)->get();
+            if (!$studentCourses->isEmpty()) {
+                return $this->returnError(__('courses.cannot_be_deleted_because_it_have_students'), 500);
+            }
+
 
             if (!empty($course->photo)) {
                 $public_path = public_path('/adminBoard/uploadedImages/courses//') . $course->photo;

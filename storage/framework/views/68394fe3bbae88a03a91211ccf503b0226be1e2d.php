@@ -3,7 +3,7 @@
         <div class="container">
             <div class=" text-center">
                 <h2 class=" text-bold mb-3" data-aos="fade-down" data-aos-duration="1800">
-                    <?php echo trans('site.best_courses'); ?>
+                    <?php echo __('site.best_courses'); ?>
 
                 </h2>
                 <p data-aos="fade-up" data-aos-duration="1500">
@@ -32,7 +32,7 @@
                                     <div class="col-auto">
                                         <?php if(!empty($course->hours)): ?>
                                             <span class=" btn bg-warning-light py-1 br-20 text-warning">
-                                                <?php echo $course->hours; ?> <?php echo trans('site.hours'); ?>
+                                                <?php echo $course->hours; ?> <?php echo __('site.hours'); ?>
 
                                             </span>
                                         <?php endif; ?>
@@ -51,13 +51,13 @@
                                 <div class="row mt-4 mb-2 mx-0 bg-light p-2 br-5">
                                     <div class="col-lg-6 px-1">
                                         <div class="fs-12">
-                                            <span><?php echo trans('site.start_at'); ?></span>
+                                            <span><?php echo __('site.start_at'); ?></span>
                                             <span dir="<?php echo Lang() == 'ar' ? 'rtl' : 'ltr'; ?>"> <?php echo $course->start_at; ?> </span>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 px-1">
                                         <div class="fs-12">
-                                            <span><?php echo trans('site.end_at'); ?></span>
+                                            <span><?php echo __('site.end_at'); ?></span>
                                             <span dir="<?php echo Lang() == 'ar' ? 'rtl' : 'ltr'; ?>"> <?php echo $course->end_at; ?> </span>
                                         </div>
                                     </div>
@@ -72,21 +72,21 @@
                                             <?php if(App\Models\CourseStudent::where('student_id', student()->id())->where('course_id', $course->id)->get()->count()): ?>
                                                 <a href="javascript:void(0)" class="btn btn-primary br-30 text-bold"
                                                     data-id="<?php echo $course->id; ?>">
-                                                    <?php echo trans('site.previously_enrolled'); ?>
+                                                    <?php echo __('site.previously_enrolled'); ?>
 
                                                 </a>
                                             <?php else: ?>
                                                 <a href="<?php echo route('student.checkout', $course->id); ?>"
                                                     class="btn btn-primary br-30 text-bold "
                                                     data-id="<?php echo $course->id; ?>">
-                                                    <?php echo trans('site.enroll_now'); ?>
+                                                    <?php echo __('site.enroll_now'); ?>
 
                                                 </a>
                                             <?php endif; ?>
                                         <?php else: ?>
                                             <a href="<?php echo route('get.student.login'); ?>" class="btn btn-primary br-30 text-bold "
                                                 data-id="<?php echo $course->id; ?>">
-                                                <?php echo trans('site.enroll_now'); ?>
+                                                <?php echo __('site.enroll_now'); ?>
 
                                             </a>
                                         <?php endif; ?>

@@ -230,15 +230,11 @@
             var id = $(this).data('id');
 
 
-
-
             if ($(this).is(':checked')) {
                 statusSwitch = $(this).is(':checked');
             } else {
                 statusSwitch = false;
             }
-
-
 
 
             $.ajax({

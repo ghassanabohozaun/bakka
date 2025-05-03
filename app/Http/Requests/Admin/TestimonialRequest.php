@@ -46,7 +46,7 @@ class TestimonialRequest extends FormRequest
             'image' => __('testimonials.image'),
             'mimes' => __('testimonials.mimes'),
             'max' => __('testimonials.image_max'),
-            'captcha' => trans('general.captcha'),
+            'captcha' => __('general.captcha'),
         ];
     }
 }

@@ -14,7 +14,7 @@
                     <?php if(student()->check()): ?>
                         <!-- begin:user image --------------------------------------------------->
                         <div class="col-auto pr-0">
-                            <a href="<?php echo route('student.portfolio'); ?>" class="img-after-login">
+                            <a href="<?php echo route('student.courses'); ?>" class="img-after-login">
 
                                 <?php if(student()->user()->photo == null): ?>
                                     <?php if(student()->user()->gender == 'male'): ?>
@@ -29,22 +29,13 @@
                         </div>
                         <!-- end:user image --------------------------------------------------->
                         <!-- begin:user notifications --------------------------------------------------->
-                        <div class="col-auto px-2">
-
-                            <a href="#" class="bell-after-login orange_student_notifications_count">
-                                <div><span class="">0</span><i class="fas fa-bell"></i></div>
-                            </a>
-                            <div class="p-2 br-5 box-noty" uk-dropdown="mode: click ; pos: top-right">
-                                <span id="orange_student_notify_section">1</span>
-                            </div>
-
-                        </div>
+                        <div class="col-auto px-2" id="student_notifications_section"> </div>
                         <!-- end:user notifications --------------------------------------------------->
                     <?php else: ?>
                         <!-- begin:login --------------------------------------------------->
                         <div class="col-auto pr-0">
                             <a href="<?php echo route('get.student.login'); ?>" class="btn btn-light px-3 br-20 fs-14">
-                                <?php echo trans('site.login'); ?>
+                                <?php echo __('site.login'); ?>
 
                             </a>
                         </div>
@@ -53,7 +44,7 @@
                         <!-- begin:signup --------------------------------------------------->
                         <div class="col-auto px-2">
                             <a href="<?php echo route('student.signup'); ?>" class=" btn btn-outline-light br-20 mx-1 fs-14">
-                                <?php echo trans('site.sign_up'); ?>
+                                <?php echo __('site.sign_up'); ?>
 
                             </a>
                         </div>
@@ -67,12 +58,12 @@
 
                             <?php if(Lang() == 'ar'): ?>
                                 <a href="/en" class="btn btn-outline-light br-50 fs-14 w-h">
-                                    <?php echo trans('site.en'); ?>
+                                    <?php echo __('site.en'); ?>
 
                                 </a>
                             <?php else: ?>
                                 <a href="/ar" class="btn btn-outline-light br-20 fs-14 w-h">
-                                    <?php echo trans('site.ar'); ?>
+                                    <?php echo __('site.ar'); ?>
 
                                 </a>
                             <?php endif; ?>
@@ -122,7 +113,7 @@
 
                     <li class="nav-item col">
                         <a class="nav-link" href="<?php echo route('index'); ?>#contactUs">
-                            <?php echo trans('site.contact_us'); ?>
+                            <?php echo __('site.contact_us'); ?>
 
                         </a>
                     </li>
@@ -133,5 +124,9 @@
     </div>
 </header>
 <?php $__env->startPush('js'); ?>
+    <script type="text/javascript">
+        //Notifications
+        $('#student_notifications_section').load("<?php echo route('student.get.header.notificatoins'); ?>");
+    </script>
 <?php $__env->stopPush(); ?>
 <?php /**PATH C:\laragon\www\bakka\resources\views/student/includes/orange-header.blade.php ENDPATH**/ ?>

@@ -68,6 +68,7 @@ return [
     'change_image' => 'تغير الصورة',
     'image_format_allow' => 'صيغ الصور المسموح بها هي jpg ,jpeg, png فقط',
     'file_format_allow' => 'صيغ الملفات المسموح بها pdf فقط',
+    'certification_format_allow' => 'صيغ الملفات المسموح بها pdf,jpg ,jpeg, png فقط',
     'word_format_allow' => 'صيغ الملفات المسموح بها word فقط',
 
     'add_success_message' => 'تمت عملية الحفظ بنجاح',
@@ -95,6 +96,7 @@ return [
     'trash' => 'سلة المحذوفات',
     'change_status_success_message' => 'تمت عملية تغير الحالة بنجاح',
     'change_password_success_message' => 'تمت عملية تغير كلمة المرور بنجاح',
+    'warning' => 'تنبيه',
 
     'export' => 'تصدير',
     'print' => 'طباعة',

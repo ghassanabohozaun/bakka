@@ -3,14 +3,11 @@
 <?php else: ?>
     <?php $__currentLoopData = $notifications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notification): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <!--begin: Item-->
-        <div class="d-flex align-items-center  rounded p-5 mb-5 bg-light-info">
+        <div class="d-flex align-items-center rounded p-5 mb-5
+        <?php echo $notification->notify_class == 'unread' ? ' bg-light-info' : ' bg-light-primary'; ?>  ">
             <span class="svg-icon svg-icon-warning mr-5">
                 <span class="svg-icon svg-icon-lg">
-                    <?php if($notification->notify_class == 'unread'): ?>
-                        <i class="flaticon-bell text-danger icon-lg"></i>
-                    <?php else: ?>
-                        <i class="flaticon-bell text-info icon-lg"></i>
-                    <?php endif; ?>
+                    <i class="flaticon-bell <?php echo $notification->notify_class == 'unread' ? 'text-danger' : 'text-info'; ?>  icon-lg"></i>
                 </span>
             </span>
 
@@ -19,8 +16,8 @@
                     class="font-weight-normal text-dark-75 text-bold font-size-h5-sm mb-1 show_notification_btn">
                     <?php echo $notification->{'title_' . Lang()}; ?>
 
+                    <span class=" text-warning font-size-sm font-weight-bold"><?php echo $notification->created_at; ?></span>
                 </a>
-                <span class=" text-warning font-size-sm font-weight-bold"><?php echo $notification->created_at; ?></span>
             </div>
 
         </div>

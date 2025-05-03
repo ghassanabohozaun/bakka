@@ -12,18 +12,18 @@
                                 <div class=" container">
                                     <div class=" row align-items-center">
                                         <div class="col">
-                                            <?php if($slider->details_status == trans('sliders.show')): ?>
+                                            <?php if($slider->details_status == __('sliders.show')): ?>
                                                 <h2 class="text-bold fs-31-i"><?php echo Lang() == 'ar' ? $slider->title_ar : $slider->title_en; ?></h2>
                                                 <p class="my-3 text-white fs-16-i">
                                                     <?php echo Lang() == 'ar' ? $slider->details_ar : $slider->details_en; ?>
 
                                                 </p>
                                             <?php endif; ?>
-                                            <?php if($slider->button_status == trans('sliders.show')): ?>
+                                            <?php if($slider->button_status == __('sliders.show')): ?>
                                                 <div>
                                                     <a href="<?php echo $slider->{'url_' . Lang()}; ?>"
                                                         class="btn btn-primary br-20 px-3 fs-14 mr-2">
-                                                        <?php echo trans('site.show'); ?>
+                                                        <?php echo __('site.show'); ?>
 
                                                     </a>
                                                 </div>

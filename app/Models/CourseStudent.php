@@ -10,6 +10,6 @@ class CourseStudent extends Model
     use HasFactory;
 
     protected $table = 'course_student';
-    protected $fillable = ['course_id','student_id','enrolled_date'];
+    protected $fillable = ['course_id','student_id','certification_flag','enroll_agreement','enrolled_date'];
     protected $hidden  =['created_at', 'updated_at'];
 }

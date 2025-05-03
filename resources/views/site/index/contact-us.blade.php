@@ -2,35 +2,35 @@
     <div class=" container">
         <div class="row justify-content-center align-items-center">
             <div class="col-lg-5">
-                <h2 class=" text-bold text-center mb-3">{!! trans('site.be_in_touch') !!}</h2>
+                <h2 class=" text-bold text-center mb-3">{!! __('site.be_in_touch') !!}</h2>
                 <form method="POST" enctype="multipart/form-data" action="{!! route('send.contact') !!}"
                     id="form_contact_message_send">
                     @csrf
 
                     <div class="form-group">
                         <input type="text" class="form-control" id="name" name="name" autocomplete="off"
-                            placeholder="{!! trans('site.full_name') !!}">
+                            placeholder="{!! __('site.full_name') !!}">
                     </div>
 
                     <div class="form-group">
                         <input type="text" class="form-control" id="email" name="email" autocomplete="off"
-                            placeholder="{!! trans('site.email') !!}">
+                            placeholder="{!! __('site.email') !!}">
                     </div>
 
                     <div class="form-group">
                         <input type="text" class="form-control" id="mobile" name="mobile" autocomplete="off"
-                            placeholder="{!! trans('site.mobile') !!}">
+                            placeholder="{!! __('site.mobile') !!}">
                     </div>
 
                     <div class="form-group">
                         <input type="text" class="form-control" id="title" name="title" autocomplete="off"
-                            placeholder="{!! trans('site.title') !!}">
+                            placeholder="{!! __('site.title') !!}">
                     </div>
 
 
                     <div class="form-group">
                         <textarea class="form-control" rows="3" id="message" name="message" autocomplete="off"
-                            placeholder="{!! trans('site.message') !!}"></textarea>
+                            placeholder="{!! __('site.message') !!}"></textarea>
                     </div>
 
 
@@ -44,14 +44,14 @@
 
                         <div class="form-group mb-4">
                             <input id="captcha" type="text" class="form-control"
-                                placeholder="{!! trans('site.enter_captcha') !!}" name="captcha" autocomplete="off">
+                                placeholder="{!! __('site.enter_captcha') !!}" name="captcha" autocomplete="off">
                             <span class="form-text text-danger" id="captcha_error"></span>
                         </div>
                     </div>
 
                     <div class="form-group text-center">
                         <button type="submit" class="btn btn-primary w-50 br-10">
-                            {!! trans('site.send') !!}
+                            {!! __('site.send') !!}
                         </button>
                     </div>
                 </form>
@@ -102,23 +102,23 @@
             },
             messages: {
                 name: {
-                    required: '{{ trans('site.it_is_required') }}',
+                    required: '{{ __('site.it_is_required') }}',
                 },
                 email: {
-                    required: '{{ trans('site.it_is_required') }}',
-                    email: '{{ trans('site.it_is_email') }}',
+                    required: '{{ __('site.it_is_required') }}',
+                    email: '{{ __('site.it_is_email') }}',
                 },
                 mobile: {
-                    required: '{{ trans('site.it_is_required') }}',
+                    required: '{{ __('site.it_is_required') }}',
                 },
                 title: {
-                    required: '{{ trans('site.it_is_required') }}',
+                    required: '{{ __('site.it_is_required') }}',
                 },
                 message: {
-                    required: '{{ trans('site.it_is_required') }}',
+                    required: '{{ __('site.it_is_required') }}',
                 },
                 captcha: {
-                    required: '{{ trans('site.it_is_required') }}',
+                    required: '{{ __('site.it_is_required') }}',
                 },
             },
         });

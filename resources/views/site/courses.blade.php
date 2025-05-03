@@ -23,8 +23,7 @@
 
     <section class=" content-section py-5 px-4 px-md-0 my-5 pb-6">
         <div class=" container">
-            <div class=" mt-5 mb-2 fs-24">{!! __('site.latest') !!}
-                <span class="text-bold text-warning">{!! __('site.courses') !!}</span>
+            <div class=" mt-5 mb-2 fs-24"><span class="text-bold text-warning">&nbsp;</span>
             </div>
             <p class="mb-5 ">
                 <!---courses description --->

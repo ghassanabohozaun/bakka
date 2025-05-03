@@ -211,14 +211,14 @@
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            <?php echo e(trans('courses.hours')); ?>
+                                                            <?php echo e(__('courses.hours')); ?>
 
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input value="<?php echo $course->hours; ?>"
                                                                 class="form-control form-control-solid form-control-lg"
                                                                 name="hours" id="hours" type="text"
-                                                                placeholder=" <?php echo e(trans('courses.enter_hours')); ?>"
+                                                                placeholder=" <?php echo e(__('courses.enter_hours')); ?>"
                                                                 autocomplete="off" />
                                                             <span class="form-text text-danger" id="hours_error"></span>
                                                         </div>
@@ -229,14 +229,14 @@
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            <?php echo e(trans('courses.cost')); ?>
+                                                            <?php echo e(__('courses.cost')); ?>
 
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input value="<?php echo $course->cost; ?>"
                                                                 class="form-control form-control-solid form-control-lg"
                                                                 name="cost" id="cost" type="text"
-                                                                placeholder=" <?php echo e(trans('courses.enter_cost')); ?>"
+                                                                placeholder=" <?php echo e(__('courses.enter_cost')); ?>"
                                                                 autocomplete="off" />
                                                             <span class="form-text text-danger" id="cost_error"></span>
                                                         </div>
@@ -247,19 +247,19 @@
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            <?php echo e(trans('courses.discount')); ?>
+                                                            <?php echo e(__('courses.discount')); ?>
 
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input value="<?php echo $course->discount; ?>"
                                                                 class="form-control form-control-solid form-control-lg"
                                                                 name="discount" id="discount" type="text"
-                                                                placeholder=" <?php echo e(trans('courses.enter_discount')); ?>"
+                                                                placeholder=" <?php echo e(__('courses.enter_discount')); ?>"
                                                                 autocomplete="off" />
                                                             <span class="form-text text-danger"
                                                                 id="discount_error"></span>
                                                             <span class="form-text text-muted">
-                                                                <?php echo e(trans('courses.discount_note')); ?>
+                                                                <?php echo e(__('courses.discount_note')); ?>
 
                                                             </span>
                                                         </div>
@@ -269,7 +269,7 @@
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            <?php echo e(trans('courses.start_at')); ?>
+                                                            <?php echo e(__('courses.start_at')); ?>
 
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
@@ -277,7 +277,7 @@
                                                                 <input type="text" value="<?php echo $course->start_at; ?>"
                                                                     class="form-control" id="start_at" name="start_at"
                                                                     readonly
-                                                                    placeholder="<?php echo e(trans('courses.enter_start_at')); ?>" />
+                                                                    placeholder="<?php echo e(__('courses.enter_start_at')); ?>" />
                                                                 <div class="input-group-append">
                                                                     <span class="input-group-text"><i
                                                                             class="la la-calendar-check-o"></i>
@@ -294,7 +294,7 @@
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            <?php echo e(trans('courses.end_at')); ?>
+                                                            <?php echo e(__('courses.end_at')); ?>
 
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
@@ -302,7 +302,7 @@
                                                                 <input type="text" value="<?php echo $course->end_at; ?>"
                                                                     class="form-control" id="end_at" name="end_at"
                                                                     readonly
-                                                                    placeholder="<?php echo e(trans('courses.enter_end_at')); ?>" />
+                                                                    placeholder="<?php echo e(__('courses.enter_end_at')); ?>" />
                                                                 <div class="input-group-append">
                                                                     <span class="input-group-text"><i
                                                                             class="la la-calendar-check-o"></i>
@@ -319,12 +319,12 @@
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            <?php echo e(trans('courses.zoom_link')); ?>
+                                                            <?php echo e(__('courses.zoom_link')); ?>
 
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <textarea rows="3" class="form-control form-control-solid form-control-lg" name="zoom_link" id="zoom_link"
-                                                                type="text" placeholder=" <?php echo e(trans('courses.enter_zoom_link')); ?>" autocomplete="off"><?php echo $course->zoom_link; ?></textarea>
+                                                                type="text" placeholder=" <?php echo e(__('courses.enter_zoom_link')); ?>" autocomplete="off"><?php echo $course->zoom_link; ?></textarea>
                                                             <span class="form-text text-danger"
                                                                 id="zoom_link_error"></span>
                                                         </div>

@@ -17,4 +17,5 @@
     @include('site.index.best-courses')
     @include('site.index.mission')
     @include('site.index.contact-us')
+    @include('site.index.whatsapp')
 @endsection

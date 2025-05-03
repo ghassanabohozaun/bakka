@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminsController;
 use App\Http\Controllers\Admin\ArticlesController;
+use App\Http\Controllers\Admin\CertificationsController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\CourseStudentsController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -168,6 +169,13 @@ Route::group(
             Route::post('/enroll-student', [CourseStudentsController::class, 'store'])->name('admin.course.enroll.student.store');
             Route::post('/delete-enroll-student', [CourseStudentsController::class, 'destroy'])->name('admin.course.enroll.student.delete');
             Route::get('/get-all-students-name', [CourseStudentsController::class, 'getAllStudentsName'])->name('admin.get.all.students.name');
+            Route::post('/enroll-greement-status' , [CourseStudentsController::class, 'enrollAgreementStatus'])->name('admin.course.enroll.agreement.status');
+
+            // certifications
+            Route::get('/student-certifications' , [CertificationsController::class,'index'])->name('admin.student.certifications');
+            Route::post('/student-certifications/store' , [CertificationsController::class,'store'])->name('admin.student.certifications.store');
+            Route::post('/student-certifications/update' , [CertificationsController::class,'update'])->name('admin.student.certifications.update');
+
         });
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

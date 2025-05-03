@@ -3,11 +3,14 @@
         <div class="col-lg-6 col-md-6 mb-6">
             <div class="item-course small-img">
                 <div class="img-course">
-                    <?php if($course->photo): ?>
-                        <img src="<?php echo asset('adminBoard/uploadedImages/courses/' . $course->photo); ?>" alt="<?php echo $course->{'title_' . Lang()}; ?>">
-                    <?php else: ?>
-                        <img src="<?php echo asset('site/images/courses.jpg'); ?>" alt="<?php echo $course->{'title_' . Lang()}; ?>">
-                    <?php endif; ?>
+                    <a href="<?php echo route('student.get.course', $course->id); ?>">
+                        <?php if($course->photo): ?>
+                            <img src="<?php echo asset('adminBoard/uploadedImages/courses/' . $course->photo); ?>" alt="<?php echo $course->{'title_' . Lang()}; ?>">
+                        <?php else: ?>
+                            <img src="<?php echo asset('site/images/courses.jpg'); ?>" alt="<?php echo $course->{'title_' . Lang()}; ?>">
+                        <?php endif; ?>
+                    </a>
+
                 </div>
                 <div class="content-item">
                     <div class="row justify-content-between align-items-center">
@@ -18,14 +21,14 @@
                                 <?php if(!empty($course->hours)): ?>
                                     <?php echo $course->hours; ?>
 
-                                    <?php echo trans('site.hours'); ?>
+                                    <?php echo __('site.hours'); ?>
 
                                 <?php endif; ?>
                             </span>
                         </div>
                     </div>
                     <div class="fs-16 text-bold my-2 text-dark">
-                        <a href="#">
+                        <a href="<?php echo route('student.get.course', $course->id); ?>">
                             <?php if(Lang() == 'en' && !$course->title_en): ?>
                                 <?php echo $course->title_ar; ?>
 
@@ -42,6 +45,17 @@
                         <?php else: ?>
                             <?php echo $course->{'description_' . Lang()}; ?>
 
+                        <?php endif; ?>
+                    </p>
+                    <p>
+                        <?php if($course->pivot->certification_flag == 'on'): ?>
+                            <a class="text-bold text-warning" href="<?php echo asset(
+                                'adminBoard/uploadedFiles/certifications/' .
+                                    App\Models\Certification::where('student_id', student()->id())->where('course_id', $course->id)->first()->file,
+                            ); ?>"
+                                target="_blank"><?php echo __('site.download_certitfication'); ?></a>
+                        <?php else: ?>
+                            <span class="text-bold  text-danger"> <?php echo __('site.certitfication_not_exist'); ?></span>
                         <?php endif; ?>
                     </p>
 

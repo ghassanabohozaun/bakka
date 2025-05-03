@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-11 px-md-0">
                 @if ($courses->isEmpty())
-                    <img src="{!! asset('site/images/courses.jpg') !!}" class="img-fluid" id="no_data_img" title="{!! trans('site.no_date') !!}">
+                    <img src="{!! asset('site/images/courses.jpg') !!}" class="img-fluid" id="no_data_img" title="{!! __('site.no_date') !!}">
                 @else
                     <div id="courses_data">
                         @include('site.courses-paging')

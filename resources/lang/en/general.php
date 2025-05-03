@@ -63,6 +63,7 @@ return [
     'change_image' => 'Change image',
     'image_format_allow' => 'Allowed file types jpg,jpeg,png',
     'file_format_allow' => 'Allowed file types pdf',
+    'certification_format_allow' => 'Allowed file types pdf,jpg,jpeg,png',
     'word_format_allow' => 'Allowed file types Word',
 
     'add_success_message' => 'Added Successfully',
@@ -83,6 +84,7 @@ return [
     'error_message' => 'Sorry, There is an error',
     'cancelled_message' => 'Sorry, You  canceled the order',
     'error' => 'Error',
+    'warning' => 'Warning',
 
     'ask_delete_record' => 'Do You Want To Delete This Record ? ',
     'ask_permanent_delete_record' => 'Do You Want To Permanent Delete This Record ? ',

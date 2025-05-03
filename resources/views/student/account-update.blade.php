@@ -213,30 +213,30 @@
             },
             messages: {
                 name_ar: {
-                    required: '{{ trans('site.it_is_required') }}',
+                    required: '{{ __('site.it_is_required') }}',
                 },
                 name_en: {
-                    required: '{{ trans('site.it_is_required') }}',
+                    required: '{{ __('site.it_is_required') }}',
                 },
                 whatsapp: {
-                    required: '{{ trans('site.it_is_required') }}',
+                    required: '{{ __('site.it_is_required') }}',
                 },
                 mobile: {
-                    required: '{{ trans('site.it_is_required') }}',
+                    required: '{{ __('site.it_is_required') }}',
                 },
                 email: {
-                    required: '{{ trans('site.it_is_required') }}',
+                    required: '{{ __('site.it_is_required') }}',
                 },
                 gender: {
-                    required: '{{ trans('site.it_is_required') }}',
+                    required: '{{ __('site.it_is_required') }}',
                 },
                 password: {
-                    minlength: '{{ trans('site.min_length') }}',
+                    minlength: '{{ __('site.min_length') }}',
 
                 },
                 confirm_password: {
-                    minlength: '{{ trans('site.min_length') }}',
-                    equalTo: '{{ trans('site.equalTo') }}',
+                    minlength: '{{ __('site.min_length') }}',
+                    equalTo: '{{ __('site.equalTo') }}',
                 },
             },
         });

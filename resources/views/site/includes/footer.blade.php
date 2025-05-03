@@ -14,36 +14,36 @@
                     <ul class="list-social-media" data-aos="fade-down" data-aos-duration="300">
                         <li>
                             <a onclick="return {!! setting()->site_facebook ? 'true' : 'false' !!};" href="{!! setting()->site_facebook !!}" target="_blank">
-                                <img src="{!! asset('site/img/facebook.svg') !!}" alt="{!! trans('site.facebook') !!}">
+                                <img src="{!! asset('site/img/facebook.svg') !!}" alt="{!! __('site.facebook') !!}">
                             </a>
                         </li>
                         <li>
                             <a onclick="return {!! setting()->site_instagram ? 'true' : 'false' !!};" href="{!! setting()->site_instagram !!}" target="_blank">
-                                <img src="{!! asset('site/img/insta.svg') !!}" alt="{!! trans('site.instagram') !!}">
+                                <img src="{!! asset('site/img/insta.svg') !!}" alt="{!! __('site.instagram') !!}">
                             </a>
                         </li>
                         <li>
                             <a onclick="return {!! setting()->site_twitter ? 'true' : 'false' !!};" href="{!! setting()->site_twitter !!}"
                                 target="_blank">
-                                <img src="{!! asset('site/img/twitter.svg') !!}" alt="{!! trans('site.twitter') !!}">
+                                <img src="{!! asset('site/img/twitter.svg') !!}" alt="{!! __('site.twitter') !!}">
                             </a>
                         </li>
                         <li>
                             <a onclick="return {!! setting()->site_youtube ? 'true' : 'false' !!};" href="{!! setting()->site_youtube !!}"
                                 target="_blank">
-                                <img src="{!! asset('site/img/youtube.svg') !!}" alt="{!! trans('site.youtube') !!}">
+                                <img src="{!! asset('site/img/youtube.svg') !!}" alt="{!! __('site.youtube') !!}">
                             </a>
                         </li>
                         <li>
                             <a onclick="return {!! setting()->site_mobile ? 'true' : 'false' !!};" href="https://wa.me/{!! setting()->site_mobile !!}"
                                 target="_blank">
-                                <img src="{!! asset('site/img/whatsapp.svg') !!}" alt="{!! trans('site.whatsapp') !!}">
+                                <img src="{!! asset('site/img/whatsapp.svg') !!}" alt="{!! __('site.whatsapp') !!}">
                             </a>
                         </li>
                         <li>
                             <a onclick="return {!! setting()->site_gmail ? 'true' : 'false' !!};" href="mailto:{!! setting()->site_gmail !!}"
                                 target="_blank">
-                                <img src="{!! asset('site/img/gmail.svg') !!}" alt="{!! trans('site.gmail') !!}">
+                                <img src="{!! asset('site/img/gmail.svg') !!}" alt="{!! __('site.gmail') !!}">
                             </a>
                         </li>
 
@@ -53,7 +53,7 @@
 
 
                 <div class=" col-lg-4" data-aos="fade-in" data-aos-duration="1200">
-                    <h3 class=" text-primary text-bold mb-3  mt-4 mt-md-0">{!! trans('site.related_links') !!}</h3>
+                    <h3 class=" text-primary text-bold mb-3  mt-4 mt-md-0">{!! __('site.related_links') !!}</h3>
                     <div class="row footer-links">
 
                         <div class="col-md-4 mb-1 pb-1">
@@ -78,7 +78,7 @@
 
                 <!-- Begin: Media --------------------------------------------------------------------------->
                 <div class=" col-lg-4">
-                    <h3 class=" text-primary text-bold mb-3 mt-4 mt-md-0">{!! trans('site.media') !!}</h3>
+                    <h3 class=" text-primary text-bold mb-3 mt-4 mt-md-0">{!! __('site.media') !!}</h3>
                     <div class="media-footer">
                         <div class="row" uk-lightbox>
 
@@ -144,13 +144,13 @@
 <section class="sub-footer p-3 bg-light text-center fs-14">
 
     @if (Lang() == 'ar')
-        . {!! date('Y') !!} {!! trans('site.copy_right') !!}
+        . {!! date('Y') !!} {!! __('site.copy_right') !!}
         <a href="{!! route('index') !!}">{!! __('site.index') !!}</a>
         ©
     @else
-        {!! trans('site.copy_right') !!} © {!! date('Y') !!}
+        {!! __('site.copy_right') !!} © {!! date('Y') !!}
         <a href="{!! route('index') !!}">{!! __('site.home') !!}</a>
-        - {!! trans('site.copy_right') !!} .
+        - {!! __('site.copy_right') !!} .
     @endif
 
 

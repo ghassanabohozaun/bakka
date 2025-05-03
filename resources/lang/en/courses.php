@@ -11,6 +11,7 @@ return [
     'enrolled_count' => 'Enrolled Count',
     'enrolled_list' => 'Enrolled List',
     'enroll_student' => 'Enroll Student',
+    'students_count' => 'Student Count',
 
     'photo' => 'Photo',
     'title_ar' => 'Title | ar',
@@ -55,13 +56,31 @@ return [
     'show_course_details' => 'Show Course Details',
     'no_courses_found' => 'No Courses Found',
     'no_students_found' => 'No Students Found',
-    'student_enrolled_course'=>'The student is enrolled in the course',
+    'student_enrolled_course' => 'The student is enrolled in the course',
 
     // enroll
     'student_name' => 'Student Name',
     'email' => 'Email',
     'mobile' => 'Student Mobile',
     'enrolled_date' => 'Enrolled Date',
-    'add_new_student'=>'Add new Student',
+    'add_new_student' => 'Add new Student',
 
+    // certification
+
+    'add_certification' => 'Add Certificatoin',
+    'update_certification' => 'update Certificatoin',
+    'has_certitfication'=>'Has Certificatoin',
+    'certitfication'=>'Certificatoin',
+    'no_certification'=>'No Certificatoin',
+    'file' => 'File',
+    'enroll_agreement'=>'Enroll Agreement',
+    'cancel_enroll_agreement'=>'Cancel Enroll Agreement',
+    'do_you_want_to_enroll_agreement'=>'Do You Want To Course Enroll Agreement',
+    'do_you_want_to_cancel_enroll_agreement'=>'Do You Want To Cancel Course Enroll Agreement',
+    'cannot_be_deleted_because_it_have_students' => 'Course Cannot Be Deleted Because It Have Enrolled Students',
+
+
+    'file_required' => 'Certification File Required',
+    'file_mimes' => 'Certification with this format jpeg,jpg,png,pdf',
+    'file_max' => 'Max allow Certification size 2 mega',
 ];

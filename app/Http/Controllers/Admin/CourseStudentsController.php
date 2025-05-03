@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Certification;
 use App\Models\Course;
 use App\Models\CourseStudent;
 use App\Models\Notification;
@@ -11,8 +12,10 @@ use App\Models\Student;
 use App\Traits\GeneralTrait;
 use DB;
 use Illuminate\Http\Request;
-
+use File;
 use Carbon\Carbon;
+use PHPUnit\Framework\Constraint\FileExists;
+
 class CourseStudentsController extends Controller
 {
     use GeneralTrait;
@@ -40,39 +43,14 @@ class CourseStudentsController extends Controller
         if ($courseStudents->isEmpty()) {
             //enroll student
             $courseStudent = $course->students()->attach($request->student_id, ['enrolled_date' => Carbon::now()->format('Y-m-d')]);
-            // add revenue
-            $this->addRevenue($request->id, $request->student_id);
 
             // add notifications
             $this->addAdminNotification($course, $request->student_id);
             $this->addStudentNotification($course, $request->student_id);
-
             return $this->returnSuccessMessage(__('general.add_success_message'));
         } else {
             return $this->returnError(__('courses.student_enrolled_course'), 404);
         }
-    }
-
-    //add revenue
-    public function addRevenue($course_id, $student_id)
-    {
-        $coureCost = Course::find($course_id)->cost;
-        $coureDiscount = Course::find($course_id)->discount;
-
-        if ($coureDiscount == '' || $coureDiscount == 0) {
-            $value = $coureCost;
-        } else {
-            $value = $coureDiscount;
-        }
-
-        Revenue::create([
-            'student_id' => $student_id,
-            'date' => Carbon::now()->format('Y-m-d'),
-            'value' => $value,
-            'revenue_for' => $course_id,
-            'details' => 'enroll_course',
-            'payment_method' => 'dashboard',
-        ]);
     }
 
     // add admin notification
@@ -86,6 +64,7 @@ class CourseStudentsController extends Controller
             'notify_status' => 'send',
             'notify_class' => 'unread',
             'notify_for' => 'admin',
+            'notify_to' => $course->id,
             'admin_id' => admin()->user()->id,
             'student_id' => $student_id,
         ]);
@@ -102,6 +81,7 @@ class CourseStudentsController extends Controller
             'notify_status' => 'send',
             'notify_class' => 'unread',
             'notify_for' => 'student',
+            'notify_to' => $course->id,
             'admin_id' => admin()->user()->id,
             'student_id' => $student_id,
         ]);
@@ -116,9 +96,32 @@ class CourseStudentsController extends Controller
             if (!$courseStudent) {
                 return redirect()->route('admin.not.found');
             }
+
             if ($courseStudent->delete()) {
+                // delete notifications
+                $notifications = Notification::where('notify_to', $courseStudent->course_id)->where('student_id', $courseStudent->student_id)->get();
+                if (count($notifications) > 0) {
+                    foreach ($notifications as $notification) {
+                        $notification->delete();
+                    }
+                }
+
+                // delete revenue
                 $revenue = Revenue::where('revenue_for', $courseStudent->course_id)->where('student_id', $courseStudent->student_id)->first();
-                $revenue->delete();
+                if ($revenue) {
+                    $revenue->delete();
+                }
+
+                // delete certification
+                $certification = Certification::where('course_id', $courseStudent->course_id)->where('student_id', $courseStudent->student_id)->first();
+                if ($certification) {
+                    $certificatoinPath = public_path('/adminBoard/uploadedFiles/certifications//') . $certification->file;
+                    if (File::exists($certificatoinPath)) {
+                        File::delete($certificatoinPath);
+                    }
+                    $certification->delete();
+                }
+
                 return $this->returnSuccessMessage(__('general.delete_success_message'));
             } else {
                 return $this->returnError(__('general.delete_error_message'), 404);
@@ -145,5 +148,61 @@ class CourseStudentsController extends Controller
                 ->get();
         }
         return response()->json($data);
+    }
+
+    public function enrollAgreementStatus(Request $request)
+    {
+        if ($request->ajax()) {
+            $courseStudent = CourseStudent::findOrFail($request->id);
+            if (!$courseStudent) {
+                return redirect()->route('admin.not.found');
+            }
+
+            if ($request->enrollAgreementStatusSwitch == 'true') {
+                // change enroll agreement status
+                $courseStudent->enroll_agreement = 'on';
+                $courseStudent->save();
+                // add revenue
+                $this->addRevenue($courseStudent->course_id, $courseStudent->student_id);
+                return $this->returnSuccessMessage(__('general.change_status_success_message'));
+            } else {
+                $courseStudent->enroll_agreement = '';
+                $courseStudent->save();
+                $this->deleteRevenue($courseStudent->course_id, $courseStudent->student_id);
+                return $this->returnError(__('general.change_status_success_message' ),404);
+            }
+        }
+    }
+
+    //add revenue
+    public function addRevenue($course_id, $student_id)
+    {
+        $coureCost = Course::find($course_id)->cost;
+        $coureDiscount = Course::find($course_id)->discount;
+
+        if ($coureDiscount == '' || $coureDiscount == 0) {
+            $value = $coureCost;
+        } else {
+            $value = $coureDiscount;
+        }
+
+        Revenue::create([
+            'student_id' => $student_id,
+            'date' => Carbon::now()->format('Y-m-d'),
+            'value' => $value,
+            'revenue_for' => $course_id,
+            'details' => 'enroll_course',
+            'payment_method' => 'dashboard',
+        ]);
+    }
+
+    //delete revenue
+    public function deleteRevenue($course_id, $student_id)
+    {
+        // delete revenue
+        $revenue = Revenue::where('revenue_for', $course_id)->where('student_id', $student_id)->first();
+        if ($revenue) {
+            $revenue->delete();
+        }
     }
 }

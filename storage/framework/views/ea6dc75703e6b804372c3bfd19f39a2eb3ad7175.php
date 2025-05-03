@@ -201,6 +201,18 @@
                                 $('.delete_course_button').click(function() {
                                     $('#myTable').load(location.href + (' #myTable'));
                                 });
+                            } else {
+                                Swal.fire({
+                                    title: "<?php echo __('general.warning'); ?>",
+                                    text: data.msg,
+                                    icon: "warning",
+                                    allowOutsideClick: false,
+                                    customClass: {
+                                        confirmButton: 'delete_course_error_button'
+                                    }
+                                });
+                                $('.delete_course_error_button').click(function() {});
+
                             }
                         }, //end success
                     });

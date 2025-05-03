@@ -85,19 +85,19 @@
             },
             language: {
                 inputTooShort: function() {
-                    return "{!! trans('general.inputTooShort') !!}";
+                    return "{!! __('general.inputTooShort') !!}";
                 },
                 inputTooLong: function() {
-                    return "{!! trans('general.inputTooLong') !!}";
+                    return "{!! __('general.inputTooLong') !!}";
                 },
                 errorLoading: function() {
-                    return "{!! trans('general.errorLoading') !!}";
+                    return "{!! __('general.errorLoading') !!}";
                 },
                 noResults: function() {
-                    return "<span>{!! trans('general.noResults2') !!}";
+                    return "<span>{!! __('general.noResults2') !!}";
                 },
                 searching: function() {
-                    return " {!! trans('general.searching') !!}";
+                    return " {!! __('general.searching') !!}";
                 }
             },
             ajax: {

@@ -1,5 +1,4 @@
-<a href="<?php echo route('admin.course.enroll.student', $course->id); ?>" class="btn btn-hover-info btn-icon btn-pill"
-    title="<?php echo e(trans('courses.enrolled_list')); ?>">
+<a href="<?php echo route('admin.course.enroll.student', $course->id); ?>" class="btn btn-hover-info btn-icon btn-pill" title="<?php echo e(__('courses.enrolled_list')); ?>">
     <i class="fa fa-users fa-1x"></i>
 </a>
 

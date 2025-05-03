@@ -198,22 +198,6 @@
                 $('#notify_section').load("<?php echo route('admin.get.notifications'); ?>");
                 $(".notifications_count").load(location.href + " .notifications_count");
             });
-
-
-            // $.ajax({
-            //     url: "<?php echo route('admin.notification.make.read'); ?>",
-            //     type: "post",
-            //     data: {
-            //         id,
-            //         id
-            //     },
-            //     dataType: "JSON",
-            //     success: function(data) {
-            //         console.log(data);
-            //         $('#notify_section').load("<?php echo route('admin.get.notifications'); ?>");
-            //         $(".notifications_count").load(location.href + " .notifications_count");
-            //     }
-            // })
         });
     </script>
 <?php $__env->stopPush(); ?>

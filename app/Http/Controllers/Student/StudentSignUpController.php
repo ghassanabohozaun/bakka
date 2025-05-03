@@ -39,7 +39,7 @@ class StudentSignUpController extends Controller
 
             return $this->returnSuccessMessage(__('site.signup_success_message'));
         } else {
-            return $this->returnError(trans('site.you_have_already_registered_with_us'), 400);
+            return $this->returnError(__('site.you_have_already_registered_with_us'), 400);
         }
     }
 }

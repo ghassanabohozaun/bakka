@@ -3,7 +3,7 @@
         <div class="container">
             <div class=" text-center">
                 <h2 class=" text-bold mb-3" data-aos="fade-down" data-aos-duration="1800">
-                    {!! trans('site.best_courses') !!}
+                    {!! __('site.best_courses') !!}
                 </h2>
                 <p data-aos="fade-up" data-aos-duration="1500">
                     {{-- {!! Lang() == 'ar' ? indexPage()->best_courses_description_ar : indexPage()->best_courses_description_en !!} --}}
@@ -31,7 +31,7 @@
                                     <div class="col-auto">
                                         @if (!empty($course->hours))
                                             <span class=" btn bg-warning-light py-1 br-20 text-warning">
-                                                {!! $course->hours !!} {!! trans('site.hours') !!}
+                                                {!! $course->hours !!} {!! __('site.hours') !!}
                                             </span>
                                         @endif
                                     </div>
@@ -47,13 +47,13 @@
                                 <div class="row mt-4 mb-2 mx-0 bg-light p-2 br-5">
                                     <div class="col-lg-6 px-1">
                                         <div class="fs-12">
-                                            <span>{!! trans('site.start_at') !!}</span>
+                                            <span>{!! __('site.start_at') !!}</span>
                                             <span dir="{!! Lang() == 'ar' ? 'rtl' : 'ltr' !!}"> {!! $course->start_at !!} </span>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 px-1">
                                         <div class="fs-12">
-                                            <span>{!! trans('site.end_at') !!}</span>
+                                            <span>{!! __('site.end_at') !!}</span>
                                             <span dir="{!! Lang() == 'ar' ? 'rtl' : 'ltr' !!}"> {!! $course->end_at !!} </span>
                                         </div>
                                     </div>
@@ -64,7 +64,7 @@
                                     <div class="fs-14">
                                         <img src="{!! asset('site/img/pdf-file.svg') !!}" width="16" alt="">
                                         <span class="d-inline-block">
-                                            {!! trans('site.course_details_download') !!}
+                                            {!! __('site.course_details_download') !!}
                                         </span>
                                     </div>
                                     <div class="download">
@@ -81,19 +81,19 @@
                                             @if (App\Models\CourseStudent::where('student_id', student()->id())->where('course_id', $course->id)->get()->count())
                                                 <a href="javascript:void(0)" class="btn btn-primary br-30 text-bold"
                                                     data-id="{!! $course->id !!}">
-                                                    {!! trans('site.previously_enrolled') !!}
+                                                    {!! __('site.previously_enrolled') !!}
                                                 </a>
                                             @else
                                                 <a href="{!! route('student.checkout', $course->id) !!}"
                                                     class="btn btn-primary br-30 text-bold "
                                                     data-id="{!! $course->id !!}">
-                                                    {!! trans('site.enroll_now') !!}
+                                                    {!! __('site.enroll_now') !!}
                                                 </a>
                                             @endif
                                         @else
                                             <a href="{!! route('get.student.login') !!}" class="btn btn-primary br-30 text-bold "
                                                 data-id="{!! $course->id !!}">
-                                                {!! trans('site.enroll_now') !!}
+                                                {!! __('site.enroll_now') !!}
                                             </a>
                                         @endif
                                     </div>

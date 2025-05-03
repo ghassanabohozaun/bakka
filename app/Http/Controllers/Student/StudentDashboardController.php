@@ -5,9 +5,7 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Student\StudentUpdateAccountRequest;
 use App\Models\Course;
-use App\Models\CourseStudent;
 use App\Models\Notification;
-use App\Models\Revenue;
 use App\Models\Student;
 use App\Traits\GeneralTrait;
 use Carbon\Carbon;
@@ -17,19 +15,14 @@ use Illuminate\Http\Request;
 class StudentDashboardController extends Controller
 {
     use GeneralTrait;
-    //index
-    public function index()
-    {
-        $title = __('site.portfolio');
-        return view('student.portfolio', compact('title'));
-    }
+
 
     // courses
     public function courses()
     {
         $title = __('site.courses');
         $student = Student::findOrFail(student()->id());
-        $studentCourses  =$student->courses()->paginate(perPage: 2);
+        $studentCourses = $student->courses()->where('enroll_agreement' , 'on')->paginate(perPage: 2);
         return view('student.courses', compact('title', 'studentCourses'));
     }
 
@@ -38,11 +31,21 @@ class StudentDashboardController extends Controller
     {
         if ($request->ajax()) {
             $student = Student::findOrFail(student()->id());
-            $studentCourses  =$student->courses()->paginate(perPage: 2);
+            $studentCourses = $student->courses()->paginate(perPage: 2);
         }
         return view('student.courses-paging', compact('studentCourses'))->render();
     }
 
+    // get course
+    public function getCourse($id =null){
+        if(!$id){
+            return redirect()->route('index');
+        }
+        $title  =__('site.course_details');
+        $course = Course::findOrFail($id);
+        return view('student.course', compact('course','title'));
+
+    }
     // get update account
     public function getUpdateAccount()
     {
@@ -88,7 +91,7 @@ class StudentDashboardController extends Controller
             $student->update([
                 // 'name_ar' => $request->name_ar,
                 // 'name_en' => $request->name_en,
-                  // 'mobile' => $request->mobile,
+                // 'mobile' => $request->mobile,
                 'password' => $password,
                 'whatsapp' => $request->whatsapp,
                 'gender' => $request->gender,
@@ -124,8 +127,6 @@ class StudentDashboardController extends Controller
         if ($courseStudents->isEmpty()) {
             //enroll student
             $courseStudent = $course->students()->attach(student()->id(), ['enrolled_date' => Carbon::now()->format('Y-m-d')]);
-            // add revenue
-            $this->addRevenue($request->course_id, student()->id());
 
             // add notifications
             $this->addAdminNotification($course, student()->id());
@@ -137,27 +138,6 @@ class StudentDashboardController extends Controller
         }
     }
 
-    //add revenue
-    public function addRevenue($course_id, $student_id)
-    {
-        $coureCost = Course::find($course_id)->cost;
-        $coureDiscount = Course::find($course_id)->discount;
-
-        if ($coureDiscount == '' || $coureDiscount == 0) {
-            $value = $coureCost;
-        } else {
-            $value = $coureDiscount;
-        }
-
-        Revenue::create([
-            'student_id' => $student_id,
-            'date' => Carbon::now()->format('Y-m-d'),
-            'value' => $value,
-            'revenue_for' => $course_id,
-            'details' => 'enroll_course',
-            'payment_method' => 'payment_gateway',
-        ]);
-    }
 
     // add admin notification
     public function addAdminNotification($course, $student_id)
@@ -170,7 +150,7 @@ class StudentDashboardController extends Controller
             'notify_status' => 'send',
             'notify_class' => 'unread',
             'notify_for' => 'admin',
-            'admin_id' => admin()->user()->id,
+            'notify_to' => $course->id,
             'student_id' => $student_id,
         ]);
     }
@@ -186,10 +166,39 @@ class StudentDashboardController extends Controller
             'notify_status' => 'send',
             'notify_class' => 'unread',
             'notify_for' => 'student',
-            'admin_id' => admin()->user()->id,
+            'notify_to' => $course->id,
             'student_id' => $student_id,
         ]);
     }
 
+    // notifications
+    public function notifications()
+    {
+        $title = __('site.notifications');
+        $notifications = Notification::where('student_id', student()->id())
+            ->where('notify_for', 'student')
+            ->orderByDesc('created_at')
+            ->paginate(7);
+        return view('student.notifications', compact('notifications', 'title'));
+    }
 
+    // notifications paging
+    public function notificationsPaging()
+    {
+        $notifications = Notification::where('student_id', student()->id())
+            ->where('notify_for', 'student')
+            ->orderByDesc('created_at')
+            ->paginate(7);
+        return view('student.notifications', compact('notifications'))->render();
+    }
+
+    public function notificationRead(Request $request) {
+        if($request->ajax()){
+
+            $notificatoin = Notification::find($request->id);
+            $notificatoin->notify_class  = 'read';
+            $notificatoin->save();
+            return $this->returnSuccessMessage('OK');
+        }
+    }
 }

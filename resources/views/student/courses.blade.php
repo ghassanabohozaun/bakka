@@ -20,7 +20,7 @@
                 </span>
                 <span class="fs-14 text-bold"> {!! $title !!} </span>
             </div>
-            {{-- <div class="col-auto px-md-0"> <a href="#" class=" btn btn-info px-4 br-10 fs-14">{!! trans('site.add_work') !!}</a>
+            {{-- <div class="col-auto px-md-0"> <a href="#" class=" btn btn-info px-4 br-10 fs-14">{!! __('site.add_work') !!}</a>
             </div> --}}
         </div>
 
@@ -28,7 +28,7 @@
 
         @if ($studentCourses->isEmpty())
             <h1 class="py-4  fs-30 justify-content-center">
-                <img src="{!! asset('site/images/noRecordFound.svg') !!}" class="img-fluid" id="no_data_img" title="{!! trans('site.no_date') !!}">
+                <img src="{!! asset('site/images/noRecordFound.svg') !!}" class="img-fluid" id="no_data_img" title="{!! __('site.no_date') !!}">
             </h1>
         @else
             <div id="courses_data">

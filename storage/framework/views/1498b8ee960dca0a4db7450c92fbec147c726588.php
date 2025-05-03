@@ -33,7 +33,7 @@
 
             <li class="nav-item col">
                 <a class="nav-link" href="<?php echo route('index'); ?>#contactUs">
-                    <?php echo trans('site.contact_us'); ?>
+                    <?php echo __('site.contact_us'); ?>
 
                 </a>
             </li>

@@ -23,23 +23,23 @@ class StudentLoginController extends Controller
         if (!$student) {
             return redirect()
                 ->route('get.student.login')
-                ->with(['error' => trans('login.account_unavailable')]);
+                ->with(['error' => __('login.account_unavailable')]);
         } else {
             if ($student->freeze == 'on') {
                 return redirect()
                     ->route('get.student.login')
-                    ->with(['error' => trans('login.account_disabled')]);
+                    ->with(['error' => __('login.account_disabled')]);
             } else {
                 if (
                     auth()
                         ->guard('student')
                         ->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])
                 ) {
-                    return redirect()->route('student.portfolio');
+                    return redirect()->route('student.courses');
                 } else {
                     return redirect()
                         ->route('get.student.login')
-                        ->with(['error' => trans('login.login_failed')]);
+                        ->with(['error' => __('login.login_failed')]);
                 } // end  auth else
             }
         } //end student else

@@ -29,11 +29,11 @@
                         <div class="col-lg-10">
                             <div class="  p-5 text-center">
                                 <div class="title-block-login text-bold text-warning fs-24">
-                                    <?php echo trans('site.login'); ?>
+                                    <?php echo __('site.login'); ?>
 
                                 </div>
                                 <div class="fs-12 my-3">
-                                    <?php echo trans('site.login_description'); ?>
+                                    <?php echo __('site.login_description'); ?>
 
 
                                 </div>
@@ -49,9 +49,9 @@
 
 
                                     <div class="form-group text-left mt-4">
-                                        <label for="Mobile" class=" "><?php echo trans('students.email'); ?></label>
+                                        <label for="Mobile" class=" "><?php echo __('students.email'); ?></label>
                                         <input type="email" class="form-control" id="email" name="email"
-                                            autocomplete="off" placeholder="<?php echo trans('students.enter_email'); ?>">
+                                            autocomplete="off" placeholder="<?php echo __('students.enter_email'); ?>">
 
                                         <?php $__errorArgs = ['mawhob_mobile_no'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -67,9 +67,9 @@ unset($__errorArgs, $__bag); ?>
 
 
                                     <div class="form-group text-left">
-                                        <label for="exampleInputPassword1"><?php echo trans('students.password'); ?></label>
+                                        <label for="exampleInputPassword1"><?php echo __('students.password'); ?></label>
                                         <input type="password" class="form-control" id="password" name="password"
-                                            placeholder="<?php echo trans('students.enter_password'); ?>">
+                                            placeholder="<?php echo __('students.enter_password'); ?>">
                                         <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -84,14 +84,14 @@ unset($__errorArgs, $__bag); ?>
 
 
                                     <div class="form-group  text-left">
-                                        <?php echo trans('site.dont_have_account'); ?>
+                                        <?php echo __('site.dont_have_account'); ?>
 
                                         <a href="<?php echo route('student.signup'); ?>" class=" text-dark text-bold">
-                                            <?php echo trans('site.create_account'); ?>
+                                            <?php echo __('site.create_account'); ?>
 
                                         </a>
                                     </div>
-                                    <button class="btn btn-primary px-5 br-20"><?php echo trans('site.login'); ?>
+                                    <button class="btn btn-primary px-5 br-20"><?php echo __('site.login'); ?>
 
                                     </button>
                                 </form>

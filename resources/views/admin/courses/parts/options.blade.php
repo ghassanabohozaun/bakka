@@ -1,5 +1,4 @@
-<a href="{!! route('admin.course.enroll.student', $course->id) !!}" class="btn btn-hover-info btn-icon btn-pill"
-    title="{{ trans('courses.enrolled_list') }}">
+<a href="{!! route('admin.course.enroll.student', $course->id) !!}" class="btn btn-hover-info btn-icon btn-pill" title="{{ __('courses.enrolled_list') }}">
     <i class="fa fa-users fa-1x"></i>
 </a>
 

@@ -21,7 +21,7 @@
                 <span class="fs-14 text-bold"> {!! $title !!}</span>
             </div>
             {{-- <div class="col-auto px-md-0">
-              <a href="#" class=" btn btn-info px-4 br-10 fs-14">{!! trans('site.add_work') !!}</a>
+              <a href="#" class=" btn btn-info px-4 br-10 fs-14">{!! __('site.add_work') !!}</a>
              </div> --}}
         </div>
     </div>

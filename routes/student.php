@@ -18,10 +18,10 @@ Route::group(
         'middleware' => ['auth:student', 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
     ],
     function () {
-        Route::get('/portfolio', [StudentDashboardController::class, 'index'])->name('student.portfolio');
         //courses
         Route::get('/courses', [StudentDashboardController::class, 'courses'])->name('student.courses');
-        Route::get('/courses-paging', [StudentDashboardController::class, 'coursesPaging'])->name('courses.paging');
+        Route::get('/courses-paging', [StudentDashboardController::class, 'coursesPaging'])->name('student.courses.paging');
+        Route::get('/get-course/{id?}' , [StudentDashboardController::class, 'getCourse'])->name('student.get.course');
         // update account
         Route::get('/update-account', [StudentDashboardController::class, 'getUpdateAccount'])->name('student.update.account');
         Route::post('/update-account', [StudentDashboardController::class, 'updateAccount'])->name('student.update.account');
@@ -29,8 +29,15 @@ Route::group(
         Route::get('/checkout/{id?}', [StudentDashboardController::class, 'checkout'])->name('student.checkout');
         Route::post('/enroll/course', [StudentDashboardController::class, 'enrollCourse'])->name('student.enroll.course');
 
-       // notifications
-       Route::get('/notifications' , [StudentNotiticationsController::class,'getAllNotifications'])->name('student.get.all.notificatoins');
+
+        // notifications
+        Route::get('/notifications' , [StudentDashboardController::class,'notifications'])->name('student.notifications');
+        Route::get('/notifications-paging' , [StudentDashboardController::class,'notificationsPaging'])->name('student.notifications.paging');
+        Route::post('/notification-read' , [StudentDashboardController::class,'notificationRead'])->name('student.notifications.read');
+
+
+       // header notifications
+       Route::get('/header/notifications' , [StudentNotiticationsController::class,'index'])->name('student.get.header.notificatoins');
     },
 );
 

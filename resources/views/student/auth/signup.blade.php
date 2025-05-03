@@ -33,7 +33,7 @@
                             <!-- begin:sing up ------------------------------------------------------------->
                             <div class="p-5 text-center sigin_up_section">
                                 <div class="title-block-login text-bold text-warning fs-24">
-                                    {!! trans('site.sign_up') !!}
+                                    {!! __('site.sign_up') !!}
                                 </div>
 
                                 <form action="{!! route('student.signup.store') !!}" method="POST" enctype="multipart/form-data"
@@ -57,16 +57,16 @@
 
 
                                     <div class="form-group text-left">
-                                        <label for="nPassword">{!! trans('students.password') !!}.</label>
+                                        <label for="nPassword">{!! __('students.password') !!}.</label>
                                         <input type="password" class="form-control" id="password" name="password"
-                                            autocomplete="off" placeholder="{!! trans('students.enter_password') !!}">
+                                            autocomplete="off" placeholder="{!! __('students.enter_password') !!}">
                                     </div>
 
                                     <div class="form-group text-left">
-                                        <label for="cnPassword">{!! trans('students.confirm_password') !!}.</label>
+                                        <label for="cnPassword">{!! __('students.confirm_password') !!}.</label>
                                         <input type="password" class="form-control" id="confirm_password"
                                             name="confirm_password" autocomplete="off"
-                                            placeholder="{!! trans('students.enter_confirm_password') !!}">
+                                            placeholder="{!! __('students.enter_confirm_password') !!}">
                                     </div>
 
 
@@ -89,23 +89,23 @@
                                     </div>
 
                                     <div class="form-group text-left">
-                                        <label for="gender">{!! trans('students.gender') !!}.</label>
+                                        <label for="gender">{!! __('students.gender') !!}.</label>
                                         <select class="form-control" id="gender" name="gender">
                                             <option value="">
-                                                {{ trans('general.select_from_list') }}
+                                                {{ __('general.select_from_list') }}
                                             </option>
                                             <option value="male">
-                                                {{ trans('general.male') }}
+                                                {{ __('general.male') }}
                                             </option>
                                             <option value="female">
-                                                {{ trans('general.female') }}
+                                                {{ __('general.female') }}
                                             </option>
                                         </select>
                                     </div>
 
 
                                     <button type="submit" class="btn btn-primary px-5 br-20">
-                                        {!! trans('site.sign_up') !!}
+                                        {!! __('site.sign_up') !!}
                                     </button>
                                 </form>
                             </div>
@@ -168,42 +168,42 @@
             },
             messages: {
                 name_ar: {
-                    required: '{{ trans('site.it_is_required') }}',
+                    required: '{{ __('site.it_is_required') }}',
                 },
 
                 name_en: {
-                    required: '{{ trans('site.it_is_required') }}',
+                    required: '{{ __('site.it_is_required') }}',
                 },
 
                 mobile: {
-                    required: '{{ trans('site.it_is_required') }}',
-                    digits: '{{ trans('site.digits') }}',
-                    minlength: '{{ trans('site.mobile_number_validation') }}',
-                    maxlength: '{{ trans('site.mobile_number_validation') }}',
+                    required: '{{ __('site.it_is_required') }}',
+                    digits: '{{ __('site.digits') }}',
+                    minlength: '{{ __('site.mobile_number_validation') }}',
+                    maxlength: '{{ __('site.mobile_number_validation') }}',
 
                 },
 
                 whatsapp: {
-                    required: '{{ trans('site.it_is_required') }}',
+                    required: '{{ __('site.it_is_required') }}',
                 },
 
                 email: {
-                    required: '{{ trans('site.it_is_required') }}',
+                    required: '{{ __('site.it_is_required') }}',
                 },
 
                 gender: {
-                    required: '{{ trans('site.it_is_required') }}',
+                    required: '{{ __('site.it_is_required') }}',
                 },
 
                 password: {
-                    required: '{{ trans('site.it_is_required') }}',
-                    minlength: '{{ trans('site.min_length') }}',
+                    required: '{{ __('site.it_is_required') }}',
+                    minlength: '{{ __('site.min_length') }}',
 
                 },
                 confirm_password: {
-                    required: '{{ trans('site.it_is_required') }}',
-                    minlength: '{{ trans('site.min_length') }}',
-                    equalTo: '{{ trans('site.equalTo') }}',
+                    required: '{{ __('site.it_is_required') }}',
+                    minlength: '{{ __('site.min_length') }}',
+                    equalTo: '{{ __('site.equalTo') }}',
 
                 },
             },
@@ -275,8 +275,8 @@
                             allowOutsideClick: false,
                             showDenyButton: false,
                             showCancelButton: true,
-                            cancelButtonText: `{!! trans('site.cancel') !!}`,
-                            confirmButtonText: `{!! trans('site.login') !!}`,
+                            cancelButtonText: `{!! __('site.cancel') !!}`,
+                            confirmButtonText: `{!! __('site.login') !!}`,
                             customClass: {
                                 confirmButton: 'registration_confirm_button'
                             }

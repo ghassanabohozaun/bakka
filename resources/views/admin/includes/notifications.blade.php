@@ -3,14 +3,11 @@
 @else
     @foreach ($notifications as $notification)
         <!--begin: Item-->
-        <div class="d-flex align-items-center  rounded p-5 mb-5 bg-light-info">
+        <div class="d-flex align-items-center rounded p-5 mb-5
+        {!! $notification->notify_class == 'unread' ? ' bg-light-info' : ' bg-light-primary' !!}  ">
             <span class="svg-icon svg-icon-warning mr-5">
                 <span class="svg-icon svg-icon-lg">
-                    @if ($notification->notify_class == 'unread')
-                        <i class="flaticon-bell text-danger icon-lg"></i>
-                    @else
-                        <i class="flaticon-bell text-info icon-lg"></i>
-                    @endif
+                    <i class="flaticon-bell {!! $notification->notify_class == 'unread' ? 'text-danger' : 'text-info' !!}  icon-lg"></i>
                 </span>
             </span>
 
@@ -18,8 +15,8 @@
                 <a href="#" data-id="{!! $notification->id !!}"
                     class="font-weight-normal text-dark-75 text-bold font-size-h5-sm mb-1 show_notification_btn">
                     {!! $notification->{'title_' . Lang()} !!}
+                    <span class=" text-warning font-size-sm font-weight-bold">{!! $notification->created_at !!}</span>
                 </a>
-                <span class=" text-warning font-size-sm font-weight-bold">{!! $notification->created_at !!}</span>
             </div>
 
         </div>

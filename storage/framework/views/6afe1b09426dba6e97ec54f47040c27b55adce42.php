@@ -17,8 +17,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo asset('adminBoard/uploadedImages/logos/' . setting()->site_icon); ?>">
     <?php if(Lang() == 'ar'): ?>
         <link href="<?php echo asset('site/css/style-ar.css'); ?>" rel="stylesheet">
+        <link href="<?php echo asset('site/css/whatsapp-rtl.css'); ?>" rel="stylesheet">
     <?php else: ?>
         <link href="<?php echo asset('site/css/style-en.css'); ?>" rel="stylesheet">
+        <link href="<?php echo asset('site/css/whatsapp-ltr.css'); ?>" rel="stylesheet">
     <?php endif; ?>
     <link href="<?php echo asset('site/css/pagination.css'); ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo asset('site/css/bootstrap-datepicker.min.css'); ?>" />
@@ -47,6 +49,7 @@
     <script src="<?php echo asset('site/js/bootstrap-datepicker.min.js'); ?>"></script>
     <script src="<?php echo asset('site/js/testimonials.js'); ?>"></script>
     <script src="<?php echo asset('site/js/faqs.js'); ?>"></script>
+    <script src="<?php echo asset('site/js/whatsapp.js'); ?>"></script>
 
 
     <?php echo $__env->yieldPushContent('js'); ?>

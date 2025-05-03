@@ -301,42 +301,39 @@
                 </li>
             @endcan
 
-            <!------------------------------------ faqs ---------------------------------------------------->
-            @can('faqs')
+            <!------------------------------------ Articles  ---------------------------------------------------->
+            @can('articles')
                 <li class="menu-item  menu-item-submenu
-               @if (str_contains(url()->current(), '/faqs')) menu-item-open @endif"
+              @if (str_contains(url()->current(), '/articles')) menu-item-open @endif"
                     aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="{!! route('admin.faqs') !!}" class="menu-link menu-toggle">
-
+                    <a href="{!! route('admin.articles') !!}" class="menu-link menu-toggle">
                         <span class="svg-icon menu-icon">
                             <span
-                                class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/Layout/Layout-vertical.svg--><svg
+                                class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/Layout/Layout-top-panel-4.svg--><svg
                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                     width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                    <title>Stockholm-icons / Layout / Layout-vertical</title>
+                                    <title>Stockholm-icons / Layout / Layout-top-panel-4</title>
                                     <desc>Created with Sketch.</desc>
                                     <defs />
                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                         <rect x="0" y="0" width="24" height="24" />
-                                        <rect fill="#000000" x="5" y="4" width="6" height="16" rx="1.5" />
-                                        <rect fill="#000000" opacity="0.3" x="13" y="4" width="6" height="16"
-                                            rx="1.5" />
+                                        <path
+                                            d="M3,4 L20,4 C20.5522847,4 21,4.44771525 21,5 L21,7 C21,7.55228475 20.5522847,8 20,8 L3,8 C2.44771525,8 2,7.55228475 2,7 L2,5 C2,4.44771525 2.44771525,4 3,4 Z M3,10 L13,10 C13.5522847,10 14,10.4477153 14,11 L14,13 C14,13.5522847 13.5522847,14 13,14 L3,14 C2.44771525,14 2,13.5522847 2,13 L2,11 C2,10.4477153 2.44771525,10 3,10 Z M3,16 L13,16 C13.5522847,16 14,16.4477153 14,17 L14,19 C14,19.5522847 13.5522847,20 13,20 L3,20 C2.44771525,20 2,19.5522847 2,19 L2,17 C2,16.4477153 2.44771525,16 3,16 Z"
+                                            fill="#000000" />
+                                        <rect fill="#000000" opacity="0.3" x="16" y="10" width="5" height="10"
+                                            rx="1" />
                                     </g>
                                 </svg><!--end::Svg Icon--></span>
                         </span>
-
-                        <span class="menu-text">{{ __('menu.faqs') }}</span>
+                        <span class="menu-text">{{ __('menu.articles') }}</span>
                         <span class="menu-label">
-                            <span class="label label-rounded label-danger">
-                                {{ \App\Models\FAQ::withoutTrashed()->count() }}
+                            <span class="label label-rounded label-light-warning">
+                                {{ App\Models\Article::withoutTrashed()->count() }}
                             </span>
                         </span>
                     </a>
                 </li>
             @endcan
-
-
-
             <!------------------------------------ videos  ---------------------------------------------------->
             @can('videos')
                 <li class="menu-item  menu-item-submenu
@@ -440,10 +437,14 @@
                 </li>
             @endcan
 
+
+
+
+
             <!------------------------------------ testimonials  ---------------------------------------------------->
             @can('testimonials')
                 <li class="menu-item  menu-item-submenu
-                                        @if (str_contains(url()->current(), '/testimonials')) menu-item-open @endif"
+                                          @if (str_contains(url()->current(), '/testimonials')) menu-item-open @endif"
                     aria-haspopup="true" data-menu-toggle="hover">
                     <a href="{{ route('admin.testimonials') }}" class="menu-link menu-toggle">
 
@@ -474,40 +475,39 @@
                 </li>
             @endcan
 
-            <!------------------------------------ Articles  ---------------------------------------------------->
-            @can('articles')
+            <!------------------------------------ faqs ---------------------------------------------------->
+            @can('faqs')
                 <li class="menu-item  menu-item-submenu
-                 @if (str_contains(url()->current(), '/articles')) menu-item-open @endif"
+               @if (str_contains(url()->current(), '/faqs')) menu-item-open @endif"
                     aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="{!! route('admin.articles') !!}" class="menu-link menu-toggle">
+                    <a href="{!! route('admin.faqs') !!}" class="menu-link menu-toggle">
+
                         <span class="svg-icon menu-icon">
                             <span
-                                class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/Layout/Layout-top-panel-4.svg--><svg
+                                class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/Layout/Layout-vertical.svg--><svg
                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                     width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                    <title>Stockholm-icons / Layout / Layout-top-panel-4</title>
+                                    <title>Stockholm-icons / Layout / Layout-vertical</title>
                                     <desc>Created with Sketch.</desc>
                                     <defs />
                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                         <rect x="0" y="0" width="24" height="24" />
-                                        <path
-                                            d="M3,4 L20,4 C20.5522847,4 21,4.44771525 21,5 L21,7 C21,7.55228475 20.5522847,8 20,8 L3,8 C2.44771525,8 2,7.55228475 2,7 L2,5 C2,4.44771525 2.44771525,4 3,4 Z M3,10 L13,10 C13.5522847,10 14,10.4477153 14,11 L14,13 C14,13.5522847 13.5522847,14 13,14 L3,14 C2.44771525,14 2,13.5522847 2,13 L2,11 C2,10.4477153 2.44771525,10 3,10 Z M3,16 L13,16 C13.5522847,16 14,16.4477153 14,17 L14,19 C14,19.5522847 13.5522847,20 13,20 L3,20 C2.44771525,20 2,19.5522847 2,19 L2,17 C2,16.4477153 2.44771525,16 3,16 Z"
-                                            fill="#000000" />
-                                        <rect fill="#000000" opacity="0.3" x="16" y="10" width="5" height="10"
-                                            rx="1" />
+                                        <rect fill="#000000" x="5" y="4" width="6" height="16" rx="1.5" />
+                                        <rect fill="#000000" opacity="0.3" x="13" y="4" width="6" height="16"
+                                            rx="1.5" />
                                     </g>
                                 </svg><!--end::Svg Icon--></span>
                         </span>
-                        <span class="menu-text">{{ __('menu.articles') }}</span>
+
+                        <span class="menu-text">{{ __('menu.faqs') }}</span>
                         <span class="menu-label">
-                            <span class="label label-rounded label-light-warning">
-                                {{ App\Models\Article::withoutTrashed()->count() }}
+                            <span class="label label-rounded label-danger">
+                                {{ \App\Models\FAQ::withoutTrashed()->count() }}
                             </span>
                         </span>
                     </a>
                 </li>
             @endcan
-
 
 
             <!------------------------------------ Support Center ---------------------------------------------------->

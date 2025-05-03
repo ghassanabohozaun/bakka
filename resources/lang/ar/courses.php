@@ -11,6 +11,7 @@ return [
     'enrolled_count' => 'عدد المسجلين',
     'enrolled_list' => 'قائمة المسجلين',
     'enroll_student' => 'تسجيل طالب جديد',
+    'students_count' => 'عدد الطلاب',
 
     'photo' => 'الصورة',
     'title_ar' => 'العنوان | عربي',
@@ -55,12 +56,30 @@ return [
     'show_course_details' => 'عرض تفاصيل الدورة',
     'no_courses_found' => 'لا يوجد دورات حالياً',
     'no_students_found' => 'لا يوجد طلاب حالياً',
-    'student_enrolled_course'=>'الطالب مسجل في هذه الدورة',
+    'student_enrolled_course' => 'الطالب مسجل في هذه الدورة',
 
     // enroll
     'student_name' => 'اسم الطالب',
     'email' => ' الايميل',
     'mobile' => 'رقم الموبايل',
     'enrolled_date' => 'تاريخ التسجيل',
-    'add_new_student'=>'اضافة طالب جديد',
+    'add_new_student' => 'اضافة طالب جديد',
+
+    // certification
+    'add_certification' => 'اضافة شهادة',
+    'update_certification' => 'تعديل شهادة',
+    'has_certitfication' => 'يوجد شهادة',
+    'certitfication' => 'الشهادة',
+    'no_certification' => 'لا يوجد شهادة ',
+    'enroll_agreement'=>'الموافقة علي طلب التسجيل',
+    'cancel_enroll_agreement'=>'الغاء الموافقة علي طلب التسجيل',
+    'do_you_want_to_enroll_agreement'=>'هل تريد الموافقة علي طلب التسجيل',
+    'do_you_want_to_cancel_enroll_agreement'=>'هل تريد الموافقة علي  علي الغاء طلب التسجيل ',
+    'cannot_be_deleted_because_it_have_students ' => 'لا يمكن حذف الكورس لان هنالك طلاب مسجلين فيه',
+
+
+    'file' => 'الملف',
+    'file_required' => 'ملف الشهادة مطلوب',
+    'file_mimes' => 'يجب ان تكون الشهادة باحدي الصيغ png ,jpeg,jpg',
+    'file_max' => 'حجم الشهادة المسموح به 2 ميجا فقط',
 ];

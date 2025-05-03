@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreignId('course_id')->constrained('courses')->cascadeOnDelete();
             $table->foreignId(column: 'student_id')->constrained('students')->cascadeOnDelete();
             $table->string('enrolled_date')->nullable();
+            $table->string('certification_flag')->nullable();
+            $table->string('enroll_agreement')->nullable();
             $table->timestamps();
         });
     }

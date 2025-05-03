@@ -29,12 +29,12 @@
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                             <li class="breadcrumb-item">
                                 <a href="{!! route('admin.students') !!}" class="text-muted">
-                                    {{ trans('menu.students') }}
+                                    {{ __('menu.students') }}
                                 </a>
                             </li>
                             <li class="breadcrumb-item">
                                 <a href="" class="text-muted">
-                                    {{ trans('students.profile') }}
+                                    {{ __('students.profile') }}
                                 </a>
                             </li>
                         </ul>
@@ -68,7 +68,7 @@
                                     <div
                                         class="symbol symbol-60 symbol-xxl-100 mr-5 align-self-start align-self-xxl-center">
                                         @if (!$student->photo)
-                                            @if ($student->gender == trans('general.male'))
+                                            @if ($student->gender == __('general.male'))
                                                 <div class="symbol-label"
                                                     style="background-image:url({!! asset('adminBoard/images/male.jpeg') !!})"></div>
                                             @else
@@ -76,7 +76,7 @@
                                                     style="background-image:url({!! asset('adminBoard/images/female.jpeg') !!})"></div>
                                             @endif
                                         @else
-                                            <div class="symbol-label" style="background-image:url({!! \Illuminate\Support\Facades\Storage::url($student->photo) !!})">
+                                            <div class="symbol-label" style="background-image:url({!! asset('adminBoard/uploadedImages/students/' . $student->photo) !!})">
                                             </div>
                                         @endif
                                         <i class="symbol-badge bg-success"></i>
@@ -89,9 +89,11 @@
 
                                         <div class="text-muted" style="font-weight: 600;font-size: 12px">
                                             @if ($student->freeze == 'on')
-                                                <span class="text-success">{!! __('students.activited') !!}</span>
-                                            @else
                                                 <span class="text-danger">{!! __('students.Frozen') !!}</span>
+                                            @else
+                                                <span class="text-success">
+                                                    {!! __('students.activited') !!}
+                                                </span>
                                             @endif
                                         </div>
                                     </div>
@@ -248,7 +250,7 @@
                             <!--begin::Header-->
                             <div class="card-header border-0 pt-5">
                                 <h3 class="card-title align-items-start flex-column">
-                                    <span class="card-label font-weight-bolder text-dark">{!! trans('students.enrolled_courses') !!}</span>
+                                    <span class="card-label font-weight-bolder text-dark">{!! __('students.enrolled_courses') !!}</span>
                                 </h3>
                             </div>
                             <!--end::Header-->
@@ -260,18 +262,19 @@
                                         <div class="table-responsive">
                                             @if ($courses->isEmpty())
                                                 <img src="{!! asset('site/images/noRecordFound.svg') !!}" class="img-fluid" id="no_data_img"
-                                                    title="{!! trans('site.no_date') !!}">
+                                                    title="{!! __('site.no_date') !!}">
                                             @else
                                                 <table class="table" style="text-align: center;vertical-align: middle;">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">#</th>
-                                                            <th scope="col">{!! trans('courses.title_ar') !!}</th>
-                                                            <th scope="col">{!! trans('courses.title_en') !!}</th>
-                                                            <th scope="col">{!! trans('courses.hours') !!}</th>
-                                                            <th scope="col">{!! trans('courses.cost') !!}</th>
-                                                            <th scope="col">{!! trans('courses.discount') !!}</th>
-                                                            <th scope="col">{!! trans('courses.date') !!}</th>
+                                                            <th scope="col">{!! __('courses.title_ar') !!}</th>
+                                                            <th scope="col">{!! __('courses.title_en') !!}</th>
+                                                            <th scope="col">{!! __('courses.hours') !!}</th>
+                                                            <th scope="col">{!! __('courses.cost') !!}</th>
+                                                            <th scope="col">{!! __('courses.discount') !!}</th>
+                                                            <th scope="col">{!! __('courses.date') !!}</th>
+                                                            <th scope="col">{!! __('courses.has_certitfication') !!}</th>
 
                                                         </tr>
                                                     </thead>
@@ -291,6 +294,7 @@
                                                                     @endif
                                                                 </td>
                                                                 <td>{!! $course->pivot->enrolled_date !!}</td>
+                                                                <td>@include('admin.students.parts.profile-certification')</td>
 
                                                             </tr>
                                                         @endforeach

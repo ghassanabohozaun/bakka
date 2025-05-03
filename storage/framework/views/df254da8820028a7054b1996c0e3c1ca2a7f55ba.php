@@ -15,36 +15,36 @@
                     <ul class="list-social-media" data-aos="fade-down" data-aos-duration="300">
                         <li>
                             <a onclick="return <?php echo setting()->site_facebook ? 'true' : 'false'; ?>;" href="<?php echo setting()->site_facebook; ?>" target="_blank">
-                                <img src="<?php echo asset('site/img/facebook.svg'); ?>" alt="<?php echo trans('site.facebook'); ?>">
+                                <img src="<?php echo asset('site/img/facebook.svg'); ?>" alt="<?php echo __('site.facebook'); ?>">
                             </a>
                         </li>
                         <li>
                             <a onclick="return <?php echo setting()->site_instagram ? 'true' : 'false'; ?>;" href="<?php echo setting()->site_instagram; ?>" target="_blank">
-                                <img src="<?php echo asset('site/img/insta.svg'); ?>" alt="<?php echo trans('site.instagram'); ?>">
+                                <img src="<?php echo asset('site/img/insta.svg'); ?>" alt="<?php echo __('site.instagram'); ?>">
                             </a>
                         </li>
                         <li>
                             <a onclick="return <?php echo setting()->site_twitter ? 'true' : 'false'; ?>;" href="<?php echo setting()->site_twitter; ?>"
                                 target="_blank">
-                                <img src="<?php echo asset('site/img/twitter.svg'); ?>" alt="<?php echo trans('site.twitter'); ?>">
+                                <img src="<?php echo asset('site/img/twitter.svg'); ?>" alt="<?php echo __('site.twitter'); ?>">
                             </a>
                         </li>
                         <li>
                             <a onclick="return <?php echo setting()->site_youtube ? 'true' : 'false'; ?>;" href="<?php echo setting()->site_youtube; ?>"
                                 target="_blank">
-                                <img src="<?php echo asset('site/img/youtube.svg'); ?>" alt="<?php echo trans('site.youtube'); ?>">
+                                <img src="<?php echo asset('site/img/youtube.svg'); ?>" alt="<?php echo __('site.youtube'); ?>">
                             </a>
                         </li>
                         <li>
                             <a onclick="return <?php echo setting()->site_mobile ? 'true' : 'false'; ?>;" href="https://wa.me/<?php echo setting()->site_mobile; ?>"
                                 target="_blank">
-                                <img src="<?php echo asset('site/img/whatsapp.svg'); ?>" alt="<?php echo trans('site.whatsapp'); ?>">
+                                <img src="<?php echo asset('site/img/whatsapp.svg'); ?>" alt="<?php echo __('site.whatsapp'); ?>">
                             </a>
                         </li>
                         <li>
                             <a onclick="return <?php echo setting()->site_gmail ? 'true' : 'false'; ?>;" href="mailto:<?php echo setting()->site_gmail; ?>"
                                 target="_blank">
-                                <img src="<?php echo asset('site/img/gmail.svg'); ?>" alt="<?php echo trans('site.gmail'); ?>">
+                                <img src="<?php echo asset('site/img/gmail.svg'); ?>" alt="<?php echo __('site.gmail'); ?>">
                             </a>
                         </li>
 
@@ -54,7 +54,7 @@
 
 
                 <div class=" col-lg-4" data-aos="fade-in" data-aos-duration="1200">
-                    <h3 class=" text-primary text-bold mb-3  mt-4 mt-md-0"><?php echo trans('site.related_links'); ?></h3>
+                    <h3 class=" text-primary text-bold mb-3  mt-4 mt-md-0"><?php echo __('site.related_links'); ?></h3>
                     <div class="row footer-links">
 
                         <div class="col-md-4 mb-1 pb-1">
@@ -82,7 +82,7 @@
 
                 <!-- Begin: Media --------------------------------------------------------------------------->
                 <div class=" col-lg-4">
-                    <h3 class=" text-primary text-bold mb-3 mt-4 mt-md-0"><?php echo trans('site.media'); ?></h3>
+                    <h3 class=" text-primary text-bold mb-3 mt-4 mt-md-0"><?php echo __('site.media'); ?></h3>
                     <div class="media-footer">
                         <div class="row" uk-lightbox>
 
@@ -148,15 +148,15 @@
 <section class="sub-footer p-3 bg-light text-center fs-14">
 
     <?php if(Lang() == 'ar'): ?>
-        . <?php echo date('Y'); ?> <?php echo trans('site.copy_right'); ?>
+        . <?php echo date('Y'); ?> <?php echo __('site.copy_right'); ?>
 
         <a href="<?php echo route('index'); ?>"><?php echo __('site.index'); ?></a>
         ©
     <?php else: ?>
-        <?php echo trans('site.copy_right'); ?> © <?php echo date('Y'); ?>
+        <?php echo __('site.copy_right'); ?> © <?php echo date('Y'); ?>
 
         <a href="<?php echo route('index'); ?>"><?php echo __('site.home'); ?></a>
-        - <?php echo trans('site.copy_right'); ?> .
+        - <?php echo __('site.copy_right'); ?> .
     <?php endif; ?>
 
 

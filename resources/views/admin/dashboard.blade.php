@@ -455,7 +455,7 @@
                         'Dec'
                     ],
                     datasets: [{
-                        label: '{!! trans('dashboard.chart_article') !!}',
+                        label: '{!! __('dashboard.chart_article') !!}',
                         data: articleData,
                         backgroundColor: ['red', 'orange', 'yellow', 'green', 'blue', 'violet',
                             'purple', 'pink', 'indigo', 'silver', 'gold', 'brown'

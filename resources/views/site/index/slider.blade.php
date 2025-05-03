@@ -12,17 +12,17 @@
                                 <div class=" container">
                                     <div class=" row align-items-center">
                                         <div class="col">
-                                            @if ($slider->details_status == trans('sliders.show'))
+                                            @if ($slider->details_status == __('sliders.show'))
                                                 <h2 class="text-bold fs-31-i">{!! Lang() == 'ar' ? $slider->title_ar : $slider->title_en !!}</h2>
                                                 <p class="my-3 text-white fs-16-i">
                                                     {!! Lang() == 'ar' ? $slider->details_ar : $slider->details_en !!}
                                                 </p>
                                             @endif
-                                            @if ($slider->button_status == trans('sliders.show'))
+                                            @if ($slider->button_status == __('sliders.show'))
                                                 <div>
                                                     <a href="{!! $slider->{'url_' . Lang()} !!}"
                                                         class="btn btn-primary br-20 px-3 fs-14 mr-2">
-                                                        {!! trans('site.show') !!}
+                                                        {!! __('site.show') !!}
                                                     </a>
                                                 </div>
                                             @endif

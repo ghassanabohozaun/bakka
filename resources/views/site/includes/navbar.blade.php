@@ -30,7 +30,7 @@
 
             <li class="nav-item col">
                 <a class="nav-link" href="{!! route('index') !!}#contactUs">
-                    {!! trans('site.contact_us') !!}
+                    {!! __('site.contact_us') !!}
                 </a>
             </li>
         </ul>

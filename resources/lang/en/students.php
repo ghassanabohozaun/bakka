@@ -44,4 +44,5 @@ return [
     'exist_number' => 'Exist Number',
 
     'no_students_found' => 'No Students Found',
+    'cannot_be_deleted_because_it_have_courses' => 'Student Cannot Be Deleted Because It Have Courses',
 ];

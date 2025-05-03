@@ -45,47 +45,14 @@ class CourseStudentsController extends Controller
             $courseStudent = $course->students()->attach($request->student_id, ['enrolled_date' => Carbon::now()->format('Y-m-d')]);
 
             // add notifications
-            $this->addAdminNotification($course, $request->student_id);
-            $this->addStudentNotification($course, $request->student_id);
+            $this->notificationToAdminForStudentEnrollCourse($course, $request->student_id);
+            $this->notificationToStudentFromEnrolledCourse($course, $request->student_id);
             return $this->returnSuccessMessage(__('general.add_success_message'));
         } else {
             return $this->returnError(__('courses.student_enrolled_course'), 404);
         }
     }
 
-    // add admin notification
-    public function addAdminNotification($course, $student_id)
-    {
-        Notification::create([
-            'title_ar' => 'تنبيه التسجيل في دورة',
-            'title_en' => 'Enrolled In Course Notification',
-            'details_ar' => ' قام الطالب   ' . Student::find($student_id)->name_ar . ' بالتسجيل في الدورة التالية  ' . $course->title_ar,
-            'details_en' => ' The Student  ' . Student::find($student_id)->name_en . ' Enrolled In This Course   ' . $course->title_en,
-            'notify_status' => 'send',
-            'notify_class' => 'unread',
-            'notify_for' => 'admin',
-            'notify_to' => $course->id,
-            'admin_id' => admin()->user()->id,
-            'student_id' => $student_id,
-        ]);
-    }
-
-    // add student notification
-    public function addStudentNotification($course, $student_id)
-    {
-        Notification::create([
-            'title_ar' => 'تنبيه التسجيل في دورة',
-            'title_en' => 'Enrolled In Course Notification',
-            'details_ar' => ' قمت بالتسجيل في الدورة التالية ' . $course->title_ar,
-            'details_en' => ' You Enrolled In This Course  ' . $course->title_en,
-            'notify_status' => 'send',
-            'notify_class' => 'unread',
-            'notify_for' => 'student',
-            'notify_to' => $course->id,
-            'admin_id' => admin()->user()->id,
-            'student_id' => $student_id,
-        ]);
-    }
 
     //destroy
     public function destroy(Request $request)
@@ -164,11 +131,20 @@ class CourseStudentsController extends Controller
                 $courseStudent->save();
                 // add revenue
                 $this->addRevenue($courseStudent->course_id, $courseStudent->student_id);
+                // add notification
+                $this->notificationToStudentForOrderAgreement($courseStudent->course_id, $courseStudent->student_id);
+
                 return $this->returnSuccessMessage(__('general.change_status_success_message'));
+
             } else {
                 $courseStudent->enroll_agreement = '';
                 $courseStudent->save();
+                //delete revenue
                 $this->deleteRevenue($courseStudent->course_id, $courseStudent->student_id);
+
+                // add notification
+                $this->notificationToStudentForOrderAgreementCancled($courseStudent->course_id, $courseStudent->student_id);
+
                 return $this->returnError(__('general.change_status_success_message' ),404);
             }
         }

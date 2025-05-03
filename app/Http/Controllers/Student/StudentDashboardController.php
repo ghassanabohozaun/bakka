@@ -16,13 +16,12 @@ class StudentDashboardController extends Controller
 {
     use GeneralTrait;
 
-
     // courses
     public function courses()
     {
         $title = __('site.courses');
         $student = Student::findOrFail(student()->id());
-        $studentCourses = $student->courses()->where('enroll_agreement' , 'on')->paginate(perPage: 2);
+        $studentCourses = $student->courses()->where('enroll_agreement', 'on')->paginate(perPage: 2);
         return view('student.courses', compact('title', 'studentCourses'));
     }
 
@@ -37,14 +36,14 @@ class StudentDashboardController extends Controller
     }
 
     // get course
-    public function getCourse($id =null){
-        if(!$id){
+    public function getCourse($id = null)
+    {
+        if (!$id) {
             return redirect()->route('index');
         }
-        $title  =__('site.course_details');
+        $title = __('site.course_details');
         $course = Course::findOrFail($id);
-        return view('student.course', compact('course','title'));
-
+        return view('student.course', compact('course', 'title'));
     }
     // get update account
     public function getUpdateAccount()
@@ -129,8 +128,9 @@ class StudentDashboardController extends Controller
             $courseStudent = $course->students()->attach(student()->id(), ['enrolled_date' => Carbon::now()->format('Y-m-d')]);
 
             // add notifications
-            $this->addAdminNotification($course, student()->id());
-            $this->addStudentNotification($course, student()->id());
+            $this->notificationToAdminForStudentEnrollCourse($course, student()->id());
+
+            $this->notificationToThankStudentFromEnrolledCourse($course, student()->id());
 
             return $this->returnSuccessMessage(__('site.coures_enrolled'));
         } else {
@@ -138,38 +138,9 @@ class StudentDashboardController extends Controller
         }
     }
 
-
     // add admin notification
-    public function addAdminNotification($course, $student_id)
-    {
-        Notification::create([
-            'title_ar' => 'تنبيه التسجيل في دورة',
-            'title_en' => 'Enrolled In Course Notification',
-            'details_ar' => ' قام الطالب   ' . Student::find($student_id)->name_ar . ' بالتسجيل في الدورة التالية  ' . $course->title_ar,
-            'details_en' => ' The Student  ' . Student::find($student_id)->name_en . ' Enrolled In This Course   ' . $course->title_en,
-            'notify_status' => 'send',
-            'notify_class' => 'unread',
-            'notify_for' => 'admin',
-            'notify_to' => $course->id,
-            'student_id' => $student_id,
-        ]);
-    }
 
     // add student notification
-    public function addStudentNotification($course, $student_id)
-    {
-        Notification::create([
-            'title_ar' => 'تنبيه التسجيل في دورة',
-            'title_en' => 'Enrolled In Course Notification',
-            'details_ar' => ' قمت بالتسجيل في الدورة التالية ' . $course->title_ar,
-            'details_en' => ' You Enrolled In This Course  ' . $course->title_en,
-            'notify_status' => 'send',
-            'notify_class' => 'unread',
-            'notify_for' => 'student',
-            'notify_to' => $course->id,
-            'student_id' => $student_id,
-        ]);
-    }
 
     // notifications
     public function notifications()
@@ -192,11 +163,11 @@ class StudentDashboardController extends Controller
         return view('student.notifications', compact('notifications'))->render();
     }
 
-    public function notificationRead(Request $request) {
-        if($request->ajax()){
-
+    public function notificationRead(Request $request)
+    {
+        if ($request->ajax()) {
             $notificatoin = Notification::find($request->id);
-            $notificatoin->notify_class  = 'read';
+            $notificatoin->notify_class = 'read';
             $notificatoin->save();
             return $this->returnSuccessMessage('OK');
         }

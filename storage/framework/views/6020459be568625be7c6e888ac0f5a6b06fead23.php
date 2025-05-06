@@ -113,7 +113,6 @@
     </div>
 </section>
 
-
 <?php $__env->startPush('js'); ?>
 <?php $__env->stopPush(); ?>
 <?php /**PATH C:\laragon\www\bakka\resources\views/site/courses-paging.blade.php ENDPATH**/ ?>

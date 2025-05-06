@@ -70,6 +70,19 @@
 
                             </a>
                         </div>
+
+                        <div class="col-md-4 mb-1 pb-1">
+                            <a class=" text-white fs-14" href="<?php echo route('videos'); ?>">
+                                <?php echo __('site.videos'); ?>
+
+                            </a>
+                        </div>
+                        <div class="col-md-4 mb-1 pb-1">
+                            <a class=" text-white fs-14" href="<?php echo route('photo.albums'); ?>">
+                                <?php echo __('site.photo_albums'); ?>
+
+                            </a>
+                        </div>
                         <div class="col-md-4 mb-1 pb-1">
                             <a class=" text-white fs-14" href="<?php echo route('faq'); ?>">
                                 <?php echo __('site.faq'); ?>

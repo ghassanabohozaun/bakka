@@ -1,5 +1,6 @@
 <?php
 
+use Database\Seeders\ArticlesSeeder;
 use Database\Seeders\CountrySeeder;
 use Database\Seeders\CourseSeeder;
 use Database\Seeders\FaqSeeder;
@@ -36,6 +37,8 @@ class DatabaseSeeder extends Seeder
             ServicesSeeder::class,
             StudentSeeder::class,
             CourseSeeder::class,
+            ArticlesSeeder::class,
+
 
         ]);
     }

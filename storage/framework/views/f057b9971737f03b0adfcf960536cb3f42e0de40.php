@@ -367,8 +367,13 @@
                                                     <tr>
                                                         <td><?php echo $key + 1; ?></td>
                                                         <td>
-                                                            <img src="<?php echo e(asset('adminBoard/uploadedImages/articles/' . $article->photo)); ?>"
-                                                                class="img-fluid img-thumbnail table-image " />
+                                                            <?php if($article->photo): ?>
+                                                                <img src="<?php echo e(asset('adminBoard/uploadedImages/articles/' . $article->photo)); ?>"
+                                                                    class="img-fluid img-thumbnail table-image " />
+                                                            <?php else: ?>
+                                                                <img src="<?php echo e(asset('adminBoard/images/images-empty.png/' . $article->photo)); ?>"
+                                                                    class="img-fluid img-thumbnail table-image " />
+                                                            <?php endif; ?>
                                                         </td>
                                                         <td><?php echo $article->{'title_' . Lang()}; ?></td>
                                                         <td><?php echo $article->views; ?></td>

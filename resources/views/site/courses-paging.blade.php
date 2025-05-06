@@ -123,6 +123,5 @@
     </div>
 </section>
 
-
 @push('js')
 @endpush

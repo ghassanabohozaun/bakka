@@ -103,6 +103,15 @@
                         </a>
                     </li>
 
+
+                    <li class="nav-item  col ">
+                        <a class="nav-link" href="<?php echo route('videos'); ?>">
+                            <?php echo __('site.videos'); ?>
+
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
                     <li class="nav-item  col ">
                         <a class="nav-link" href="<?php echo route('faq'); ?>">
                             <?php echo __('site.faq'); ?>

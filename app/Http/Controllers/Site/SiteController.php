@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\SupportCenterRequest;
+use App\Models\Article;
 use App\Models\Course;
 use App\Models\FAQ;
+use App\Models\PhotoAlbum;
 use App\Models\Slider;
 use App\Models\SupportCenter;
 use App\Models\Testimonial;
+use App\Models\Video;
 use App\Traits\GeneralTrait;
 use Illuminate\Http\Request;
 
@@ -21,9 +24,10 @@ class SiteController extends Controller
         $title = __('site.home');
         $sliders = $this->getSliders();
         $courses = $this->getCourses();
+        $articles = $this->getArticles();
         $testimonials = $this->getTestimonials();
 
-        return view('site.index', compact('title', 'sliders', 'courses', 'testimonials'));
+        return view('site.index', compact('title', 'sliders', 'courses', 'articles', 'testimonials'));
     }
 
     // get sliders
@@ -80,7 +84,35 @@ class SiteController extends Controller
         return $courses;
     }
 
-    // get sliders
+    // get articles
+    public function getArticles()
+    {
+        if (Lang() == 'ar') {
+            // articles
+            $articles = Article::withoutTrashed()
+                ->whereStatus('on')
+                ->orderByDesc('created_at')
+                ->where(function ($q) {
+                    $q->where('language', 'ar')->orWhere('language', 'ar_en');
+                })
+                ->take(6)
+                ->get();
+        } else {
+            //articles
+            $articles = Article::withoutTrashed()
+                ->whereStatus('on')
+                ->orderByDesc('created_at')
+                ->where(function ($q) {
+                    $q->where('language', 'en')->orWhere('language', 'ar_en');
+                })
+                ->take(6)
+                ->get();
+        }
+
+        return $articles;
+    }
+
+    // get testimonials
     public function getTestimonials()
     {
         if (Lang() == 'ar') {
@@ -106,8 +138,7 @@ class SiteController extends Controller
         return $testimonials;
     }
 
-    //////////////////////////////////////////////////////////////////////////////////////////
-    /// Courses
+    // Courses
     public function courses()
     {
         $title = __('site.courses');
@@ -135,8 +166,8 @@ class SiteController extends Controller
         }
         return view('site.courses', compact('title', 'courses'));
     }
-    //////////////////////////////////////////////////////////////////////////////////////////
-    /// courses Paging
+
+    //courses Paging
     public function coursesPaging(Request $request)
     {
         if ($request->ajax()) {
@@ -163,37 +194,138 @@ class SiteController extends Controller
         }
     }
 
+    // videos
+    public function videos()
+    {
+        $title = __('site.videos');
 
-        // get faqs
-        public function faq()
-        {
-            $title = __('site.faq');
+        if (Lang() == 'ar') {
+            $videos = Video::withoutTrashed()
+                ->orderByDesc('created_at')
+                ->where('status', 'on')
+                ->where(function ($q) {
+                    $q->where('language', 'ar')->orWhere('language', 'ar_en');
+                })
+                ->paginate(6);
+        } else {
+            $videos = Video::withoutTrashed()
+                ->orderByDesc('created_at')
+                ->where('status', 'on')
+                ->where(function ($q) {
+                    $q->where('language', 'en')->orWhere('language', 'ar_en');
+                })
+                ->paginate(6);
+        }
+        return view('site.videos', compact('title', 'videos'));
+    }
 
+    //videos Paging
+    public function videosPaging(Request $request)
+    {
+        if ($request->ajax()) {
             if (Lang() == 'ar') {
-                // faqs
-                $faqs = FAQ::withoutTrashed()
-                    ->whereStatus('on')
+                $videos = Video::withoutTrashed()
                     ->orderByDesc('created_at')
+                    ->where('status', 'on')
                     ->where(function ($q) {
                         $q->where('language', 'ar')->orWhere('language', 'ar_en');
                     })
-                    ->take(6)
-                    ->get();
+                    ->paginate(6);
             } else {
-                //faqs
-                $faqs = FAQ::withoutTrashed()
-                    ->whereStatus('on')
+                $videos = Video::withoutTrashed()
                     ->orderByDesc('created_at')
+                    ->where('status', 'on')
                     ->where(function ($q) {
                         $q->where('language', 'en')->orWhere('language', 'ar_en');
                     })
-                    ->take(6)
-                    ->get();
+                    ->paginate(6);
             }
-
-            return view('site.faq', compact('title' , 'faqs'));
+            return view('site.videos-paging', compact('videos'))->render();
         }
-    //sendContact
+    }
+
+
+
+    // photoAlbums
+    public function photoAlbums()
+    {
+        $title = __('site.photo_albums');
+
+        if (Lang() == 'ar') {
+            $photoAlbums = PhotoAlbum::withoutTrashed()
+                ->orderByDesc('created_at')
+                ->where('status', 'on')
+                ->where(function ($q) {
+                    $q->where('language', 'ar')->orWhere('language', 'ar_en');
+                })
+                ->paginate(6);
+        } else {
+            $photoAlbums = PhotoAlbum::withoutTrashed()
+                ->orderByDesc('created_at')
+                ->where('status', 'on')
+                ->where(function ($q) {
+                    $q->where('language', 'en')->orWhere('language', 'ar_en');
+                })
+                ->paginate(6);
+        }
+        return view('site.photo-albums', compact('title', 'photoAlbums'));
+    }
+
+    //photo Albums Paging
+    public function photoAlbumsPaging(Request $request)
+    {
+        if ($request->ajax()) {
+            if (Lang() == 'ar') {
+                $photoAlbums = PhotoAlbum::withoutTrashed()
+                    ->orderByDesc('created_at')
+                    ->where('status', 'on')
+                    ->where(function ($q) {
+                        $q->where('language', 'ar')->orWhere('language', 'ar_en');
+                    })
+                    ->paginate(6);
+            } else {
+                $photoAlbums = PhotoAlbum::withoutTrashed()
+                    ->orderByDesc('created_at')
+                    ->where('status', 'on')
+                    ->where(function ($q) {
+                        $q->where('language', 'en')->orWhere('language', 'ar_en');
+                    })
+                    ->paginate(6);
+            }
+            return view('site.photo-albums-paging', compact('photoAlbums'))->render();
+        }
+    }
+    // faqs
+    public function faq()
+    {
+        $title = __('site.faq');
+
+        if (Lang() == 'ar') {
+            // faqs
+            $faqs = FAQ::withoutTrashed()
+                ->whereStatus('on')
+                ->orderByDesc('created_at')
+                ->where(function ($q) {
+                    $q->where('language', 'ar')->orWhere('language', 'ar_en');
+                })
+                ->take(6)
+                ->get();
+        } else {
+            //faqs
+            $faqs = FAQ::withoutTrashed()
+                ->whereStatus('on')
+                ->orderByDesc('created_at')
+                ->where(function ($q) {
+                    $q->where('language', 'en')->orWhere('language', 'ar_en');
+                })
+                ->take(6)
+                ->get();
+        }
+
+        return view('site.faq', compact('title', 'faqs'));
+    }
+
+    //send contact
     public function sendContact(SupportCenterRequest $request)
     {
         if (setting()->disabled_forms_button == 'on') {

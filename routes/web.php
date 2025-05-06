@@ -36,22 +36,15 @@ Route::group(
         // faq
         Route::get('/faq', [SiteController::class, 'faq'])->name('faq');
 
-        // //trainings
-        // Route::get('/trainings', [SiteController::class, 'trainings'])->name('trainings');
-        // Route::get('/training-paging', [SiteController::class, 'trainingsPaging'])->name('trainings.paging');
+        // videos
+        Route::get('/videos', [SiteController::class, 'videos'])->name('videos');
+        Route::get('/videos-paging', [SiteController::class, 'videosPaging'])->name('videos.paging');
 
-        // // videos
-        // Route::get('/videos', [SiteController::class, 'videos'])->name('videos');
-        // Route::get('/videos-paging', [SiteController::class, 'videosPaging'])->name('videos.paging');
 
-        // // photos
-        // Route::get('/photo-albums', [SiteController::class, 'photoAlbums'])->name('photo.albums');
-        // Route::get('/photo-albums-paging', [SiteController::class, 'photoAlbumsPaging'])->name('photo.albums.paging');
+        // photos
+        Route::get('/photo-albums', [SiteController::class, 'photoAlbums'])->name('photo.albums');
+        Route::get('/photo-albums-paging', [SiteController::class, 'photoAlbumsPaging'])->name('photo.albums.paging');
 
-        // // news
-        // Route::get('/news', [SiteController::class, 'news'])->name('news');
-        // Route::get('/news-paging', [SiteController::class, 'newsPaging'])->name('news.paging');
-        // Route::get('/new/{val?}', [SiteController::class, 'new'])->name('new');
 
         // // external link
         // Route::get('/link/{link}/{id}', [SiteController::class, 'externalLink'])->name('site.external.link');

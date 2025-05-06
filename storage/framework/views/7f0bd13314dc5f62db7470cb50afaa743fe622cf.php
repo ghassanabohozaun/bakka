@@ -12,38 +12,44 @@
 <?php $__env->startPush('css'); ?>
 <?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
+    <?php echo $__env->make('site.includes.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
     <section class="sub-header">
         <div class=" container text-center content-header">
-            <h2 class="mb-3"><?php echo $title; ?></h2>
-            <p class="text-center fs-16-i">
-            </p>
+            <h2 class="mb-3"> <?php echo $title; ?></h2>
+            <p class="text-center fs-16-i"> </p>
         </div>
-        <div class="back-sub-header"><img src="<?php echo asset('site/img/Courses.jpg'); ?>" alt=""></div>
+        <div class="back-sub-header">
+            <img src="<?php echo asset('site/img/Success-Stories.png'); ?>" alt="">
+        </div>
     </section>
 
-    <section class=" courses_section py-5 px-4 px-md-0 my-5 pb-6">
-        <div class=" container">
-            <div class=" mt-5 mb-2 fs-24"><span class="text-bold text-warning">&nbsp;</span>
-            </div>
-            <p class="mb-5 ">
-                <!---courses description --->
-            </p>
 
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="col-lg-11 px-md-0">
-                        <?php if($courses->isEmpty()): ?>
+    <br />
+    </br /> </br /> </br /> </br /> </br />
+    <section id="photo_albums_section">
+        <div class=" container my-5">
+            <div class="row">
+
+                <!-- begin : Videos ------------------------------------------>
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+
+                        <?php if($photoAlbums->isEmpty()): ?>
                             <img src="<?php echo asset('site/images/noRecordFound.svg'); ?>" class="img-fluid" id="no_data_img"
                                 title="<?php echo __('site.no_date'); ?>">
                         <?php else: ?>
-                            <div id="courses_data">
-                                <?php echo $__env->make('site.courses-paging', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                            <div id="photo_album_data">
+                                <?php echo $__env->make('site.photo-albums-paging', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                             </div>
                         <?php endif; ?>
+
                     </div>
+
+                    <!-- end : Videos ------------------------------------------>
+
                 </div>
             </div>
-        </div>
     </section>
 <?php $__env->stopSection(); ?>
 
@@ -57,11 +63,11 @@
 
         function fetch_data(page) {
             $.ajax({
-                url: '/<?php echo Lang(); ?>/courses-paging/' + '?page=' + page,
+                url: '/<?php echo Lang(); ?>/photo-albums-paging/' + '?page=' + page,
                 success: function(data) {
-                    $('#courses_data').html(data);
+                    $('#photo_album_data').html(data);
                     $('html, body').animate({
-                        scrollTop: $("#courses_section").offset().top
+                        scrollTop: $("#photo_albums_section").offset().top
                     }, 1000);
                 }
             });
@@ -69,4 +75,4 @@
     </script>
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make('layouts.site', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\bakka\resources\views/site/courses.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.site', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\bakka\resources\views/site/photo-albums.blade.php ENDPATH**/ ?>

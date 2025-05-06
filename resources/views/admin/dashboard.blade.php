@@ -362,8 +362,13 @@
                                                     <tr>
                                                         <td>{!! $key + 1 !!}</td>
                                                         <td>
-                                                            <img src="{{ asset('adminBoard/uploadedImages/articles/' . $article->photo) }}"
-                                                                class="img-fluid img-thumbnail table-image " />
+                                                            @if ($article->photo)
+                                                                <img src="{{ asset('adminBoard/uploadedImages/articles/' . $article->photo) }}"
+                                                                    class="img-fluid img-thumbnail table-image " />
+                                                            @else
+                                                                <img src="{{ asset('adminBoard/images/images-empty.png/' . $article->photo) }}"
+                                                                    class="img-fluid img-thumbnail table-image " />
+                                                            @endif
                                                         </td>
                                                         <td>{!! $article->{'title_' . Lang()} !!}</td>
                                                         <td>{!! $article->views !!}</td>

@@ -1,7 +1,3 @@
-<a href="{!! route('admin.comments', $article->id) !!}" class="btn btn-hover-primary btn-icon btn-pill " title="{{ __('general.comments') }}">
-    <i class="fa fa-comment fa-1x"></i>
-</a>
-
 <a href="{{ route('admin.articles.edit', $article->id) }}" class="btn btn-hover-primary btn-icon btn-pill "
     title="{{ __('general.edit') }}">
     <i class="fa fa-edit fa-1x"></i>

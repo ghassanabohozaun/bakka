@@ -97,6 +97,21 @@
                         </a>
                     </li>
 
+
+                    <li class="nav-item  col ">
+                        <a class="nav-link" href="{!! route('videos') !!}">
+                            {!! __('site.videos') !!}
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item  col ">
+                        <a class="nav-link" href="{!! route('photo.albums') !!}">
+                            {!! __('site.photo_albums') !!}
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
                     <li class="nav-item  col ">
                         <a class="nav-link" href="{!! route('faq') !!}">
                             {!! __('site.faq') !!}

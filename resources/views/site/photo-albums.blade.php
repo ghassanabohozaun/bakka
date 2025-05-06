@@ -12,38 +12,44 @@
 @push('css')
 @endpush
 @section('content')
+    @include('site.includes.header')
+
     <section class="sub-header">
         <div class=" container text-center content-header">
-            <h2 class="mb-3">{!! $title !!}</h2>
-            <p class="text-center fs-16-i">
-            </p>
+            <h2 class="mb-3"> {!! $title !!}</h2>
+            <p class="text-center fs-16-i"> </p>
         </div>
-        <div class="back-sub-header"><img src="{!! asset('site/img/Courses.jpg') !!}" alt=""></div>
+        <div class="back-sub-header">
+            <img src="{!! asset('site/img/Success-Stories.png') !!}" alt="">
+        </div>
     </section>
 
-    <section class=" courses_section py-5 px-4 px-md-0 my-5 pb-6">
-        <div class=" container">
-            <div class=" mt-5 mb-2 fs-24"><span class="text-bold text-warning">&nbsp;</span>
-            </div>
-            <p class="mb-5 ">
-                <!---courses description --->
-            </p>
 
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="col-lg-11 px-md-0">
-                        @if ($courses->isEmpty())
+    <br />
+    </br /> </br /> </br /> </br /> </br />
+    <section id="photo_albums_section">
+        <div class=" container my-5">
+            <div class="row">
+
+                <!-- begin : Videos ------------------------------------------>
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+
+                        @if ($photoAlbums->isEmpty())
                             <img src="{!! asset('site/images/noRecordFound.svg') !!}" class="img-fluid" id="no_data_img"
                                 title="{!! __('site.no_date') !!}">
                         @else
-                            <div id="courses_data">
-                                @include('site.courses-paging')
+                            <div id="photo_album_data">
+                                @include('site.photo-albums-paging')
                             </div>
                         @endif
+
                     </div>
+
+                    <!-- end : Videos ------------------------------------------>
+
                 </div>
             </div>
-        </div>
     </section>
 @endsection
 
@@ -57,11 +63,11 @@
 
         function fetch_data(page) {
             $.ajax({
-                url: '/{!! Lang() !!}/courses-paging/' + '?page=' + page,
+                url: '/{!! Lang() !!}/photo-albums-paging/' + '?page=' + page,
                 success: function(data) {
-                    $('#courses_data').html(data);
+                    $('#photo_album_data').html(data);
                     $('html, body').animate({
-                        scrollTop: $("#courses_section").offset().top
+                        scrollTop: $("#photo_albums_section").offset().top
                     }, 1000);
                 }
             });

@@ -10,11 +10,6 @@ use Illuminate\Http\Request;
 class StudentLoginController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('guest', ['except' => 'logout']);
-    }
-
 
     public function getLogin()
     {

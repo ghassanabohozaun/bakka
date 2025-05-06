@@ -67,6 +67,17 @@
                                 {!! __('site.courses') !!}
                             </a>
                         </div>
+
+                        <div class="col-md-4 mb-1 pb-1">
+                            <a class=" text-white fs-14" href="{!! route('videos') !!}">
+                                {!! __('site.videos') !!}
+                            </a>
+                        </div>
+                        <div class="col-md-4 mb-1 pb-1">
+                            <a class=" text-white fs-14" href="{!! route('photo.albums') !!}">
+                                {!! __('site.photo_albums') !!}
+                            </a>
+                        </div>
                         <div class="col-md-4 mb-1 pb-1">
                             <a class=" text-white fs-14" href="{!! route('faq') !!}">
                                 {!! __('site.faq') !!}

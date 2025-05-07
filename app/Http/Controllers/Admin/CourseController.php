@@ -241,19 +241,19 @@ class CourseController extends Controller
         }
     }
 
-    // change active
-    public function changeActive(Request $request)
+    // change show cost
+    public function changeShowCost(Request $request)
     {
         if ($request->ajax()) {
             $course = Course::find($request->id);
             if (!$course) {
                 return redirect()->route('admin.not.found');
             }
-            if ($request->activeSwitch == 'true') {
-                $course->active = 'on';
+            if ($request->showCostSwitch == 'true') {
+                $course->show_cost = 'on';
                 $course->save();
             } else {
-                $course->active = '';
+                $course->show_cost = '';
                 $course->save();
             }
 

@@ -4,7 +4,7 @@
             <div class="col-auto">
                 <div class="logo-header">
                     <a href="{!! route('index') !!}">
-                        <img src="{!! asset('site/img/logo-white.svg') !!}" width="120" alt="">
+                        <img src="{!! asset('site/img/logo2.jpg') !!}" width="100" alt="">
                     </a>
                 </div>
             </div>
@@ -97,6 +97,12 @@
                         </a>
                     </li>
 
+                    <li class="nav-item  col ">
+                        <a class="nav-link" href="{!! route('articles') !!}">
+                            {!! __('site.articles') !!}
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
 
                     <li class="nav-item  col ">
                         <a class="nav-link" href="{!! route('videos') !!}">

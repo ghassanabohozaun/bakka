@@ -177,6 +177,16 @@
     <script type="text/javascript">
         // Notifications
         $('#notify_section').load("<?php echo route('admin.get.notifications'); ?>");
+        $(".notifications_count").load(location.href + " .notifications_count");
+
+        setInterval(
+            function() {
+                $('#notify_section').load("<?php echo route('admin.get.notifications'); ?>");
+                $(".notifications_count").load(location.href + " .notifications_count");
+            }, 600000);
+        ///50000
+
+
 
         // show notification
         $('body').on('click', '.show_notification_btn', function(e) {

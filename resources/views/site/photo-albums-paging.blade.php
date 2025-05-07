@@ -1,43 +1,39 @@
-<div class="row justify-content-center">
-    @foreach ($photoAlbums as $album)
-        <div class="col-lg-4 col-md-6  mb-4">
-            <div class="">
-                <div class="video-with-icon">
-                    <div class="uk-background-cover uk-height-medium uk-panel  uk-flex uk-flex-center uk-flex-middle br-5"
-                        @if ($album->main_photo) style="background-image: url({!! asset('adminBoard/uploadedImages/albums/' . $album->main_photo) !!});
-                            height: 220px;"
-                        @else
-                        style="background-image: url({!! asset('site/images/noRecordFound.svg') !!});
-                            height: 220px;" @endif>
+<div class="row justify-content-center ">
+
+    @foreach ($photoAlbums as $photoAlbum)
+        <div class="col-lg-4 col-md-4  mb-2">
+            <a href="{!! asset('adminBoard/uploadedImages/albums/' . $photoAlbum->main_photo) !!}" data-fancybox="images-preview-{!! $photoAlbum->id !!}" data-width="1500"
+                data-height="1000" data-thumbs='{"autoStart":true}'>
+
+                <div class="card item-course">
+
+                    @if ($photoAlbum->main_photo)
+                        <img class="card-img-top" src="{!! asset('adminBoard/uploadedImages/albums/' . $photoAlbum->main_photo) !!}" alt="{!! $photoAlbum->{'title_' . Lang()} !!}">
+                    @else
+                        <img class="card-img-top" src="{!! asset('site/images/no_photo_albums.jpg') !!}" alt="{!! $photoAlbum->{'title_' . Lang()} !!}">
+                    @endif
 
 
-                        {{-- <p class="uk-h4">
-                            <a href="https://www.youtube.com/watch?v={!! $video->link !!}" class="my_video_count"
-                                data-id="{{ $video->id }}">
-                                <i class="fas fs-28 text-white fa-play-circle"></i>
-                            </a>
-                        </p> --}}
+                    <div class="card-body content-item">
+                        <p class="card-text col-auto date-item fs-14 text-bold text-dark pt-3 pb-2">
+                            {!! $photoAlbum->{'title_' . Lang()} !!}
+                        </p>
                     </div>
                 </div>
+            </a>
 
-                <div class="content-item">
-                    <div class=" justify-content-between align-items-center mb-3">
-                        <div class=" col-auto date-item fs-14 text-bold text-dark">
-                            <a href="#" class="text-dark my_video_count" data-id="{{ $album->id }}">
-                                {!! $album->{'title_' . Lang()} !!}
-                            </a>
-                        </div>
-                        <div class="col-auto">
-                            <span class=" fs-14 "></span>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center mt-1">
-
-                    </div>
-                </div>
+            <div style="display: none;">
+                @if (\App\UploadFile::where('relation_id', $photoAlbum->id)->count() > 0)
+                    @foreach (\App\UploadFile::get()->where('relation_id', $photoAlbum->id) as $file)
+                        <a href="{!! asset('adminBoard/uploadedImages/albums/' . $file->full_path_after_upload) !!}" data-fancybox="images-preview-{!! $photoAlbum->id !!}"
+                            data-width="1500" data-height="1000" data-thumb="{!! asset('adminBoard/uploadedImages/albums/' . $file->full_path_after_upload) !!}"></a>
+                    @endforeach
+                @endif
             </div>
         </div>
     @endforeach
+
+
 
 </div>
 <section class="content-section">
@@ -52,5 +48,4 @@
 
 
 @push('js')
-    <script type="text/javascript"></script>
 @endpush

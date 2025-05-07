@@ -4,7 +4,7 @@
             <div class="col-auto">
                 <div class="logo-header">
                     <a href="<?php echo route('index'); ?>">
-                        <img src="<?php echo asset('site/img/logo-white.svg'); ?>" width="120" alt="">
+                        <img src="<?php echo asset('site/img/logo2.jpg'); ?>" width="100" alt="">
                     </a>
                 </div>
             </div>
@@ -103,10 +103,25 @@
                         </a>
                     </li>
 
+                    <li class="nav-item  col ">
+                        <a class="nav-link" href="<?php echo route('articles'); ?>">
+                            <?php echo __('site.articles'); ?>
+
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
 
                     <li class="nav-item  col ">
                         <a class="nav-link" href="<?php echo route('videos'); ?>">
                             <?php echo __('site.videos'); ?>
+
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item  col ">
+                        <a class="nav-link" href="<?php echo route('photo.albums'); ?>">
+                            <?php echo __('site.photo_albums'); ?>
 
                             <span class="sr-only">(current)</span>
                         </a>

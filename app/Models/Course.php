@@ -12,7 +12,9 @@ class Course extends Model
     use SoftDeletes;
 
     protected $table = 'courses';
-    protected $fillable = ['title_ar_slug', 'title_en_slug', 'title_ar', 'title_en', 'description_ar', 'description_en', 'hours', 'cost', 'discount', 'zoom_link', 'language', 'status', 'active', 'start_at', 'end_at', 'course_details', 'photo'];
+    protected $fillable = ['title_ar_slug', 'title_en_slug', 'title_ar', 'title_en', 'description_ar',
+    'description_en', 'hours', 'cost', 'discount', 'zoom_link', 'language', 'status', 'show_cost',
+    'start_at', 'end_at', 'course_details', 'photo'];
 
     protected $hidden = ['created_at', 'updated_at'];
 

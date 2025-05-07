@@ -12,8 +12,6 @@
 @push('css')
 @endpush
 @section('content')
-    @include('site.includes.header')
-
     <section class="sub-header">
         <div class=" container text-center content-header">
             <h2 class="mb-3"> {!! $title !!}</h2>
@@ -25,31 +23,31 @@
     </section>
 
 
-    <br />
-    </br /> </br /> </br /> </br /> </br />
-    <section id="videos_section">
+    <section id="videos_section" id="videos_section">
         <div class=" container my-5">
-            <div class="row">
+            <div class=" mt-5 mb-2 fs-24"><span class="text-bold text-warning">&nbsp;</span>
+            </div>
+            <p class="mb-5 "> </p>
 
-                <!-- begin : Videos ------------------------------------------>
-                <div class="row justify-content-center">
-                    <div class="col-lg-12">
-                        <div class="col-lg-11 px-md-0">
-                            @if ($videos->isEmpty())
-                                <img src="{!! asset('site/images/noRecordFound.svg') !!}" class="img-fluid" id="no_data_img"
-                                    title="{!! __('site.no_date') !!}">
-                            @else
-                                <div id="video_data">
-                                    @include('site.videos-paging')
-                                </div>
-                            @endif
-                        </div>
+
+            <!-- begin : Videos ------------------------------------------>
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="col-lg-11 px-md-0">
+                        @if ($videos->isEmpty())
+                            <img src="{!! asset('site/images/noRecordFound.svg') !!}" class="img-fluid" id="no_data_img"
+                                title="{!! __('site.no_date') !!}">
+                        @else
+                            <div id="video_data">
+                                @include('site.videos-paging')
+                            </div>
+                        @endif
                     </div>
                 </div>
-
-                <!-- end : Videos ------------------------------------------>
-
             </div>
+
+            <!-- end : Videos ------------------------------------------>
+
         </div>
     </section>
 @endsection

@@ -184,7 +184,7 @@ class PhotoAlbumsController extends Controller
             //////////////////  delete other Album Photos
             $files = UploadFile::where('relation_id', $request->id)->get();
             foreach ($files as $file) {
-                $public_path = public_path('/adminBoard/uploadedImages/albums_photos//') . $file->full_path_after_upload;
+                $public_path = public_path('/adminBoard/uploadedImages/albums//') . $file->full_path_after_upload;
 
                 if (File::exists($public_path)) {
                     File::delete($public_path);
@@ -218,7 +218,7 @@ class PhotoAlbumsController extends Controller
         if ($request->hasFile('file')) {
 
             $image = $request->file('file');
-            $destinationPath = public_path('/adminBoard/uploadedImages/albums_photos//');
+            $destinationPath = public_path('/adminBoard/uploadedImages/albums//');
             $filePath = $this->saveResizeImage($image, $destinationPath, 1200, 750);
 
             $file = new UploadFile();
@@ -228,7 +228,7 @@ class PhotoAlbumsController extends Controller
             $file->file_after_upload = $request->file('file')->hashName();
             $file->full_path_after_upload = $filePath;
             $file->file_mimes_type = $request->file('file')->getMimeType();
-            $file->file_type = 'photo_albums_photos';
+            $file->file_type = 'photo_albums';
             $file->relation_id = $paid;
             $file->save();
         }
@@ -241,7 +241,7 @@ class PhotoAlbumsController extends Controller
     {
         if ($request->ajax()) {
             $file = UploadFile::find($request->id);
-            $image_path = public_path('/adminBoard/uploadedImages/albums_photos//') . $file->full_path_after_upload;
+            $image_path = public_path('/adminBoard/uploadedImages/albums//') . $file->full_path_after_upload;
             if (File::exists($image_path)) {
                 File::delete($image_path);
             }

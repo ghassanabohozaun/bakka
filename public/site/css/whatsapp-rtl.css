@@ -310,7 +310,7 @@
 
 .wa__btn_w_img .wa__cs_img:after {
     content: "";
-    background: #fff url("https://cdn-icons-png.flaticon.com/128/1384/1384095.png") center center no-repeat;
+    background: #fff url("../images/1384095.png") center center no-repeat;
     background-size: 21px;
     display: block;
     width: 27px;
@@ -328,7 +328,7 @@
 
 .wa__stt_offline.wa__btn_w_img .wa__cs_img:after {
     content: "";
-    background: #fff url("https://cdn-icons-png.flaticon.com/128/1384/1384095.png") center center no-repeat;
+    background: #fff url("../images/1384095.png") center center no-repeat;
     background-size: 21px;
     display: block;
     width: 27px;
@@ -429,7 +429,7 @@
 
 .wa__popup_chat_box .wa__popup_heading:before {
     content: "";
-    background: url("https://cdn-icons-png.flaticon.com/128/1384/1384095.png") center top no-repeat;
+    background: url("../images/1384095.png") center top no-repeat;
     background-size: 33px;
     filter: invert(1) grayscale(100%) brightness(2);
     display: block;
@@ -519,7 +519,7 @@
 
 .wa__popup_chat_box .wa__stt:after {
     content: "";
-    background: url("https://cdn-icons-png.flaticon.com/128/1384/1384095.png") 0 0 no-repeat;
+    background: url("../images/1384095.png") 0 0 no-repeat;
     position: absolute;
     right: 14px;
     top: 26px;
@@ -531,7 +531,7 @@
 }
 
 .wa__popup_chat_box .wa__stt.wa__stt_offline:after {
-    background-image: url("https://cdn-icons-png.flaticon.com/128/1384/1384095.png");
+    background-image: url("../images/1384095.png");
 }
 
 .wa__popup_chat_box .wa__stt.wa__stt_online {
@@ -670,7 +670,7 @@
     width: 20px;
     height: 20px;
     position: relative;
-    background: url("https://cdn-icons-png.flaticon.com/128/1384/1384095.png") 0 0 no-repeat;
+    background: url("../images/1384095.png") 0 0 no-repeat;
     background-size: 100% 100%;
     -webkit-background-size: 100% 100%;
     -moz-background-size: 100% 100%;
@@ -686,7 +686,7 @@
 .wa__popup_call_btn.wa__popup_call_btn_lg:hover:before,
 .wa__popup_call_btn.wa__popup_call_btn_lg:focus:before,
 .wa__popup_call_btn.wa__popup_call_btn_lg:active:before {
-    background-image: url("https://cdn-icons-png.flaticon.com/128/1384/1384095.png");
+    background-image: url("../images/1384095.png");
 }
 
 .wa__popup_chat_box_gray {
@@ -706,7 +706,7 @@
 
 .wa__popup_chat_box_gray .wa__popup_heading_gray:before {
     content: "";
-    background: url("https://cdn-icons-png.flaticon.com/128/1384/1384095.png") center top no-repeat;
+    background: url("../images/1384095.png") center top no-repeat;
     background-size: 33px;
     display: block;
     width: 55px;
@@ -732,7 +732,7 @@
 
 .wa__popup_chat_box_ct .wa__popup_heading_ct:before {
     content: "";
-    background: url("https://cdn-icons-png.flaticon.com/128/1384/1384095.png") center top no-repeat;
+    background: url("../images/1384095.png") center top no-repeat;
     background-size: 30px;
     display: block;
     width: 30px;
@@ -799,7 +799,7 @@
     line-height: 12px;
     display: inline-block;
     padding: 3px 0 0 16px;
-    background: url("https://cdn-icons-png.flaticon.com/128/1384/1384095.png") 0 3px no-repeat;
+    background: url("../images/1384095.png") 0 3px no-repeat;
     background-size: 12px auto;
     -webkit-background-size: 12px auto;
     -moz-background-size: 12px auto;
@@ -857,7 +857,7 @@
     height: 100%;
     left: 0;
     top: 0;
-    background: transparent url("https://cdn-icons-png.flaticon.com/128/1384/1384095.png") center center no-repeat;
+    background: transparent url("../images/1384095.png") center center no-repeat;
     background-size: 30px auto;
     -webkit-background-size: 30px auto;
     -moz-background-size: 30px auto;
@@ -876,7 +876,7 @@
     height: 100%;
     left: 0;
     top: 0;
-    background: transparent url("https://cdn-icons-png.flaticon.com/128/2976/2976286.png") center center no-repeat;
+    background: transparent url("../images/2976286.png") center center no-repeat;
     background-size: 14px auto;
     -webkit-background-size: 14px auto;
     -moz-background-size: 14px auto;

@@ -45,7 +45,7 @@ class StudentController extends Controller
             'email' => $request->email,
             'whatsapp' => $request->whatsapp,
             'gender' => $request->gender,
-            'freeze' => 'on',
+            'freeze' => '',
             'photo' => $photo_path,
         ]);
 

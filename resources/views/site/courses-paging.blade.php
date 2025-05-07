@@ -49,22 +49,6 @@
                         </div>
                     </div>
 
-                    {{-- <div class="file-link d-flex justify-content-between align-items-center mt-3 mb-4 px-2 py-2 br-5"
-                        style="background: #fcf3e7">
-                        <div class="fs-14">
-                            <img src="{!! asset('site/img/pdf-file.svg') !!}" width="16" alt="">
-                            <span class="d-inline-block">
-                                {!! __('site.course_details_download') !!}
-                            </span>
-                        </div>
-                        <div class="download">
-                            <a href="{!! asset(Storage::url($course->course_details)) !!}" target="_blank">
-                                <i class="far fa-arrow-alt-circle-down text-dark"></i>
-                            </a>
-                        </div>
-                    </div> --}}
-
-
                     <div class="row justify-content-between align-items-center">
                         <div class="col-auto">
                             @if (student()->check())
@@ -88,12 +72,14 @@
                         </div>
 
                         <div class="col-auto d-flex align-items-center">
-                            @if (!empty($course->hours))
-                                @if ($course->discount != null || $course->discount != 0)
-                                    <span class="net-price mr-2">{!! $course->discount !!}$</span>
-                                    <span class="old-price">{!! $course->cost !!}$</span>
-                                @else
-                                    <span class="my_price">{!! $course->cost !!}$</span>
+                            @if ($course->show_cost == 'on')
+                                @if (!empty($course->hours))
+                                    @if ($course->discount != null || $course->discount != 0)
+                                        <span class="net-price mr-2">{!! $course->discount !!}$</span>
+                                        <span class="old-price">{!! $course->cost !!}$</span>
+                                    @else
+                                        <span class="my_price">{!! $course->cost !!}$</span>
+                                    @endif
                                 @endif
                             @endif
                         </div>

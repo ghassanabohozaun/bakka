@@ -24,7 +24,7 @@ return [
     'zoom_link' => 'رابط الزوم',
     'language' => 'اللغة',
     'status' => 'الحالة',
-    'active' => 'فعال',
+    'show_cost' => 'عرض السعر',
     'start_at' => 'الدورة تبدأ في',
     'end_at' => 'الدورة تنتهي في',
 
@@ -39,7 +39,7 @@ return [
     'enter_zoom_link' => ' ادخل رابط الزوم',
     'enter_language' => ' ادخل اللغة',
     'enter_status' => ' ادخل الحالة',
-    'enter_active' => ' ادخل فعال',
+    'enter_show_cost' => ' ادخل عرض السعر',
     'enter_start_at' => 'ادخل الدورة تبدأ في',
     'enter_end_at' => 'ادخل الدورة تنتهي في',
 
@@ -71,12 +71,11 @@ return [
     'has_certitfication' => 'يوجد شهادة',
     'certitfication' => 'الشهادة',
     'no_certification' => 'لا يوجد شهادة ',
-    'enroll_agreement'=>'الموافقة علي طلب التسجيل',
-    'cancel_enroll_agreement'=>'الغاء الموافقة علي طلب التسجيل',
-    'do_you_want_to_enroll_agreement'=>'هل تريد الموافقة علي طلب التسجيل',
-    'do_you_want_to_cancel_enroll_agreement'=>'هل تريد الموافقة علي  علي الغاء طلب التسجيل ',
+    'enroll_agreement' => 'الموافقة علي طلب التسجيل',
+    'cancel_enroll_agreement' => 'الغاء الموافقة علي طلب التسجيل',
+    'do_you_want_to_enroll_agreement' => 'هل تريد الموافقة علي طلب التسجيل',
+    'do_you_want_to_cancel_enroll_agreement' => 'هل تريد الموافقة علي  علي الغاء طلب التسجيل ',
     'cannot_be_deleted_because_it_have_students ' => 'لا يمكن حذف الكورس لان هنالك طلاب مسجلين فيه',
-
 
     'file' => 'الملف',
     'file_required' => 'ملف الشهادة مطلوب',

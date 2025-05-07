@@ -84,7 +84,7 @@
                         <!--end::Group-->
 
                         <!--begin::Group-->
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label class="col-xl-3 col-lg-3 col-form-label">
                                 {{ __('articles.file') }}
                             </label>
@@ -101,7 +101,7 @@
                                 <span class="form-text text-danger" id="file_error"></span>
 
                             </div>
-                        </div>
+                        </div> --}}
                         <!--end::Group-->
 
                     </div>

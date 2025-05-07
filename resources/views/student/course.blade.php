@@ -15,7 +15,11 @@
             <div class=" container py-4">
                 <div class="course-dt">
                     <div class="cor-img">
-                        <img src="{!! asset('adminBoard/uploadedImages/courses/' . $course->photo) !!}" style="height: 100%" alt="">
+                        @if ($course->photo)
+                            <img src="{!! asset('adminBoard/uploadedImages/courses/' . $course->photo) !!}" style="height: 100%" alt="{!! $course->{'title_' . Lang()} !!}">
+                        @else
+                            <img src="{!! asset('site/images/courses.jpg') !!}" tyle="height: 100%" alt="{!! $course->{'title_' . Lang()} !!}">
+                        @endif
                     </div>
                     <div class="row  py-3 mt-4">
                         <div class="col-md-10">
@@ -25,17 +29,31 @@
                         </div>
 
                         <div class="col-auto d-flex align-items-center">
-                            @if ($course->discount != null)
-                                <span class="net-price mr-2">{!! $course->discount !!}$</span>
-                                <span class="old-price">{!! $course->cost !!}$</span>
-                            @else
-                                <span class="my_price">{!! $course->cost !!}$</span>
+                            @if ($course->show_cost == 'on')
+                                @if ($course->discount != null)
+                                    <span class="net-price mr-2">{!! $course->discount !!}$</span>
+                                    <span class="old-price">{!! $course->cost !!}$</span>
+                                @else
+                                    <span class="my_price">{!! $course->cost !!}$</span>
+                                @endif
                             @endif
                         </div>
-
                     </div>
 
-
+                    <div class="row mt-1 mx-0 bg-light p-2 br-5">
+                        <div class="col-lg-6 px-1">
+                            <div class="fs-12">
+                                <span>{!! __('site.start_at') !!}</span>
+                                <span dir="{!! Lang() == 'ar' ? 'rtl' : 'ltr' !!}"> {!! $course->start_at !!} </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 px-1">
+                            <div class="fs-12 text-right">
+                                <span>{!! __('site.end_at') !!}</span>
+                                <span dir="{!! Lang() == 'ar' ? 'rtl' : 'ltr' !!}"> {!! $course->end_at !!} </span>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- begin : Course Details  ----------------------------->
 

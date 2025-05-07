@@ -26,7 +26,7 @@ class PhotoAlbum extends Model
     public function files()
     {
         return $this->hasMany('App\UploadFile', 'relation_id', 'id')
-            ->where('file_type', 'photo_albums_photos');
+            ->where('file_type', 'photo_albums');
     }
     ///////////////////////////////////////////////////////////
     /// accessors

@@ -35,10 +35,10 @@ class CourseFactory extends Factory
             'zoom_link' => '',
             'language' => 'ar_en',
             'status' => 'on',
-            'active' => 'on',
+            'show_cost' => '',
             'final_meeting' => '',
-            'start_at' => '',
-            'end_at' => '',
+            'start_at' => $faker->dateTimeBetween('-50 day' ),
+            'end_at' => $faker->dateTimeBetween('-1 day' ),
             'course_details' => '',
             'photo' => '',
         ];

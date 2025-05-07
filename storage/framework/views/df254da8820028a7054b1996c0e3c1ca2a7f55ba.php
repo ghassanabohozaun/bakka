@@ -5,7 +5,7 @@
 
                 <div class=" col-lg-4">
                     <div class="logo-footer  mt-4 mt-md-0">
-                        <img data-aos="fade-down" data-aos-duration="1000" src="<?php echo asset('site/img/logo.svg'); ?>" width="170"
+                        <img data-aos="fade-down" data-aos-duration="1000" src="<?php echo asset('site/img/logo2.jpg'); ?>" width="120"
                             alt="">
                     </div>
                     <p data-aos="fade-down" data-aos-duration="700" class="text-white my-3">
@@ -67,6 +67,13 @@
                         <div class="col-md-4 mb-1 pb-1">
                             <a class=" text-white fs-14" href="<?php echo route('courses'); ?>">
                                 <?php echo __('site.courses'); ?>
+
+                            </a>
+                        </div>
+
+                        <div class="col-md-4 mb-1 pb-1">
+                            <a class=" text-white fs-14" href="<?php echo route('articles'); ?>">
+                                <?php echo __('site.articles'); ?>
 
                             </a>
                         </div>

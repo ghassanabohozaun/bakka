@@ -17,6 +17,12 @@ return [
     'update_account' => 'Update Account',
     'courses' => 'Courses',
     'articles' => 'Articles',
+    'latest_articles'=>'Lastest Articles',
+    'blog'=>'Blog',
+    'publish_date' => 'Publish Date',
+    'publisher'=>'Publisher',
+    'article_details'=>'Article Details',
+
     'hour' => 'Hour',
     'hours' => 'Hours',
     'start_at' => 'Start At',
@@ -25,6 +31,12 @@ return [
     'enroll_now' => 'Enroll Now !',
     'contact_us' => 'Contact us',
     'our_vision' => 'Our Vision',
+    'vision_one'=>'We aspire to be a leading platform for creative education and training in the Arab world.',
+    'vision_two'=>'We seek to make a positive difference in students lives by teaching them the skills necessary to achieve their dreams.',
+    'vision_three'=>'We believe that education is for everyone, regardless of age or current educational level.',
+    'read_more'=> 'Read More',
+
+
     'media' => 'Media',
     'facebook' => 'facebook',
     'instagram' => 'instagram',

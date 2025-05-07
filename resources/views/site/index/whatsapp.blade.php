@@ -17,7 +17,7 @@
                     href="https://web.whatsapp.com/send?phone={!! setting()->site_mobile !!}" class="wa__stt wa__stt_online">
                     <div class="wa__popup_avatar">
                         <div class="wa__cs_img_wrap"
-                            style="background: url(https://cdn-icons-png.flaticon.com/128/15678/15678795.png) center center no-repeat; background-size: cover;">
+                            style="background: url({!! asset('site/images/15678795.png') !!}) center center no-repeat; background-size: cover;">
                         </div>
                     </div>
                     <div class="wa__popup_txt">

@@ -76,8 +76,8 @@
                                                             <th>{!! __('courses.cost') !!}</th>
                                                             <th>{!! __('courses.discount') !!}</th>
                                                             <th>{!! __('courses.students_count') !!}</th>
-
-                                                            <th>{!! __('courses.status') !!}</th>
+                                                            <th>{!! __(key: 'courses.show_cost') !!}</th>
+                                                            <th>{!! __(key: 'courses.status') !!}</th>
                                                             <th class="text-center" style="width: 100px;">
                                                                 {!! __('general.actions') !!}</th>
                                                         </tr>
@@ -95,12 +95,13 @@
                                                                 <td> @include('admin.courses.parts.cost')</td>
                                                                 <td>@include('admin.courses.parts.discount')</td>
                                                                 <td> @include('admin.courses.parts.students-count')</td>
+                                                                <td> @include('admin.courses.parts.show-cost')</td>
                                                                 <td> @include('admin.courses.parts.status')</td>
                                                                 <td>@include('admin.courses.parts.options')</td>
                                                             </tr>
                                                         @empty
                                                             <tr>
-                                                                <td colspan="10" class="text-center">
+                                                                <td colspan="11" class="text-center">
                                                                     {!! __('courses.no_courses_found') !!}
                                                                 </td>
                                                             </tr>
@@ -108,7 +109,7 @@
                                                     </tbody>
                                                     <tfoot>
                                                         <tr>
-                                                            <td colspan="10">
+                                                            <td colspan="11">
                                                                 <div class="float-right">
                                                                     {!! $courses->appends(request()->all())->links() !!}
                                                                 </div>
@@ -244,22 +245,22 @@
         });
 
 
-        //  change active
-        var activeSwitch = false;
-        $('body').on('change', '.change_active', function(e) {
+        //  change show cost
+        var showCostSwitch = false;
+        $('body').on('change', '.change_show_cost', function(e) {
             e.preventDefault();
             var id = $(this).data('id');
 
             if ($(this).is(':checked')) {
-                activeSwitch = $(this).is(':checked');
+                showCostSwitch = $(this).is(':checked');
             } else {
-                activeSwitch = $(this).is(':checked');
+                showCostSwitch = $(this).is(':checked');
             }
 
             $.ajax({
-                url: "{{ route('admin.courses.change.active') }}",
+                url: "{{ route('admin.courses.change.show.cost') }}",
                 data: {
-                    activeSwitch: activeSwitch,
+                    showCostSwitch: showCostSwitch,
                     id: id
                 },
                 type: 'post',
@@ -281,10 +282,10 @@
                             icon: "success",
                             allowOutsideClick: false,
                             customClass: {
-                                confirmButton: 'switch_active_toggle'
+                                confirmButton: 'switch_show_xost_toggle'
                             }
                         });
-                        $('.switch_active_toggle').click(function() {});
+                        $('.switch_show_xost_toggle').click(function() {});
                     }
                 }, //end success
             })

@@ -1,6 +1,6 @@
 <div class="row justify-content-center" uk-lightbox>
     @foreach ($videos as $video)
-        <div class="col-lg-4 col-md-6  mb-4">
+        <div class="col-lg-4 col-md-4  mb-2">
             <div class="item-course">
                 <div class="video-with-icon">
                     <div class="uk-background-cover uk-height-medium uk-panel  uk-flex uk-flex-center uk-flex-middle br-5"

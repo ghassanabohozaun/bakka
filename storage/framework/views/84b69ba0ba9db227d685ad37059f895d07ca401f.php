@@ -2,7 +2,7 @@
     <div class="col-auto">
         <div class="logo-header">
             <a href="<?php echo route('index'); ?>">
-                <img src="<?php echo asset('site/img/logo.svg'); ?>" width="120" alt="">
+                <img src="<?php echo asset('site/img/logo2.jpg'); ?>" width="100" alt="">
             </a>
         </div>
     </div>

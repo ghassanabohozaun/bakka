@@ -122,3 +122,12 @@ p {
     line-height: 1.8rem;
     text-align: justify;
 }
+
+
+#videos_section {
+    margin-top: 100px
+}
+
+#photo_albums_section {
+    margin-top: 100px
+}

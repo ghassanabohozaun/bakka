@@ -44,11 +44,13 @@
                                         </div>
                                     </div>
                                     <div class="col-auto d-flex align-items-center">
-                                        @if ($course->discount != null || $course->discount != 0)
-                                            <span class="net-price mr-2">{!! $course->discount !!}$</span>
-                                            <span class="old-price">{!! $course->cost !!}$</span>
-                                        @else
-                                            <span class="my_price">{!! $course->cost !!}$</span>
+                                        @if ($course->show_cost == 'on')
+                                            @if ($course->discount != null || $course->discount != 0)
+                                                <span class="net-price mr-2">{!! $course->discount !!}$</span>
+                                                <span class="old-price">{!! $course->cost !!}$</span>
+                                            @else
+                                                <span class="my_price">{!! $course->cost !!}$</span>
+                                            @endif
                                         @endif
                                     </div>
                                 </div>

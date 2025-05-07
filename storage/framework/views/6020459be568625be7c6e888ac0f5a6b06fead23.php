@@ -52,9 +52,6 @@
                         </div>
                     </div>
 
-                    
-
-
                     <div class="row justify-content-between align-items-center">
                         <div class="col-auto">
                             <?php if(student()->check()): ?>
@@ -81,12 +78,14 @@
                         </div>
 
                         <div class="col-auto d-flex align-items-center">
-                            <?php if(!empty($course->hours)): ?>
-                                <?php if($course->discount != null || $course->discount != 0): ?>
-                                    <span class="net-price mr-2"><?php echo $course->discount; ?>$</span>
-                                    <span class="old-price"><?php echo $course->cost; ?>$</span>
-                                <?php else: ?>
-                                    <span class="my_price"><?php echo $course->cost; ?>$</span>
+                            <?php if($course->show_cost == 'on'): ?>
+                                <?php if(!empty($course->hours)): ?>
+                                    <?php if($course->discount != null || $course->discount != 0): ?>
+                                        <span class="net-price mr-2"><?php echo $course->discount; ?>$</span>
+                                        <span class="old-price"><?php echo $course->cost; ?>$</span>
+                                    <?php else: ?>
+                                        <span class="my_price"><?php echo $course->cost; ?>$</span>
+                                    <?php endif; ?>
                                 <?php endif; ?>
                             <?php endif; ?>
                         </div>

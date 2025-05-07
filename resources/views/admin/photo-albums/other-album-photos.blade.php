@@ -140,7 +140,7 @@
                         };
                         this.emit('addedfile', mock);
                         this.options.thumbnail.call(this, mock,
-                            '{{ asset('adminBoard/uploadedImages/albums_photos/' . $file->full_path_after_upload) }}'
+                            '{{ asset('adminBoard/uploadedImages/albums/' . $file->full_path_after_upload) }}'
                         );
                     @endforeach
                     this.on('sending', function(file, xhr, formData) {
@@ -161,7 +161,7 @@
 @endpush
 
 @push('css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" />
+    <link rel="stylesheet" href="{!! asset('adminBoard/assets/css/dropzone.min.css') !!}" />
 
     <style>
         .dz-filename {

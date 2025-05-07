@@ -100,7 +100,7 @@
                         <!--end::Group-->
 
                         <!--begin::Group-->
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label class="col-xl-3 col-lg-3 col-form-label">
                                 {{ __('articles.file') }}
                             </label>
@@ -120,7 +120,7 @@
                                         target="_blank" href="{!! asset('adminBoard/uploadedFiles/articles/' . $article->file) !!}">{!! __('general.download') !!}</a>
                                 @endif
                             </div>
-                        </div>
+                        </div> --}}
                         <!--end::Group-->
 
                     </div>

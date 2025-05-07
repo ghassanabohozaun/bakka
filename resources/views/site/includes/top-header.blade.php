@@ -2,7 +2,7 @@
     <div class="col-auto">
         <div class="logo-header">
             <a href="{!! route('index') !!}">
-                <img src="{!! asset('site/img/logo.svg') !!}" width="120" alt="">
+                <img src="{!! asset('site/img/logo2.jpg') !!}" width="100" alt="">
             </a>
         </div>
     </div>

@@ -22,6 +22,13 @@
             </li>
 
             <li class="nav-item  col ">
+                <a class="nav-link" href="{!! route('articles') !!}">
+                    {!! __('site.articles') !!}
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+
+            <li class="nav-item  col ">
                 <a class="nav-link" href="{!! route('videos') !!}">
                     {!! __('site.videos') !!}
                     <span class="sr-only">(current)</span>

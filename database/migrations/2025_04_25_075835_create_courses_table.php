@@ -27,7 +27,7 @@ return new class extends Migration
             $table->text('zoom_link')->nullable();
             $table->enum('language', ['ar', 'ar_en'])->default('ar');
             $table->string('status')->nullable();
-            $table->string('active')->nullable();
+            $table->string('show_cost')->nullable();
             $table->string('final_meeting')->nullable();
             $table->string('start_at')->nullable();
             $table->string('end_at')->nullable();

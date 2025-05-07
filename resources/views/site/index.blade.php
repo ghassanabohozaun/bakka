@@ -16,6 +16,8 @@
     @include('site.index.sub-slider')
     @include('site.index.best-courses')
     @include('site.index.mission')
+    @include('site.index.articles')
+    @include('site.index.testimonials')
     @include('site.index.contact-us')
     @include('site.index.whatsapp')
 @endsection

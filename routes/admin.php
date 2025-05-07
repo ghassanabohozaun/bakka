@@ -162,7 +162,7 @@ Route::group(
             Route::post('/force-delete', [CourseController::class, 'forceDelete'])->name('admin.courses.force.delete');
             Route::post('/restore', [CourseController::class, 'restore'])->name('admin.courses.restore');
             Route::post('/change-status', [CourseController::class, 'changeStatus'])->name('admin.courses.change.status');
-            Route::post('/change-active', [CourseController::class, 'changeActive'])->name('admin.courses.change.active');
+            Route::post('/change-show-cost', [CourseController::class, 'changeShowCost'])->name('admin.courses.change.show.cost');
 
             // enroll
             Route::get('/{id?}/students/', [CourseStudentsController::class, 'index'])->name('admin.course.enroll.student');

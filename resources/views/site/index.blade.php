@@ -11,6 +11,7 @@
 
 @push('css')
 @endpush
+
 @section('content')
     @include('site.index.slider')
     @include('site.index.sub-slider')

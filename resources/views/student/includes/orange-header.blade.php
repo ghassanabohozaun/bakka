@@ -4,7 +4,12 @@
             <div class="col-auto">
                 <div class="logo-header">
                     <a href="{!! route('index') !!}">
-                        <img src="{!! asset('site/img/logo2.jpg') !!}" width="100" alt="">
+                        @if (setting()->site_logo)
+                            <img src="{!! asset('adminBoard/uploadedImages/logos/' . setting()->site_logo) !!}" width="150" class="rounded" alt="{!! setting()->{'site_description_' . Lang()} !!}">
+                        @else
+                            <img src="{!! asset('site/img/logo2.jpg') !!}" width="150" class="rounded"
+                                alt="{!! setting()->{'site_description_' . Lang()} !!}">
+                        @endif
                     </a>
                 </div>
             </div>

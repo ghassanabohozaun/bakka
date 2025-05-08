@@ -3,9 +3,9 @@
         <div class="logo-header">
             <a href="{!! route('index') !!}">
                 @if (setting()->site_logo)
-                    <img src="{!! asset('adminBoard/uploadedImages/logos/' . setting()->site_logo) !!}" width="120" class="rounded" alt="{!! setting()->{'site_description_' . Lang()} !!}">
+                    <img src="{!! asset('adminBoard/uploadedImages/logos/' . setting()->site_logo) !!}" width="200" class="rounded" alt="{!! setting()->{'site_description_' . Lang()} !!}">
                 @else
-                    <img src="{!! asset('site/img/logo2.jpg') !!}" width="120" class="rounded" alt="{!! setting()->{'site_description_' . Lang()} !!}">
+                    <img src="{!! asset('site/img/logo2.jpg') !!}" width="200" class="rounded" alt="{!! setting()->{'site_description_' . Lang()} !!}">
                 @endif
             </a>
         </div>

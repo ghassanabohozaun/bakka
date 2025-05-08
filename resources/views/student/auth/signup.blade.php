@@ -137,9 +137,9 @@
                 },
                 mobile: {
                     required: true,
-                    digits: true,
-                    minlength: 10,
-                    maxlength: 10
+                    // digits: true,
+                    // minlength: 8,
+                    // maxlength: 15
 
                 },
                 whatsapp: {

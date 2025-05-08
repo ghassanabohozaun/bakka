@@ -5,9 +5,17 @@
 
                 <div class=" col-lg-4">
                     <div class="logo-footer  mt-4 mt-md-0">
-                        <img data-aos="fade-down" data-aos-duration="1000" src="<?php echo asset('site/img/logo2.jpg'); ?>" width="120"
-                            alt="">
+                        <a href="<?php echo route('index'); ?>">
+                            <?php if(setting()->site_logo): ?>
+                                <img data-aos="fade-down" data-aos-duration="1000" src="<?php echo asset('adminBoard/uploadedImages/logos/' . setting()->site_logo); ?>"
+                                    width="160" class="rounded" alt="<?php echo setting()->{'site_description_' . Lang()}; ?>">
+                            <?php else: ?>
+                                <img data-aos="fade-down" data-aos-duration="1000" src="<?php echo asset('site/img/logo2.jpg'); ?>"
+                                    width="160" class="rounded" alt="<?php echo setting()->{'site_description_' . Lang()}; ?>">
+                            <?php endif; ?>
+                        </a>
                     </div>
+
                     <p data-aos="fade-down" data-aos-duration="700" class="text-white my-3">
                         <?php echo Lang() == 'ar' ? setting()->site_description_ar : setting()->site_description_en; ?>
 
@@ -19,7 +27,8 @@
                             </a>
                         </li>
                         <li>
-                            <a onclick="return <?php echo setting()->site_instagram ? 'true' : 'false'; ?>;" href="<?php echo setting()->site_instagram; ?>" target="_blank">
+                            <a onclick="return <?php echo setting()->site_instagram ? 'true' : 'false'; ?>;" href="<?php echo setting()->site_instagram; ?>"
+                                target="_blank">
                                 <img src="<?php echo asset('site/img/insta.svg'); ?>" alt="<?php echo __('site.instagram'); ?>">
                             </a>
                         </li>

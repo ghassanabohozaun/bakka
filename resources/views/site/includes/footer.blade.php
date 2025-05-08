@@ -5,9 +5,17 @@
 
                 <div class=" col-lg-4">
                     <div class="logo-footer  mt-4 mt-md-0">
-                        <img data-aos="fade-down" data-aos-duration="1000" src="{!! asset('site/img/logo2.jpg') !!}" width="120"
-                            alt="">
+                        <a href="{!! route('index') !!}">
+                            @if (setting()->site_logo)
+                                <img data-aos="fade-down" data-aos-duration="1000" src="{!! asset('adminBoard/uploadedImages/logos/' . setting()->site_logo) !!}"
+                                    width="160" class="rounded" alt="{!! setting()->{'site_description_' . Lang()} !!}">
+                            @else
+                                <img data-aos="fade-down" data-aos-duration="1000" src="{!! asset('site/img/logo2.jpg') !!}"
+                                    width="160" class="rounded" alt="{!! setting()->{'site_description_' . Lang()} !!}">
+                            @endif
+                        </a>
                     </div>
+
                     <p data-aos="fade-down" data-aos-duration="700" class="text-white my-3">
                         {!! Lang() == 'ar' ? setting()->site_description_ar : setting()->site_description_en !!}
                     </p>
@@ -18,7 +26,8 @@
                             </a>
                         </li>
                         <li>
-                            <a onclick="return {!! setting()->site_instagram ? 'true' : 'false' !!};" href="{!! setting()->site_instagram !!}" target="_blank">
+                            <a onclick="return {!! setting()->site_instagram ? 'true' : 'false' !!};" href="{!! setting()->site_instagram !!}"
+                                target="_blank">
                                 <img src="{!! asset('site/img/insta.svg') !!}" alt="{!! __('site.instagram') !!}">
                             </a>
                         </li>

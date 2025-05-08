@@ -83,8 +83,7 @@
                                                         @forelse($courseStudents as $courseStudent)
                                                             <tr>
                                                                 <td>{!! $loop->iteration !!}</td>
-                                                                <td>{{ $courseStudent->{'name_' . Lang()} }} ||
-                                                                    {{ $courseStudent->id }} </td>
+                                                                <td>{{ $courseStudent->{'name_' . Lang()} }} </td>
                                                                 <td>{{ $courseStudent->email }}</td>
                                                                 <td>{{ $courseStudent->mobile }}</td>
                                                                 <td>{{ $courseStudent->pivot->enrolled_date }} </td>

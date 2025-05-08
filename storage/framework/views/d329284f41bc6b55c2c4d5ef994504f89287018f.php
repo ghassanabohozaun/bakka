@@ -86,8 +86,7 @@
                                                         <?php $__empty_1 = true; $__currentLoopData = $courseStudents; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $courseStudent): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                                             <tr>
                                                                 <td><?php echo $loop->iteration; ?></td>
-                                                                <td><?php echo e($courseStudent->{'name_' . Lang()}); ?> ||
-                                                                    <?php echo e($courseStudent->id); ?> </td>
+                                                                <td><?php echo e($courseStudent->{'name_' . Lang()}); ?> </td>
                                                                 <td><?php echo e($courseStudent->email); ?></td>
                                                                 <td><?php echo e($courseStudent->mobile); ?></td>
                                                                 <td><?php echo e($courseStudent->pivot->enrolled_date); ?> </td>

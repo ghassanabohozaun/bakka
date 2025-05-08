@@ -4,19 +4,16 @@ return [
     'admin_panel' => 'Admin Panel',
     'panels' => "Panels",
     'chart_article' => 'Article views Growth',
-    'chart_tests' => 'Tests Views Growth',
+    'chart_revenues' => 'Student revenues Growth',
     'latest_articles' => 'Latest Articles',
-    'latest_tests' => 'Latest Tests',
+    'latest_courses' => 'Latest Courses',
 
-    'test_counter' => 'Number of Tests',
     'article_counter' => 'Number of Articles',
-    'publication_counter' =>  'Number of Publications',
-    'books_counter' =>  'Number of Books',
-
-    'report_counter' => 'Number of Reports',
-    'new_counter' => 'Number of News',
-    'poster_counter' => 'Number of Posters',
-    'training_counter' => 'Number of Trainings',
+    'courses_counter' =>  'Number of Courses',
+    'students_counter' =>  'Number of Students',
+    'testimonials_counter' => 'Number of Testimonials',
+    'videos_counter' => 'Number of Videos',
+    'albums_counter' => 'Number of Photo Albums',
 
 
 

@@ -40,10 +40,10 @@
             <!--begin::Counters-->
             <div class="row">
 
-                <!------------------------- start articles count ---------->
+                <!------------------------- start courses count ---------->
                 <div class="col-xl-2">
                     <!--begin::Stats Widget 32-->
-                    <div class="card card-custom bg-primary-o-50 card-stretch gutter-b">
+                    <div class="card card-custom bg-danger-o-50 card-stretch gutter-b">
                         <!--begin::Body-->
                         <div class="card-body">
 
@@ -68,22 +68,22 @@
                             <!--end::Svg Icon-->
 
                             <span class="card-title font-weight-bolder font-size-h2 mb-0 mt-6 text-hover-primary d-block">
-                                {{ App\Models\Article::count() }}
+                                {{ App\Models\Course::withoutTrashed()->count() }}
                             </span>
                             <span class="font-weight-bold card_name_span">
-                                {{ __('dashboard.article_counter') }}
+                                {{ __('dashboard.courses_counter') }}
                             </span>
                         </div>
                         <!--end::Body-->
                     </div>
                     <!--end::Stats Widget 32-->
                 </div>
-                <!------------------------- end article count ----------->
+                <!------------------------- end courses count ----------->
 
-                <!------------------------- start articles count ---------->
+                <!------------------------- start students count ---------->
                 <div class="col-xl-2">
                     <!--begin::Stats Widget 32-->
-                    <div class="card card-custom bg-primary-o-50 card-stretch gutter-b">
+                    <div class="card card-custom bg-info-o-50 card-stretch gutter-b">
                         <!--begin::Body-->
                         <div class="card-body">
 
@@ -108,22 +108,22 @@
                             <!--end::Svg Icon-->
 
                             <span class="card-title font-weight-bolder font-size-h2 mb-0 mt-6 text-hover-primary d-block">
-                                {{ App\Models\Article::count() }}
+                                {{ App\Models\Student::withoutTrashed()->count() }}
                             </span>
                             <span class="font-weight-bold card_name_span">
-                                {{ __('dashboard.article_counter') }}
+                                {{ __('dashboard.students_counter') }}
                             </span>
                         </div>
                         <!--end::Body-->
                     </div>
                     <!--end::Stats Widget 32-->
                 </div>
-                <!------------------------- end article count ----------->
+                <!------------------------- end students count ----------->
 
                 <!------------------------- start articles count ---------->
                 <div class="col-xl-2">
                     <!--begin::Stats Widget 32-->
-                    <div class="card card-custom bg-primary-o-50 card-stretch gutter-b">
+                    <div class="card card-custom bg-warning-o-50 card-stretch gutter-b">
                         <!--begin::Body-->
                         <div class="card-body">
 
@@ -148,7 +148,7 @@
                             <!--end::Svg Icon-->
 
                             <span class="card-title font-weight-bolder font-size-h2 mb-0 mt-6 text-hover-primary d-block">
-                                {{ App\Models\Article::count() }}
+                                {{ App\Models\Article::withoutTrashed()->count() }}
                             </span>
                             <span class="font-weight-bold card_name_span">
                                 {{ __('dashboard.article_counter') }}
@@ -160,7 +160,7 @@
                 </div>
                 <!------------------------- end article count ----------->
 
-                <!------------------------- start articles count ---------->
+                <!------------------------- start testimonials count ---------->
                 <div class="col-xl-2">
                     <!--begin::Stats Widget 32-->
                     <div class="card card-custom bg-primary-o-50 card-stretch gutter-b">
@@ -189,22 +189,22 @@
                             <!--end::Svg Icon-->
 
                             <span class="card-title font-weight-bolder font-size-h2 mb-0 mt-6 text-hover-primary d-block">
-                                {{ App\Models\Article::count() }}
+                                {{ App\Models\Testimonial::withoutTrashed()->count() }}
                             </span>
                             <span class="font-weight-bold card_name_span">
-                                {{ __('dashboard.article_counter') }}
+                                {{ __('dashboard.testimonials_counter') }}
                             </span>
                         </div>
                         <!--end::Body-->
                     </div>
                     <!--end::Stats Widget 32-->
                 </div>
-                <!------------------------- end article count ----------->
+                <!------------------------- end testimonials count ----------->
 
-                <!------------------------- start articles count ---------->
+                <!------------------------- start videos count ---------->
                 <div class="col-xl-2">
                     <!--begin::Stats Widget 32-->
-                    <div class="card card-custom bg-primary-o-50 card-stretch gutter-b">
+                    <div class="card card-custom bg-dark-o-50 card-stretch gutter-b">
                         <!--begin::Body-->
                         <div class="card-body">
 
@@ -230,22 +230,22 @@
                             <!--end::Svg Icon-->
 
                             <span class="card-title font-weight-bolder font-size-h2 mb-0 mt-6 text-hover-primary d-block">
-                                {{ App\Models\Article::count() }}
+                                {{ App\Models\Video::withoutTrashed()->count() }}
                             </span>
                             <span class="font-weight-bold card_name_span">
-                                {{ __('dashboard.article_counter') }}
+                                {{ __('dashboard.videos_counter') }}
                             </span>
                         </div>
                         <!--end::Body-->
                     </div>
                     <!--end::Stats Widget 32-->
                 </div>
-                <!------------------------- end article count ----------->
+                <!------------------------- end videos count ----------->
 
-                <!------------------------- start articles count ---------->
+                <!------------------------- start albums count ---------->
                 <div class="col-xl-2">
                     <!--begin::Stats Widget 32-->
-                    <div class="card card-custom bg-primary-o-50 card-stretch gutter-b">
+                    <div class="card card-custom bg-success-o-50 card-stretch gutter-b">
                         <!--begin::Body-->
                         <div class="card-body">
 
@@ -271,17 +271,17 @@
                             <!--end::Svg Icon-->
 
                             <span class="card-title font-weight-bolder font-size-h2 mb-0 mt-6 text-hover-primary d-block">
-                                {{ App\Models\Article::count() }}
+                                {{ App\Models\PhotoAlbum::withoutTrashed()->count() }}
                             </span>
                             <span class="font-weight-bold card_name_span">
-                                {{ __('dashboard.article_counter') }}
+                                {{ __('dashboard.albums_counter') }}
                             </span>
                         </div>
                         <!--end::Body-->
                     </div>
                     <!--end::Stats Widget 32-->
                 </div>
-                <!------------------------- end article count ----------->
+                <!------------------------- end albums count ----------->
 
             </div>
             <!--end::Counters-->
@@ -293,15 +293,15 @@
                     <div class="container-fluid">
                         <div class="row">
 
-                            {{-- <!--begin::test chart-->
+                            <!--begin::students enroll chart-->
                             <div class="col-lg-6">
                                 <div class="col-12">
                                     <div style="width: 100% ; margin: auto">
-                                        <canvas id="barChart1" width="1100" height="600"></canvas>
+                                        <canvas id="barChart" width="1100" height="600"></canvas>
                                     </div>
                                 </div>
                             </div>
-                            <!--end::test chart--> --}}
+                            <!--end::students enroll chart-->
 
                             <!--begin::article charts -->
                             <div class="col-lg-6">
@@ -313,9 +313,6 @@
                             </div>
                             <!--end::article chart-->
 
-
-
-
                         </div>
                     </div>
                 </div>
@@ -325,15 +322,73 @@
             <!--end::chart-->
 
 
-            <!--begin::Last Articles-->
+            <!--begin::Last articles and courses-->
             <div class="card card-custom gutter-b ">
 
                 <!--begin::Body-->
                 <div class="card-body py-2" style="">
                     <div class="container-fluid">
                         <div class="row">
+                            <!--begin::courses-->
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <!--begin::Header-->
+                                <div class="card-header border-0 pt-5">
+                                    <h3 class="card-title align-items-start flex-column">
+                                        <span class="card-label font-weight-bolder text-dark">
+                                            {{ __('dashboard.latest_courses') }}
+                                        </span>
+                                    </h3>
+                                </div>
+                                <!--end::Header-->
 
-                            <div class="col-6">
+                                @if ($latest_courses->isEmpty())
+                                    <img src="{!! asset('adminBoard/images/noRecordFound.svg') !!}" class="img-fluid" id="no_data_img">
+                                @else
+                                    <!--begin::Body-->
+                                    <div class="table-responsive ">
+                                        <table class="table" style="text-align: center;vertical-align: middle;">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">{!! __('courses.photo') !!}</th>
+                                                    <th scope="col">{!! __('courses.title_ar') !!}</th>
+                                                    <th scope="col">{!! __('courses.title_en') !!}</th>
+                                                    <th scope="col">{!! __('courses.hours') !!}</th>
+                                                    <th scope="col">{!! __('courses.start_at') !!}</th>
+                                                    <th scope="col">{!! __('courses.end_at') !!}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($latest_courses as $key => $course)
+                                                    <tr>
+                                                        <td>{!! $loop->iteration !!}</td>
+                                                        <td>
+                                                            @if ($course->photo)
+                                                                <img src="{{ asset('adminBoard/uploadedImages/courses/' . $course->photo) }}"
+                                                                    class="img-fluid img-thumbnail table-image " />
+                                                            @else
+                                                                <img src="{{ asset('adminBoard/images/images-empty.png/') }}"
+                                                                    class="img-fluid img-thumbnail table-image " />
+                                                            @endif
+                                                        </td>
+                                                        <td>{!! $course->title_ar !!} </td>
+                                                        <td>{!! $course->title_en !!}</td>
+                                                        <td>{!! $course->hours !!}</td>
+                                                        <td>{!! $course->start_at !!}</td>
+                                                        <td>{!! $course->end_at !!}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                @endif
+                                <!--end::Body-->
+                            </div>
+                            <!--end::courses-->
+
+
+                            <!--begin::articles-->
+                            <div class="col-lg-6 col-md-6 col-sm-12">
                                 <!--begin::Header-->
                                 <div class="card-header border-0 pt-5">
                                     <h3 class="card-title align-items-start flex-column">
@@ -352,7 +407,8 @@
                                                 <tr>
                                                     <th scope="col">#</th>
                                                     <th scope="col">{!! __('articles.photo') !!}</th>
-                                                    <th scope="col">{!! __('articles.title') !!}</th>
+                                                    <th scope="col">{!! __('articles.title_ar') !!}</th>
+                                                    <th scope="col">{!! __('articles.title_en') !!}</th>
                                                     <th scope="col">{!! __('index.views_count') !!}</th>
 
                                                 </tr>
@@ -366,11 +422,12 @@
                                                                 <img src="{{ asset('adminBoard/uploadedImages/articles/' . $article->photo) }}"
                                                                     class="img-fluid img-thumbnail table-image " />
                                                             @else
-                                                                <img src="{{ asset('adminBoard/images/images-empty.png/' . $article->photo) }}"
+                                                                <img src="{{ asset('adminBoard/images/images-empty.png/') }}"
                                                                     class="img-fluid img-thumbnail table-image " />
                                                             @endif
                                                         </td>
-                                                        <td>{!! $article->{'title_' . Lang()} !!}</td>
+                                                        <td>{!! $article->title_ar !!}</td>
+                                                        <td>{!! $article->title_en !!}</td>
                                                         <td>{!! $article->views !!}</td>
                                                     </tr>
                                                 @endforeach
@@ -379,56 +436,8 @@
                                     </div>
                                 @endif
                             </div>
+                            <!--end::articles-->
 
-
-
-                            {{-- <div class="col-6">
-                                <!--begin::Header-->
-                                <div class="card-header border-0 pt-5">
-                                    <h3 class="card-title align-items-start flex-column">
-                                        <span class="card-label font-weight-bolder text-dark">
-                                            {{ __('dashboard.latest_tests') }}
-                                        </span>
-                                    </h3>
-                                </div>
-                                <!--end::Header-->
-
-                                @if ($latest_tests->isEmpty())
-                                    <img src="{!! asset('adminBoard/images/noRecordFound.svg') !!}" class="img-fluid" id="no_data_img">
-                                @else
-                                    <!--begin::Body-->
-
-                                    <div class="table-responsive ">
-                                        <table class="table" style="text-align: center;vertical-align: middle;">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">{!! __('tests.test_name') !!}</th>
-                                                    <th scope="col">{!! __('tests.number_times_of_use') !!}</th>
-                                                    <th scope="col">{!! __('tests.added_date') !!}</th>
-
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($latest_tests as $key => $test)
-                                                    <tr>
-                                                        <td>{!! $key + 1 !!}</td>
-                                                        <td>{!! $test->test_name !!} </td>
-                                                        <td>{!! $test->number_times_of_use !!}</td>
-                                                        <td>{!! $test->added_date !!}</td>
-
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                @endif
-
-
-
-                                <!--end::Body-->
-
-                            </div> --}}
 
 
                         </div>
@@ -437,7 +446,7 @@
                 <!--end::Body-->
 
             </div>
-            <!--end::Last Articles-->
+            <!--end::Last articles and courses-->
 
         </div>
         <!--end::Container-->
@@ -450,6 +459,36 @@
 @push('js')
     <script type="text/javascript" src="{!! asset('adminBoard/assets/js/Chart.bundle.min.js') !!}"></script>
     <script type="text/javascript">
+        $(function() {
+            var datas = <?php echo json_encode($revenueData); ?>;
+            var barCanvas = $("#barChart");
+            var barChart = new Chart(barCanvas, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov',
+                        'Dec'
+                    ],
+                    datasets: [{
+                        label: '{!! trans('dashboard.chart_revenues') !!}',
+                        data: datas,
+                        backgroundColor: ['red', 'orange', 'yellow', 'green', 'blue', 'violet',
+                            'purple', 'pink', 'indigo', 'silver', 'gold', 'brown'
+                        ]
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxis: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            })
+        });
+
+
         $(function() {
             var articleData = <?php echo json_encode($articleData); ?>;
             var barCanvas = $("#barChart2");

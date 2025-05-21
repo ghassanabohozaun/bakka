@@ -43,36 +43,24 @@
                                     {!! Lang() == 'ar' ? $course->description_ar : $course->description_en !!}
                                 </p>
 
-
-                                <div class="row mt-4 mb-2 mx-0 bg-light p-2 br-5">
-                                    <div class="col-lg-6 px-1">
-                                        <div class="fs-12">
-                                            <span>{!! __('site.start_at') !!}</span>
-                                            <span dir="{!! Lang() == 'ar' ? 'rtl' : 'ltr' !!}"> {!! $course->start_at !!} </span>
+                                @if (!empty($course->start_at) || $course->start_at != '')
+                                    <div class="row mt-4 mb-2 mx-0 bg-light p-2 br-5">
+                                        <div class="col-lg-6 px-1">
+                                            <div class="fs-12">
+                                                <span>{!! __('site.start_at') !!}</span>
+                                                <span dir="{!! Lang() == 'ar' ? 'rtl' : 'ltr' !!}"> {!! $course->start_at !!} </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 px-1">
+                                            <div class="fs-12">
+                                                <span>{!! __('site.end_at') !!}</span>
+                                                <span dir="{!! Lang() == 'ar' ? 'rtl' : 'ltr' !!}"> {!! $course->end_at !!} </span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 px-1">
-                                        <div class="fs-12">
-                                            <span>{!! __('site.end_at') !!}</span>
-                                            <span dir="{!! Lang() == 'ar' ? 'rtl' : 'ltr' !!}"> {!! $course->end_at !!} </span>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endif
 
-                                {{-- <div class="file-link d-flex justify-content-between align-items-center mt-3 mb-4 px-2 py-2 br-5"
-                                    style="background: #fcf3e7">
-                                    <div class="fs-14">
-                                        <img src="{!! asset('site/img/pdf-file.svg') !!}" width="16" alt="">
-                                        <span class="d-inline-block">
-                                            {!! __('site.course_details_download') !!}
-                                        </span>
-                                    </div>
-                                    <div class="download">
-                                        <a href="{!! asset(Storage::url($course->course_details)) !!}" target="_blank">
-                                            <i class="far fa-arrow-alt-circle-down text-dark"></i>
-                                        </a>
-                                    </div>
-                                </div> --}}
+
 
                                 <div class="row justify-content-between align-items-center">
 
@@ -98,19 +86,20 @@
                                         @endif
                                     </div>
 
-                                    <div class="col-auto d-flex align-items-center">
-                                        @if ($course->show_cost == 'on')
-                                            @if (!empty($course->cost))
-                                                @if ($course->discount != null || $course->discount != 0)
-                                                    <span class="net-price mr-2">{!! $course->discount !!}$</span>
-                                                    <span class="old-price">{!! $course->cost !!}$</span>
-                                                @else
-                                                    <span class="my_price">{!! $course->cost !!}$</span>
+                                    @if (!empty($course->cost) || $course->cost != '')
+                                        <div class="col-auto d-flex align-items-center">
+                                            @if ($course->show_cost == 'on')
+                                                @if (!empty($course->cost))
+                                                    @if ($course->discount != null || $course->discount != 0)
+                                                        <span class="net-price mr-2">{!! $course->discount !!}$</span>
+                                                        <span class="old-price">{!! $course->cost !!}$</span>
+                                                    @else
+                                                        <span class="my_price">{!! $course->cost !!}$</span>
+                                                    @endif
                                                 @endif
                                             @endif
-                                        @endif
-                                    </div>
-
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>

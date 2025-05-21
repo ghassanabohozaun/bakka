@@ -29,7 +29,7 @@ class SlidersRequest extends FormRequest
             'details_ar' => 'required',
             'details_en' => 'required_if:site_lang_en,on',
             'order' => 'required|numeric',
-            'photo' => 'required_without:hidden_photo|image|mimes:jpeg,jpg,png|max:2048',
+            'photo' => 'required_without:hidden_photo|image|mimes:jpeg,jpg,png|max:5048',
         ];
     }
 

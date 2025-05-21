@@ -39,7 +39,7 @@ return [
     'in' => 'The entered value incorrect',
     'unique' => 'The entered value is Duplicate',
     'mimes' => 'Photo with jpeg, jpg, png formats only',
-    'image_max' => 'Max allow photo size 2 mega',
+    'image_max' => 'Max allow photo size 5 mega',
     'photo_required' => 'Slider Photo Required',
     'exist_number' => 'Exist Number',
 

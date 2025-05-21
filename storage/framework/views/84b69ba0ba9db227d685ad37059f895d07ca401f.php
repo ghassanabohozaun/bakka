@@ -3,9 +3,9 @@
         <div class="logo-header">
             <a href="<?php echo route('index'); ?>">
                 <?php if(setting()->site_logo): ?>
-                    <img src="<?php echo asset('adminBoard/uploadedImages/logos/' . setting()->site_logo); ?>" width="100" class="rounded" alt="<?php echo setting()->{'site_description_' . Lang()}; ?>">
+                    <img src="<?php echo asset('adminBoard/uploadedImages/logos/' . setting()->site_logo); ?>" width="150" class="rounded" alt="<?php echo setting()->{'site_description_' . Lang()}; ?>">
                 <?php else: ?>
-                    <img src="<?php echo asset('site/img/logo2.jpg'); ?>" width="100" class="rounded" alt="<?php echo setting()->{'site_description_' . Lang()}; ?>">
+                    <img src="<?php echo asset('site/img/logo2.jpg'); ?>" width="150" class="rounded" alt="<?php echo setting()->{'site_description_' . Lang()}; ?>">
                 <?php endif; ?>
             </a>
         </div>

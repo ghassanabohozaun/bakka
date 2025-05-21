@@ -37,20 +37,22 @@
                     </p>
 
 
-                    <div class="row mt-4 mb-2 mx-0 bg-light p-2 br-5">
-                        <div class="col-lg-6 px-1">
-                            <div class="fs-12">
-                                <span><?php echo __('site.start_at'); ?></span>
-                                <span dir="<?php echo Lang() == 'ar' ? 'rtl' : 'ltr'; ?>"> <?php echo $course->start_at; ?> </span>
+                    <?php if(!empty($course->start_at) || $course->start_at != ''): ?>
+                        <div class="row mt-4 mb-2 mx-0 bg-light p-2 br-5">
+                            <div class="col-lg-6 px-1">
+                                <div class="fs-12">
+                                    <span><?php echo __('site.start_at'); ?></span>
+                                    <span dir="<?php echo Lang() == 'ar' ? 'rtl' : 'ltr'; ?>"> <?php echo $course->start_at; ?> </span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 px-1">
+                                <div class="fs-12">
+                                    <span><?php echo __('site.end_at'); ?></span>
+                                    <span dir="<?php echo Lang() == 'ar' ? 'rtl' : 'ltr'; ?>"> <?php echo $course->end_at; ?> </span>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 px-1">
-                            <div class="fs-12">
-                                <span><?php echo __('site.end_at'); ?></span>
-                                <span dir="<?php echo Lang() == 'ar' ? 'rtl' : 'ltr'; ?>"> <?php echo $course->end_at; ?> </span>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endif; ?>
 
                     <div class="row justify-content-between align-items-center">
                         <div class="col-auto">

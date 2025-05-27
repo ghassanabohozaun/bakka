@@ -66,7 +66,7 @@
                                     <div class="col-12">
                                         <div class="scroll">
                                             <div class="table-responsive">
-                                                <table class="table myTable table-hover" id="myTable">
+                                                <table class="table  table-hover" id="myTable">
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
@@ -75,6 +75,7 @@
                                                             <th><?php echo __('courses.mobile'); ?></th>
                                                             <th><?php echo __('courses.enrolled_date'); ?></th>
                                                             <th><?php echo __('courses.has_certitfication'); ?></th>
+                                                            <th><?php echo __('courses.payed'); ?></th>
                                                             <th><?php echo __('courses.enroll_agreement'); ?></th>
                                                             <th class="text-center" style="width: 100px;">
                                                                 <?php echo __('general.actions'); ?>
@@ -91,6 +92,7 @@
                                                                 <td><?php echo e($courseStudent->mobile); ?></td>
                                                                 <td><?php echo e($courseStudent->pivot->enrolled_date); ?> </td>
                                                                 <td><?php echo $__env->make('admin.courses.enroll-list.parts.certification', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></td>
+                                                                <td><?php echo $__env->make('admin.courses.enroll-list.parts.payed', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></td>
                                                                 <td>
                                                                     <div class="cst-switch switch-sm">
                                                                         <input type="checkbox" id="enroll_agreement_status"

@@ -12,6 +12,8 @@ return [
     'enrolled_list' => 'Enrolled List',
     'enroll_student' => 'Enroll Student',
     'students_count' => 'Student Count',
+    'payed' => 'Payed',
+    'not_payed' => 'Not Payed',
 
     'photo' => 'Photo',
     'title_ar' => 'Title | ar',

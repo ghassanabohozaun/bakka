@@ -12,6 +12,8 @@ return [
     'enrolled_list' => 'قائمة المسجلين',
     'enroll_student' => 'تسجيل طالب جديد',
     'students_count' => 'عدد الطلاب',
+    'payed' => 'مدفوع',
+    'not_payed' => 'غير مدفوع',
 
     'photo' => 'الصورة',
     'title_ar' => 'العنوان | عربي',

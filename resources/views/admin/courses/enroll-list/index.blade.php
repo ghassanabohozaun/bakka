@@ -64,7 +64,7 @@
                                     <div class="col-12">
                                         <div class="scroll">
                                             <div class="table-responsive">
-                                                <table class="table myTable table-hover" id="myTable">
+                                                <table class="table  table-hover" id="myTable">
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
@@ -73,6 +73,7 @@
                                                             <th>{!! __('courses.mobile') !!}</th>
                                                             <th>{!! __('courses.enrolled_date') !!}</th>
                                                             <th>{!! __('courses.has_certitfication') !!}</th>
+                                                            <th>{!! __('courses.payed') !!}</th>
                                                             <th>{!! __('courses.enroll_agreement') !!}</th>
                                                             <th class="text-center" style="width: 100px;">
                                                                 {!! __('general.actions') !!}
@@ -88,6 +89,7 @@
                                                                 <td>{{ $courseStudent->mobile }}</td>
                                                                 <td>{{ $courseStudent->pivot->enrolled_date }} </td>
                                                                 <td>@include('admin.courses.enroll-list.parts.certification')</td>
+                                                                <td>@include('admin.courses.enroll-list.parts.payed')</td>
                                                                 <td>
                                                                     <div class="cst-switch switch-sm">
                                                                         <input type="checkbox" id="enroll_agreement_status"

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->enum('notify_for', ['admin', 'student'])->default('admin');
             $table->integer('notify_to')->nullable();
             $table->foreignId('admin_id')->nullable()->constrained('admins')->cascadeOnDelete();
-            $table->foreignId('student_id')->constrained('students')->cascadeOnDelete();
+            $table->foreignId('student_id')->nullable()->constrained('students')->cascadeOnDelete();
             $table->timestamps();
         });
     }

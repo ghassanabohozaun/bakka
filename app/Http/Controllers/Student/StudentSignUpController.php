@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StudentRequest;
+use App\Models\Notification;
 use App\Models\Student;
 use App\Traits\GeneralTrait;
 use Illuminate\Http\Request;
@@ -25,7 +26,7 @@ class StudentSignUpController extends Controller
         $student = Student::where('email', $request->email)->first();
 
         if (!$student) {
-            $student = Student::create([
+            $studentCreated = Student::create([
                 'name_ar' => $request->name_ar,
                 'name_en' => $request->name_en,
                 'password' => bcrypt($request->password),
@@ -35,6 +36,30 @@ class StudentSignUpController extends Controller
                 'gender' => $request->gender,
                 'freeze' => 'on',
                 'photo' => '',
+            ]);
+
+            //  Admin notification
+            Notification::create([
+                'title_ar' => 'تنبيه تسجيل طالب جديد في الموقع ',
+                'title_en' => 'Sign Up New Student Notification',
+                'details_ar' => ' قام الطالب ' . $request->name_ar . ' بالتسجيل في الموقع ',
+                'details_en' => ' The Student ' . $request->name_en . ' sign up in website',
+                'notify_status' => 'send',
+                'notify_class' => 'unread',
+                'notify_for' => 'admin',
+            ]);
+
+
+            // student notification
+            Notification::create([
+                'title_ar' => 'تم تسجيلك في الموقع بنجاح',
+                'title_en' => 'Successfully Sign Up In Website',
+                'details_ar' => ' تمت عملية تسجيلك كطالب جديد معنا ' ,
+                'details_en' => ' Your Sign Up As Student Successfully' ,
+                'notify_status' => 'send',
+                'notify_class' => 'unread',
+                'notify_for' => 'student',
+                'student_id' => $studentCreated->id,
             ]);
 
             return $this->returnSuccessMessage(__('site.signup_success_message'));

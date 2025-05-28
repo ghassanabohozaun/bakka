@@ -118,50 +118,50 @@
 
                             <div class="col-md-4 col-6 px-2" data-aos="fade-down" data-aos-duration="1700">
                                 <a href="<?php echo asset('site/img/e1.jpg'); ?>">
-                                    <img src="<?php echo asset('site/img/e1.jpg'); ?>" alt="">
+                                    <img src="<?php echo asset('site/img/footer/1.jpg'); ?>" alt="">
                                 </a>
                             </div>
                             <div class="col-md-4 col-6 px-2" data-aos="fade-down" data-aos-duration="1700">
                                 <a href="<?php echo asset('site/img/e2.jpg'); ?>">
-                                    <img src="<?php echo asset('site/img/e2.jpg'); ?>" alt="">
+                                    <img src="<?php echo asset('site/img/footer/2.jpg'); ?>" alt="">
                                 </a>
                             </div>
 
                             <div class="col-md-4 col-6 px-2" data-aos="fade-down" data-aos-duration="1700">
                                 <a href="<?php echo asset('site/img/e3.jpg'); ?>">
-                                    <img src="<?php echo asset('site/img/e3.jpg'); ?>" alt="">
+                                    <img src="<?php echo asset('site/img/footer/3.jpg'); ?>" alt="">
                                 </a>
                             </div>
                             <div class="col-md-4 col-6 px-2" data-aos="fade-down" data-aos-duration="1700">
                                 <a href="<?php echo asset('site/img/e4.jpg'); ?>">
-                                    <img src="<?php echo asset('site/img/e4.jpg'); ?>" alt="">
+                                    <img src="<?php echo asset('site/img/footer/4.jpg'); ?>" alt="">
                                 </a>
                             </div>
                             <div class="col-md-4 col-6 px-2" data-aos="fade-down" data-aos-duration="1700">
                                 <a href="<?php echo asset('site/img/e5.jpg'); ?>">
-                                    <img src="<?php echo asset('site/img/e5.jpg'); ?>" alt="">
+                                    <img src="<?php echo asset('site/img/footer/5.jpg'); ?>" alt="">
                                 </a>
                             </div>
                             <div class="col-md-4 col-6 px-2" data-aos="fade-down" data-aos-duration="1700">
                                 <a href="<?php echo asset('site/img/e6.jpg'); ?>">
-                                    <img src="<?php echo asset('site/img/e6.jpg'); ?>" alt="">
+                                    <img src="<?php echo asset('site/img/footer/6.jpg'); ?>" alt="">
                                 </a>
                             </div>
                             <div class="col-md-4 col-6 px-2" data-aos="fade-down" data-aos-duration="1700">
                                 <a href="<?php echo asset('site/img/e7.jpg'); ?>">
-                                    <img src="<?php echo asset('site/img/e7.jpg'); ?>" alt="">
+                                    <img src="<?php echo asset('site/img/footer/7.jpg'); ?>" alt="">
                                 </a>
                             </div>
 
                             <div class="col-md-4 col-6 px-2" data-aos="fade-down" data-aos-duration="1700">
                                 <a href="<?php echo asset('site/img/e8.jpg'); ?>">
-                                    <img src="<?php echo asset('site/img/e8.jpg'); ?>" alt="">
+                                    <img src="<?php echo asset('site/img/footer/8.jpg'); ?>" alt="">
                                 </a>
                             </div>
 
                             <div class="col-md-4 col-6 px-2" data-aos="fade-down" data-aos-duration="1700">
                                 <a href="<?php echo asset('site/img/e9.jpg'); ?>">
-                                    <img src="<?php echo asset('site/img/e9.jpg'); ?>" alt="">
+                                    <img src="<?php echo asset('site/img/footer/9.jpg'); ?>" alt="">
                                 </a>
                             </div>
 

@@ -19,7 +19,7 @@ class SettingsSeeder extends Seeder
             'site_lang_ar' => 'on',
             'site_lang_en' => 'on',
             'lang_front_button_status' => 'on',
-            'site_mobile'=>'00218934636533',
+            'site_mobile'=>'218934636533',
         ]);
     }
 }

@@ -14,7 +14,7 @@
         <div class="wa__popup_content_list">
             <div class="wa__popup_content_item ">
                 <a target="_blank" onclick="return {!! setting()->site_mobile ? 'true' : 'false' !!};"
-                    href="https://web.whatsapp.com/send?phone={!! setting()->site_mobile !!}" class="wa__stt wa__stt_online">
+                    href="https://api.whatsapp.com/send?phone={!! setting()->site_mobile !!}" class="wa__stt wa__stt_online">
                     <div class="wa__popup_avatar">
                         <div class="wa__cs_img_wrap"
                             style="background: url({!! asset('site/images/15678795.png') !!}) center center no-repeat; background-size: cover;">

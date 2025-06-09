@@ -16,6 +16,6 @@ class FaqSeeder extends Seeder
      */
     public function run()
     {
-        FAQ::factory()->count(5)->create();
+        FAQ::factory()->count(1)->create();
     }
 }

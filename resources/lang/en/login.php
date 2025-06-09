@@ -52,6 +52,7 @@ return [
 
     'account_unavailable'=>'Account Unavailable',
     'account_disabled'=>'Account Disabled',
+    'account_active'=>'Please waiting untill active your account',
 
 
 

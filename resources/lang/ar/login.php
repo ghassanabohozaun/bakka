@@ -40,6 +40,7 @@ return [
     'login_failed' => 'فشل عملية تسجيل الدخول',
     'account_unavailable'=>'الحساب غير متوفر',
     'account_disabled'=>'الحساب معطل',
+    'account_active'=>'الرجاء الانتظار حتي يتم تفعيل حسابك',
 
 
     'sign_in_to_teacher'=>' لوحة  تحكم المعلم'

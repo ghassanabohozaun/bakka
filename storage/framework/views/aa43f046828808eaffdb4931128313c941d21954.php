@@ -1,6 +1,5 @@
 <div class="row justify-content-center ">
 
-
     <?php $__currentLoopData = $photoAlbums; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $photoAlbum): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="col-lg-4 col-md-4  mb-2">
             <a href="<?php echo asset('adminBoard/uploadedImages/albums/' . $photoAlbum->main_photo); ?>" data-fancybox="images-preview-<?php echo $photoAlbum->id; ?>" data-width="1500"

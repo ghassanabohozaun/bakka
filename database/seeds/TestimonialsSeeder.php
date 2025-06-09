@@ -15,6 +15,6 @@ class TestimonialsSeeder extends Seeder
      */
     public function run()
     {
-        Testimonial::factory()->count(5)->create();
+        Testimonial::factory()->count(1)->create();
     }
 }

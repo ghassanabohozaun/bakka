@@ -348,7 +348,7 @@
         $('#start_at').datepicker({
             format: "yyyy-mm-dd",
             todayBtn: true,
-            clearBtn: false,
+            clearBtn: true,
             orientation: "bottom auto",
             language: "{{ Lang() }}",
             autoclose: true,
@@ -358,7 +358,7 @@
         $('#end_at').datepicker({
             format: "yyyy-mm-dd",
             todayBtn: true,
-            clearBtn: false,
+            clearBtn: true,
             orientation: "bottom auto",
             language: "{{ Lang() }}",
             autoclose: true,

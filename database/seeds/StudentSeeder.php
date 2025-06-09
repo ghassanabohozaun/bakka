@@ -19,7 +19,7 @@ class StudentSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        Student::factory()->count(5)->create();
+        // Student::factory()->count(5)->create();
 
         Student::create([
             'name_ar' => 'admin',

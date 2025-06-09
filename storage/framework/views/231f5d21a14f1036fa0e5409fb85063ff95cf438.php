@@ -1,10 +1,10 @@
-<?php $__env->startSection('title'); ?> <?php $__env->stopSection(); ?>
+<?php $__env->startSection('title'); ?>
+<?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 
     <!--begin::Subheader-->
     <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
-        <div
-            class=" container-fluid  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class=" container-fluid  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
             <!--begin::Info-->
             <div class="d-flex align-items-center flex-wrap mr-2">
 
@@ -32,8 +32,7 @@
 
             <!--begin::Toolbar-->
             <div class="d-flex align-items-center">
-                <a href="<?php echo route('admin.role.create'); ?>"
-                   class="btn btn-primary btn-sm font-weight-bold font-size-base  mr-1">
+                <a href="<?php echo route('admin.role.create'); ?>" class="btn btn-primary btn-sm font-weight-bold font-size-base  mr-1">
                     <i class="fa fa-plus-square"></i>
                     <?php echo e(__('menu.add_new_permission')); ?>
 
@@ -65,61 +64,63 @@
                                             <div class="table-responsive">
                                                 <table class="table myTable table-hover" id="myTable">
                                                     <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th class="col-lg-1"> <?php echo __('roles.role_name_ar'); ?></th>
-                                                        <th class="col-lg-1"> <?php echo __('roles.role_name_en'); ?></th>
-                                                        <th class="col-lg-9"> <?php echo __('roles.permissions'); ?></th>
-                                                        <th class="text-center" style="width: 100px;"><?php echo __('general.actions'); ?></th>
-                                                    </tr>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th class="col-lg-1"> <?php echo __('roles.role_name_ar'); ?></th>
+                                                            <th class="col-lg-1"> <?php echo __('roles.role_name_en'); ?></th>
+                                                            <th class="col-lg-9"> <?php echo __('roles.permissions'); ?></th>
+                                                            <th class="text-center" style="width: 100px;">
+                                                                <?php echo __('general.actions'); ?></th>
+                                                        </tr>
                                                     </thead>
                                                     <tbody>
-                                                    <?php $__empty_1 = true; $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $role): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                                        <tr>
-                                                            <td><?php echo e($loop->iteration); ?></td>
-                                                            <td><?php echo e($role->role_name_ar); ?></td>
-                                                            <td><?php echo e($role->role_name_en); ?></td>
-                                                            <td><?php $__currentLoopData = config('global.permissions'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                                    <?php echo e(in_array($name,$role->permissions) ? __(config('global.permissions.',$value)).' | ' :''); ?>
+                                                        <?php $__empty_1 = true; $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $role): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                                            <tr>
+                                                                <td><?php echo e($loop->iteration); ?></td>
+                                                                <td><?php echo e($role->role_name_ar); ?></td>
+                                                                <td><?php echo e($role->role_name_en); ?></td>
+                                                                <td>
+                                                                    <?php $__currentLoopData = config('global.permissions'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                        <?php echo e(in_array($name, $role->permissions) ? __(config('global.permissions.', $value)) . ' | ' : ''); ?>
 
-                                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                            </td>
-                                                            <td>
-                                                                <a href="<?php echo route('admin.role.edit',$role->id); ?>"
-                                                                   class="btn btn-hover-primary btn-icon btn-pill "
-                                                                   title="<?php echo e(__('general.edit')); ?>">
-                                                                    <i class="fa fa-edit fa-1x"></i>
-                                                                </a>
-
-
-                                                                <a href="#"
-                                                                   class="btn btn-hover-danger btn-icon btn-pill role_delete_btn"
-                                                                   data-id="<?php echo e($role->id); ?>"
-                                                                   title="<?php echo e(__('general.delete')); ?>">
-                                                                    <i class="fa fa-trash fa-1x"></i>
-                                                                </a>
+                                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="<?php echo route('admin.role.edit', $role->id); ?>"
+                                                                        class="btn btn-hover-primary btn-icon btn-pill "
+                                                                        title="<?php echo e(__('general.edit')); ?>">
+                                                                        <i class="fa fa-edit fa-1x"></i>
+                                                                    </a>
 
 
-                                                            </td>
-                                                        </tr>
-                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                                                        <tr>
-                                                            <td colspan="6" class="text-center">
-                                                                <?php echo __('roles.no_permissions_found'); ?>
+                                                                    <a href="#"
+                                                                        class="btn btn-hover-danger btn-icon btn-pill role_delete_btn"
+                                                                        data-id="<?php echo e($role->id); ?>"
+                                                                        title="<?php echo e(__('general.delete')); ?>">
+                                                                        <i class="fa fa-trash fa-1x"></i>
+                                                                    </a>
 
-                                                            </td>
-                                                        </tr>
-                                                    <?php endif; ?>
+
+                                                                </td>
+                                                            </tr>
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                                            <tr>
+                                                                <td colspan="6" class="text-center">
+                                                                    <?php echo __('roles.no_permissions_found'); ?>
+
+                                                                </td>
+                                                            </tr>
+                                                        <?php endif; ?>
                                                     </tbody>
                                                     <tfoot>
-                                                    <tr>
-                                                        <td colspan="6">
-                                                            <div class="float-right">
-                                                                <?php echo $roles->appends(request()->all())->links(); ?>
+                                                        <tr>
+                                                            <td colspan="6">
+                                                                <div class="float-right">
+                                                                    <?php echo $roles->appends(request()->all())->links(); ?>
 
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
                                                     </tfoot>
                                                 </table>
                                             </div>
@@ -151,11 +152,10 @@
 
 <?php $__env->stopSection(); ?>
 <?php $__env->startPush('js'); ?>
-
     <script type="text/javascript">
         ///////////////////////////////////////////////////////////////////////
         //  delete role notify
-        $(document).on('click', '.role_delete_btn', function (e) {
+        $(document).on('click', '.role_delete_btn', function(e) {
             e.preventDefault();
             var id = $(this).data('id');
 
@@ -167,16 +167,19 @@
                 cancelButtonText: "<?php echo e(__('general.no')); ?>",
                 reverseButtons: false,
                 allowOutsideClick: false,
-            }).then(function (result) {
+            }).then(function(result) {
                 if (result.value) {
                     //////////////////////////////////////
                     // Delete role
                     $.ajax({
                         url: '<?php echo route('admin.role.destroy'); ?>',
-                        data: {id, id},
+                        data: {
+                            id,
+                            id
+                        },
                         type: 'post',
                         dataType: 'json',
-                        success: function (data) {
+                        success: function(data) {
                             console.log(data);
                             if (data.status == true) {
                                 Swal.fire({
@@ -184,9 +187,11 @@
                                     text: "<?php echo __('general.delete_success_message'); ?>",
                                     icon: "success",
                                     allowOutsideClick: false,
-                                    customClass: {confirmButton: 'delete_role_button'}
+                                    customClass: {
+                                        confirmButton: 'delete_role_button'
+                                    }
                                 });
-                                $('.delete_role_button').click(function () {
+                                $('.delete_role_button').click(function() {
                                     $('#myTable').load(location.href + (' #myTable'));
                                 });
                             }
@@ -200,7 +205,7 @@
                                 });
 
                             }
-                        },//end success
+                        }, //end success
                     });
 
                 } else if (result.dismiss === "cancel") {
@@ -209,19 +214,16 @@
                         text: "<?php echo __('general.cancelled_message'); ?>",
                         icon: "error",
                         allowOutsideClick: false,
-                        customClass: {confirmButton: 'cancel_delete_role_button'}
+                        customClass: {
+                            confirmButton: 'cancel_delete_role_button'
+                        }
                     })
                 }
             });
 
 
         });
-
     </script>
-<?php $__env->stopPush(); ?>
-
-<?php $__env->startPush('css'); ?>
-
 <?php $__env->stopPush(); ?>
 
 <?php echo $__env->make('layouts.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\bakka\resources\views/admin/roles/index.blade.php ENDPATH**/ ?>

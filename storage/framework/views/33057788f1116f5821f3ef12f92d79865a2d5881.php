@@ -1,7 +1,8 @@
 <?php $__env->startSection('title'); ?>
 <?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('content'); ?>
-    <form class="form" action="<?php echo e(route('admin.courses.update')); ?>" method="POST" id="form_courses_update">
+    <form class="form" action="<?php echo e(route('admin.testimonial.store')); ?>" method="POST" id="form_testimonials_add">
         <?php echo csrf_field(); ?>
         <!--begin::Subheader-->
         <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
@@ -9,19 +10,21 @@
                 <!--begin::Info-->
                 <div class="d-flex align-items-center flex-wrap mr-2">
 
+
                     <!--begin::Actions-->
                     <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-4 bg-gray-200"></div>
 
                     <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                         <li class="breadcrumb-item">
-                            <a href="<?php echo e(route('admin.courses')); ?>" class="text-muted">
-                                <?php echo e(__('menu.courses')); ?>
+                            <a href="<?php echo e(route('admin.testimonials')); ?>" class="text-muted">
+                                <?php echo e(__('menu.testimonials')); ?>
 
                             </a>
                         </li>
+
                         <li class="breadcrumb-item">
-                            <a href="<?php echo e(route('admin.courses.edit', $course->id)); ?>" class="text-muted">
-                                <?php echo e(__('courses.update_course')); ?>
+                            <a href="" class="text-muted">
+                                <?php echo e(__('menu.add_new_testimonial')); ?>
 
                             </a>
                         </li>
@@ -67,43 +70,27 @@
 
                                                 <!--begin::body-->
                                                 <div class="my-5">
-
                                                     <!--begin::Group-->
                                                     <div class="form-group row d-none">
-                                                        <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            ID
-                                                        </label>
-                                                        <div class="col-lg-9 col-xl-9">
-                                                            <input type="hidden" value="<?php echo e($course->id); ?>"
-                                                                class="form-control form-control-solid form-control-lg"
-                                                                name="id" id="id" autocomplete="off" />
-                                                            <input type="hidden"
-                                                                class="form-control form-control-solid form-control-lg"
-                                                                id='site_lang_en' name="site_lang_en"
-                                                                value="<?php echo setting()->site_lang_en; ?>">
-
-                                                            <input type="hidden"
-                                                                class="form-control form-control-solid form-control-lg"
-                                                                name="hidden_update" value="hidden_update">
-                                                        </div>
+                                                        <input type="text"
+                                                            class="form-control form-control-solid form-control-lg"
+                                                            name='site_lang_ar' id='site_lang_ar'
+                                                            value='<?php echo setting()->site_lang_ar; ?>'>
                                                     </div>
                                                     <!--end::Group-->
-
 
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            <?php echo e(__('courses.photo')); ?>
+                                                            <?php echo e(__('testimonials.photo')); ?>
 
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <div class="image-input image-input-outline"
-                                                                id="kt_course_photo">
-                                                                <!--  style="background-image: url()"-->
-                                                                <div class="image-input-wrapper"
-                                                                    style="background-image: url(<?php echo e(asset('adminBoard/uploadedImages/courses/' . $course->photo)); ?>">
+                                                                id="kt_testimonial_photo">
 
-                                                                </div>
+                                                                <!--  style="background-image: url()"-->
+                                                                <div class="image-input-wrapper"></div>
                                                                 <label
                                                                     class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
                                                                     data-action="change" data-toggle="tooltip"
@@ -132,21 +119,19 @@
                                                     <!--end::Group-->
 
 
-
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            <?php echo e(__('courses.title_ar')); ?>
+                                                            <?php echo e(__('testimonials.name_ar')); ?>
 
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
-                                                            <input value="<?php echo e($course->title_ar); ?>"
-                                                                class="form-control form-control-solid form-control-lg"
-                                                                name="title_ar" id="title_ar" type="text"
-                                                                placeholder=" <?php echo e(__('courses.enter_title_ar')); ?>"
+                                                            <input class="form-control form-control-solid form-control-lg"
+                                                                name="name_ar" id="name_ar" type="text"
+                                                                placeholder=" <?php echo e(__('testimonials.enter_name_ar')); ?>"
                                                                 autocomplete="off" />
 
-                                                            <span class="form-text text-danger" id="title_ar_error"></span>
+                                                            <span class="form-text text-danger" id="name_ar_error"></span>
 
                                                         </div>
                                                     </div>
@@ -155,72 +140,107 @@
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            <?php echo e(__('courses.title_en')); ?>
+                                                            <?php echo e(__('testimonials.name_en')); ?>
 
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
-                                                            <input value="<?php echo e($course->title_en); ?>"
-                                                                class="form-control form-control-solid form-control-lg"
-                                                                name="title_en" id="title_en" type="text"
-                                                                placeholder=" <?php echo e(__('courses.enter_title_en')); ?>"
+                                                            <input class="form-control form-control-solid form-control-lg"
+                                                                name="name_en" id="name_en" type="text"
+                                                                placeholder=" <?php echo e(__('testimonials.enter_name_en')); ?>"
+                                                                autocomplete="off" />
+
+                                                            <span class="form-text text-danger" id="name_en_error"></span>
+
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
+
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            <?php echo e(__('testimonials.age')); ?>
+
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <input class="form-control form-control-solid form-control-lg"
+                                                                name="age" id="age" type="text"
+                                                                placeholder=" <?php echo e(__('testimonials.enter_age')); ?>"
+                                                                autocomplete="off" />
+
+                                                            <span class="form-text text-danger" id="age_error"></span>
+
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
+
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            <?php echo e(__('testimonials.gender')); ?>
+
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+
+                                                            <select class="form-control form-control-solid form-control-lg"
+                                                                name="gender" id="gender" type="text">
+                                                                <option value="">
+                                                                    <?php echo e(__('general.select_from_list')); ?>
+
+                                                                </option>
+                                                                <option value="male">
+                                                                    <?php echo e(__('testimonials.male')); ?>
+
+                                                                </option>
+                                                                <option value="female">
+                                                                    <?php echo e(__('testimonials.female')); ?>
+
+                                                                </option>
+                                                            </select>
+                                                            <span class="form-text text-danger" id="gender_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            <?php echo e(__('testimonials.country')); ?>
+
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+
+                                                            <select class="form-control form-control-solid form-control-lg"
+                                                                name="country" id="country" type="text">
+                                                                <option value=""><?php echo __('general.select_from_list'); ?></option>
+                                                                <?php $__currentLoopData = \App\Models\Country::all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                    <option value="<?php echo e($country->id); ?>">
+                                                                        <?php echo $country->{'name_' . Lang()}; ?>
+
+                                                                    </option>
+                                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                            </select>
+                                                            <span class="form-text text-danger" id="country_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            <?php echo e(__('testimonials.job_title_ar')); ?>
+
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <input class="form-control form-control-solid form-control-lg"
+                                                                name="job_title_ar" id="job_title_ar" type="text"
+                                                                placeholder=" <?php echo e(__('testimonials.enter_job_title_ar')); ?>"
                                                                 autocomplete="off" />
 
                                                             <span class="form-text text-danger"
-                                                                id="title_en_error"></span>
+                                                                id="job_title_ar_error"></span>
 
-                                                        </div>
-                                                    </div>
-                                                    <!--end::Group-->
-
-                                                    <!--begin::Group-->
-                                                    <div class="form-group row">
-                                                        <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            <?php echo e(__('courses.description_ar')); ?>
-
-                                                        </label>
-                                                        <div class="col-lg-9 col-xl-9">
-                                                            <textarea rows="5" class="form-control form-control-solid form-control-lg" name="description_ar"
-                                                                id="description_ar" type="text" placeholder=" <?php echo e(__('courses.enter_description_ar')); ?>" autocomplete="off"><?php echo e($course->description_ar); ?></textarea>
-
-                                                            <span class="form-text text-danger"
-                                                                id="description_ar_error"></span>
-
-                                                        </div>
-                                                    </div>
-                                                    <!--end::Group-->
-
-                                                    <!--begin::Group-->
-                                                    <div class="form-group row">
-                                                        <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            <?php echo e(__('courses.description_en')); ?>
-
-                                                        </label>
-                                                        <div class="col-lg-9 col-xl-9">
-                                                            <textarea rows="5" class="form-control form-control-solid form-control-lg" name="description_en"
-                                                                id="description_en" type="text" placeholder=" <?php echo e(__('courses.enter_description_en')); ?>" autocomplete="off"><?php echo e($course->description_en); ?></textarea>
-
-                                                            <span class="form-text text-danger"
-                                                                id="description_en_error"></span>
-
-                                                        </div>
-                                                    </div>
-                                                    <!--end::Group-->
-
-
-
-                                                    <!--begin::Group-->
-                                                    <div class="form-group row">
-                                                        <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            <?php echo e(__('courses.hours')); ?>
-
-                                                        </label>
-                                                        <div class="col-lg-9 col-xl-9">
-                                                            <input value="<?php echo $course->hours; ?>"
-                                                                class="form-control form-control-solid form-control-lg"
-                                                                name="hours" id="hours" type="text"
-                                                                placeholder=" <?php echo e(__('courses.enter_hours')); ?>"
-                                                                autocomplete="off" />
-                                                            <span class="form-text text-danger" id="hours_error"></span>
                                                         </div>
                                                     </div>
                                                     <!--end::Group-->
@@ -229,89 +249,78 @@
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            <?php echo e(__('courses.cost')); ?>
+                                                            <?php echo e(__('testimonials.job_title_en')); ?>
 
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
-                                                            <input value="<?php echo $course->cost; ?>"
-                                                                class="form-control form-control-solid form-control-lg"
-                                                                name="cost" id="cost" type="text"
-                                                                placeholder=" <?php echo e(__('courses.enter_cost')); ?>"
-                                                                autocomplete="off" />
-                                                            <span class="form-text text-danger" id="cost_error"></span>
-                                                        </div>
-                                                    </div>
-                                                    <!--end::Group-->
-
-
-                                                    <!--begin::Group-->
-                                                    <div class="form-group row">
-                                                        <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            <?php echo e(__('courses.discount')); ?>
-
-                                                        </label>
-                                                        <div class="col-lg-9 col-xl-9">
-                                                            <input value="<?php echo $course->discount; ?>"
-                                                                class="form-control form-control-solid form-control-lg"
-                                                                name="discount" id="discount" type="text"
-                                                                placeholder=" <?php echo e(__('courses.enter_discount')); ?>"
+                                                            <input class="form-control form-control-solid form-control-lg"
+                                                                name="job_title_en" id="job_title_en" type="text"
+                                                                placeholder=" <?php echo e(__('testimonials.enter_job_title_en')); ?>"
                                                                 autocomplete="off" />
                                                             <span class="form-text text-danger"
-                                                                id="discount_error"></span>
-                                                            <span class="form-text text-muted">
-                                                                <?php echo e(__('courses.discount_note')); ?>
-
-                                                            </span>
+                                                                id="job_title_en_error"></span>
                                                         </div>
                                                     </div>
                                                     <!--end::Group-->
 
+
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            <?php echo e(__('courses.start_at')); ?>
+                                                            <?php echo e(__('testimonials.rating')); ?>
 
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
-                                                            <div class="input-group start_at">
-                                                                <input type="text" value="<?php echo $course->start_at; ?>"
-                                                                    class="form-control" id="start_at" name="start_at"
-                                                                    readonly
-                                                                    placeholder="<?php echo e(__('courses.enter_start_at')); ?>" />
-                                                                <div class="input-group-append">
-                                                                    <span class="input-group-text"><i
-                                                                            class="la la-calendar-check-o"></i>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
+
+                                                            <select class="form-control form-control-solid form-control-lg"
+                                                                name="rating" id="rating" type="text">
+
+                                                                <option value="">
+                                                                    <?php echo e(__('general.select_from_list')); ?>
+
+                                                                </option>
+
+                                                                <option value="1">
+                                                                    <?php echo e(__('testimonials.one_star')); ?>
+
+                                                                </option>
+
+                                                                <option value="2">
+                                                                    <?php echo e(__('testimonials.two_star')); ?>
+
+                                                                </option>
+                                                                <option value="3">
+                                                                    <?php echo e(__('testimonials.three_star')); ?>
+
+                                                                </option>
+                                                                <option value="4">
+                                                                    <?php echo e(__('testimonials.four_star')); ?>
+
+                                                                </option>
+                                                                <option value="5">
+                                                                    <?php echo e(__('testimonials.five_star')); ?>
+
+                                                                </option>
+
+                                                            </select>
+                                                            <span class="form-text text-danger" id="rating_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
+
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            <?php echo e(__('testimonials.opinion_ar')); ?>
+
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <textarea rows="10" class="form-control form-control-solid form-control-lg" name="opinion_ar" id="opinion_ar"
+                                                                type="text" placeholder=" <?php echo e(__('testimonials.enter_opinion_ar')); ?>" autocomplete="off"></textarea>
                                                             <span class="form-text text-danger"
-                                                                id="start_at_error"></span>
+                                                                id="opinion_ar_error"></span>
                                                         </div>
-                                                        <!--end::Group-->
-                                                    </div>
-                                                    <!--end::Group-->
-
-                                                    <!--begin::Group-->
-                                                    <div class="form-group row">
-                                                        <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            <?php echo e(__('courses.end_at')); ?>
-
-                                                        </label>
-                                                        <div class="col-lg-9 col-xl-9">
-                                                            <div class="input-group end_at">
-                                                                <input type="text" value="<?php echo $course->end_at; ?>"
-                                                                    class="form-control" id="end_at" name="end_at"
-                                                                    readonly
-                                                                    placeholder="<?php echo e(__('courses.enter_end_at')); ?>" />
-                                                                <div class="input-group-append">
-                                                                    <span class="input-group-text"><i
-                                                                            class="la la-calendar-check-o"></i>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <span class="form-text text-danger" id="end_at_error"></span>
-                                                        </div>
-                                                        <!--end::Group-->
                                                     </div>
                                                     <!--end::Group-->
 
@@ -319,23 +328,20 @@
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            <?php echo e(__('courses.zoom_link')); ?>
+                                                            <?php echo e(__('testimonials.opinion_en')); ?>
 
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
-                                                            <textarea rows="3" class="form-control form-control-solid form-control-lg" name="zoom_link" id="zoom_link"
-                                                                type="text" placeholder=" <?php echo e(__('courses.enter_zoom_link')); ?>" autocomplete="off"><?php echo $course->zoom_link; ?></textarea>
+                                                            <textarea rows="10" class="form-control form-control-solid form-control-lg" name="opinion_en" id="opinion_en"
+                                                                type="text" placeholder=" <?php echo e(__('testimonials.enter_opinion_en')); ?>" autocomplete="off"></textarea>
                                                             <span class="form-text text-danger"
-                                                                id="zoom_link_error"></span>
+                                                                id="opinion_en_error"></span>
                                                         </div>
                                                     </div>
                                                     <!--end::Group-->
-
-
 
                                                 </div>
                                                 <!--begin::body-->
-
                                             </div>
                                         </div>
 
@@ -357,57 +363,39 @@
 
 <?php $__env->startPush('js'); ?>
     <script type="text/javascript">
-        var course_photo = new KTImageInput('kt_course_photo');
+        ////////////////////////////////////////////////////
+        var testimonial_photo = new KTImageInput('kt_testimonial_photo');
 
-        //////////////////////////////////////////////////////
-        $('#start_at').datepicker({
-            format: "yyyy-mm-dd",
-            todayBtn: true,
-            clearBtn: true,
-            orientation: "bottom auto",
-            language: "<?php echo e(Lang()); ?>",
-            autoclose: true,
-            todayHighlight: true,
-        });
-        //////////////////////////////////////////////////////
-        $('#end_at').datepicker({
-            format: "yyyy-mm-dd",
-            todayBtn: true,
-            clearBtn: true,
-            orientation: "bottom auto",
-            language: "<?php echo e(Lang()); ?>",
-            autoclose: true,
-            todayHighlight: true,
-        });
-
-
-        $('#form_courses_update').on('submit', function(e) {
+        $('#form_testimonials_add').on('submit', function(e) {
             e.preventDefault();
             //////////////////////////////////////////////////////////////
-            $('#photo').css('border-color', '');
             $('#title_ar').css('border-color', '');
-            $('#title_en').css('border-color', '');
-            $('#description_ar').css('border-color', '');
-            $('#description_en').css('border-color', '');
-            $('#hours').css('border-color', '');
-            $('#cost').css('border-color', '');
-            $('#discount').css('border-color', '');
-            $('#start_at').css('border-color', '');
-            $('#end_at').css('border-color', '');
-            $('#zoom_link').css('border-color', '');
+            $('#photo').css('border-color', '');
+            $('#language').css('border-color', '');
+            $('#opinion_ar').css('border-color', '');
+            $('#opinion_en').css('border-color', '');
+            $('#name_ar').css('border-color', '');
+            $('#name_en').css('border-color', '');
+            $('#age').css('border-color', '');
+            $('#country').css('border-color', '');
+            $('#gender').css('border-color', '');
+            $('#job_title_ar').css('border-color', '');
+            $('#job_title_en').css('border-color', '');
+            $('#rating').css('border-color', '');
+
 
             $('#photo_error').text('');
-            $('#title_ar_error').text('');
-            $('#title_en_error').text('');
-            $('#description_ar_error').text('');
-            $('#description_en_error').text('');
-            $('#hours_error').text('');
-            $('#cost_error').text('');
-            $('#discount_error').text('');
-            $('#start_at_error').text('');
-            $('#end_at_error').text('');
-            $('#zoom_link_error').text('');
-
+            $('#language_error').text('');
+            $('#opinion_ar_error').text('');
+            $('#opinion_en_error').text('');
+            $('#name_ar_error').text('');
+            $('#name_en_error').text('');
+            $('#age_error').text('');
+            $('#country_error').text('');
+            $('#gender_error').text('');
+            $('#job_title_ar_error').text('');
+            $('#job_title_en_error').text('');
+            $('#rating_error').text('');
             /////////////////////////////////////////////////////////////
             var data = new FormData(this);
             var type = $(this).attr('method');
@@ -428,7 +416,6 @@
                         message: "<?php echo e(__('general.please_wait')); ?>",
                     });
                 }, //end beforeSend
-
                 success: function(data) {
                     KTApp.unblockPage();
                     if (data.status == true) {
@@ -438,11 +425,11 @@
                             icon: "success",
                             allowOutsideClick: false,
                             customClass: {
-                                confirmButton: 'update_user_button'
+                                confirmButton: 'add_testimonials_button'
                             }
                         });
-                        $('.update_user_button').click(function() {
-                            window.location.href = "<?php echo e(route('admin.courses')); ?>";
+                        $('.add_testimonials_button').click(function() {
+                            window.location.href = "<?php echo e(route('admin.testimonials')); ?>";
                         });
                     }
                 }, //end success
@@ -455,7 +442,6 @@
                         $('html, body').animate({
                             scrollTop: 20
                         }, 300);
-
                     });
 
                 }, //end error
@@ -470,4 +456,4 @@
     </script>
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make('layouts.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\bakka\resources\views/admin/courses/update.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\bakka\resources\views/admin/testimonials/create.blade.php ENDPATH**/ ?>

@@ -20,7 +20,7 @@
                                             @endif
                                             @if ($slider->button_status == __('sliders.show'))
                                                 <div>
-                                                    <a href="{!! $slider->{'url_' . Lang()} !!}"
+                                                    <a href="{!! $slider->{'url_' . Lang()} !!}" target="_blank"
                                                         class="btn btn-primary br-20 px-3 fs-14 mr-2">
                                                         {!! __('site.show') !!}
                                                     </a>

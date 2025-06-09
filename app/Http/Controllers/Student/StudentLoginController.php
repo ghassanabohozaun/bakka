@@ -30,7 +30,7 @@ class StudentLoginController extends Controller
             if ($student->freeze == 'on') {
                 return redirect()
                     ->route('get.student.login')
-                    ->with(['error' => __('login.account_disabled')]);
+                    ->with(['error' => __('login.account_active')]);
             } else {
                 if (
                     auth()

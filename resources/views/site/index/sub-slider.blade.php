@@ -62,8 +62,7 @@
 
                                 </div>
                                 <div class="col">
-                                    <div class=" title">{!! __('site.baka_academy') !!}</div>
-                                    <div class="fs-30 number"><span class="timer"></span></div>
+                                    <div class=" title mt-3">{!! __('site.baka_academy') !!}</div>
                                 </div>
                             </div>
                         </div>
@@ -142,7 +141,7 @@
         // Timers
         $('.timer').countTo({
             from: 0,
-            to: "12",
+            to: "0",
             speed: 1000,
             refreshInterval: 50,
             formatter: function(value, options) {
@@ -157,7 +156,7 @@
         });
         $('.timer2').countTo({
             from: 0,
-            to: "1500",
+            to: "12",
             speed: 1000,
             refreshInterval: 50,
             formatter: function(value, options) {

@@ -12,7 +12,6 @@ if (!function_exists('setting')) {
     }
 }
 
-
 //  get visitor counter Helper Function
 if (!function_exists('getVisitorCounter')) {
     function getVisitorCounter()
@@ -52,19 +51,20 @@ function reverseDate($date)
     $date = implode('-', $rev);
     return $date;
 }
-
-function slug($string)
-{
-    $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
-    return preg_replace('/[^\w\s\-]+/u', '', $string);
+if (!function_exists('slug')) {
+    function slug($string)
+    {
+        $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+        return preg_replace('/[^\w\s\-]+/u', '', $string);
+    }
 }
 
-function returnSpaceBetweenString($string)
-{
-    return $string = str_replace('-', ' ', $string); // Replaces all spaces with hyphens.
+if (!function_exists('returnSpaceBetweenString')) {
+    function returnSpaceBetweenString($string)
+    {
+        return $string = str_replace('-', ' ', $string); // Replaces all spaces with hyphens.
+    }
 }
-
-
 
 if (!function_exists('getServicesOnly')) {
     function getServicesOnly()

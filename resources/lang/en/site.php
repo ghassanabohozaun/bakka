@@ -17,11 +17,11 @@ return [
     'update_account' => 'Update Account',
     'courses' => 'Courses',
     'articles' => 'Articles',
-    'latest_articles'=>'Lastest Articles',
-    'blog'=>'Blog',
+    'latest_articles' => 'Lastest Articles',
+    'blog' => 'Blog',
     'publish_date' => 'Publish Date',
-    'publisher'=>'Publisher',
-    'article_details'=>'Article Details',
+    'publisher' => 'Publisher',
+    'article_details' => 'Article Details',
 
     'hour' => 'Hour',
     'hours' => 'Hours',
@@ -31,11 +31,10 @@ return [
     'enroll_now' => 'Enroll Now !',
     'contact_us' => 'Contact us',
     'our_vision' => 'Our Vision',
-    'vision_one'=>'We aspire to be a leading platform for creative education and training in the Arab world.',
-    'vision_two'=>'We seek to make a positive difference in students lives by teaching them the skills necessary to achieve their dreams.',
-    'vision_three'=>'We believe that education is for everyone, regardless of age or current educational level.',
-    'read_more'=> 'Read More',
-
+    'vision_one' => 'We aspire to be a leading platform for creative education and training in the Arab world.',
+    'vision_two' => 'We seek to make a positive difference in students lives by teaching them the skills necessary to achieve their dreams.',
+    'vision_three' => 'We believe that education is for everyone, regardless of age or current educational level.',
+    'read_more' => 'Read More',
 
     'media' => 'Media',
     'facebook' => 'facebook',
@@ -47,9 +46,9 @@ return [
     'update' => 'Update',
     'years' => 'Years',
     'faq' => 'FAQ',
-    'videos'=>'Videos',
-    'minutes'=>'Minutes',
-    'photo_albums'=>'Photos Albums',
+    'videos' => 'Videos',
+    'minutes' => 'Minutes',
+    'photo_albums' => 'Photos Albums',
     'no_faqs' => 'No Frequently Asked Questions',
     'latest' => 'Latest',
     'previously_enrolled' => 'previously Enrolled',
@@ -125,4 +124,11 @@ return [
     'password_required' => 'Password Required',
     'password_same' => 'Confirm Password must be with assword',
     'email_email' => 'Email Must be in this format admin@admin.com',
+
+    'baka_academy' => 'Bakka Academy',
+    'about_baka_academy'=>'Welcome to Bakkah Academy, the leading destination for distinguished medical education.
+                We offer a comprehensive range of accredited professional courses
+                for medical and paramedical staff, delivered by a select group of the best professors in medical specialties.',
+     'about_courses' =>'A comprehensive set of specialized medical courses.
+                        At Bakkah Academy, we offer a distinguished range of courses designed to develop medical and clinical skills.',
 ];

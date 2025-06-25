@@ -3,8 +3,9 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="row h-100" uk-tab="connect: #swicherId">
-                    <div class="col-lg-6 item-swicherId pr-0" data-aos="fade-down" data-aos-duration="1200">
-                        <div class="  p-3 h-100 d-flex align-items-center justify-content-center">
+
+                    <div class="col-lg-6 item-swicherId pr-0 uk-active" data-aos="fade-up" data-aos-duration="1200">
+                        <div class=" p-4  h-100 d-flex align-items-center justify-content-center">
                             <div class="row">
                                 <div class="col-auto">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="84" height="84"
@@ -61,14 +62,15 @@
 
                                 </div>
                                 <div class="col">
-                                    <div class=" title">Courses</div>
+                                    <div class=" title"><?php echo __('site.baka_academy'); ?></div>
                                     <div class="fs-30 number"><span class="timer"></span></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 item-swicherId px-0 uk-active" data-aos="fade-up" data-aos-duration="1200">
-                        <div class=" p-4  h-100 d-flex align-items-center justify-content-center">
+
+                    <div class="col-lg-6 item-swicherId px-0" data-aos="fade-down" data-aos-duration="1200">
+                        <div class="  p-3 h-100 d-flex align-items-center justify-content-center">
                             <div class="row">
                                 <div class="col-auto">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="84" height="84"
@@ -95,7 +97,7 @@
                                     </svg>
                                 </div>
                                 <div class="col">
-                                    <div class=" title">Student</div>
+                                    <div class=" title"><?php echo __('site.courses'); ?></div>
                                     <div class="fs-30 number"><span class="timer2"></span></div>
                                 </div>
                             </div>
@@ -112,20 +114,18 @@
                         <div class="col">
                             <ul id="swicherId" class="uk-switcher">
                                 <li>
-                                    <div class=" text-primary">Courses</div>
+                                    <div class=" text-primary"><?php echo __('site.baka_academy'); ?></div>
                                     <p>
-                                        description description description description
-                                        description description description description
-                                        description description description description
+                                        <?php echo __('site.about_baka_academy'); ?>
+
                                     </p>
 
                                 </li>
                                 <li>
-                                    <div class=" text-primary">Articles</div>
+                                    <div class=" text-primary"><?php echo __('site.courses'); ?></div>
                                     <p>
-                                        description description description description
-                                        description description description description
-                                        description description description description
+                                        <?php echo __('site.about_courses'); ?>
+
                                     </p>
                                 </li>
                             </ul>

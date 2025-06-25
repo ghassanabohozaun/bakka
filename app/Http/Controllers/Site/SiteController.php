@@ -151,7 +151,7 @@ class SiteController extends Controller
                 ->where(function ($q) {
                     $q->where('language', 'ar')->orWhere('language', 'ar_en');
                 })
-                ->paginate(perPage: 6);
+                ->paginate(perPage: 12);
 
             ///// English
         } else {
@@ -162,7 +162,7 @@ class SiteController extends Controller
                 ->where(function ($q) {
                     $q->where('language', 'en')->orWhere('language', 'ar_en');
                 })
-                ->paginate(6);
+                ->paginate(perPage: 12);
         }
         return view('site.courses', compact('title', 'courses'));
     }
@@ -179,7 +179,7 @@ class SiteController extends Controller
                     ->where(function ($q) {
                         $q->where('language', 'ar')->orWhere('language', 'ar_en');
                     })
-                    ->paginate(perPage: 6);
+                    ->paginate(perPage: 12);
             } else {
                 //////  Courses
                 $courses = Course::withoutTrashed()
@@ -188,7 +188,7 @@ class SiteController extends Controller
                     ->where(function ($q) {
                         $q->where('language', 'en')->orWhere('language', 'ar_en');
                     })
-                    ->paginate(6);
+                    ->paginate(perPage: 12);
             }
             return view('site.courses-paging', compact('courses'))->render();
         }

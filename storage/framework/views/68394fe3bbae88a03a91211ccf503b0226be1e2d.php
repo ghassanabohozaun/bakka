@@ -38,14 +38,12 @@
                                         <?php endif; ?>
                                     </div>
                                 </div>
-
                                 <div class="fs-16 text-bold my-2 text-dark">
                                     <?php echo Lang() == 'ar' ? $course->title_ar : $course->title_en; ?>
 
                                 </div>
-
                                 <p class="mb-3 fs-12">
-                                    <?php echo Lang() == 'ar' ? $course->description_ar : $course->description_en; ?>
+                                    <?php echo \Illuminate\Support\Str::limit(strip_tags($course->{'description_' . Lang()}), $limit = 150, $end = '...'); ?>
 
                                 </p>
 
@@ -66,14 +64,33 @@
                                     </div>
                                 <?php endif; ?>
 
+
+
                                 <div class="row justify-content-between align-items-center">
 
                                     <div class="col-auto">
-                                        <a href="courses-details/<?php echo $course->{'title_' . Lang() . '_slug'}; ?>"
-                                            class="btn btn-primary br-30 text-bold " data-id="<?php echo $course->id; ?>">
-                                            <?php echo __('site.read_more'); ?>
+                                        <?php if(student()->check()): ?>
+                                            <?php if(App\Models\CourseStudent::where('student_id', student()->id())->where('course_id', $course->id)->get()->count()): ?>
+                                                <a href="javascript:void(0)" class="btn btn-primary br-30 text-bold"
+                                                    data-id="<?php echo $course->id; ?>">
+                                                    <?php echo __('site.previously_enrolled'); ?>
 
-                                        </a>
+                                                </a>
+                                            <?php else: ?>
+                                                <a href="<?php echo route('student.checkout', $course->id); ?>"
+                                                    class="btn btn-primary br-30 text-bold "
+                                                    data-id="<?php echo $course->id; ?>">
+                                                    <?php echo __('site.enroll_now'); ?>
+
+                                                </a>
+                                            <?php endif; ?>
+                                        <?php else: ?>
+                                            <a href="<?php echo route('get.student.login'); ?>" class="btn btn-primary br-30 text-bold "
+                                                data-id="<?php echo $course->id; ?>">
+                                                <?php echo __('site.enroll_now'); ?>
+
+                                            </a>
+                                        <?php endif; ?>
                                     </div>
 
                                     <div class="col-auto d-flex align-items-center">

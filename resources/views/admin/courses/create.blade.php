@@ -153,7 +153,7 @@
                                                             {{ __('courses.description_ar') }}
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
-                                                            <textarea rows="5" class="form-control form-control-solid form-control-lg" name="description_ar"
+                                                            <textarea rows="5" class="form-control form-control-solid form-control-lg summernote" name="description_ar"
                                                                 id="description_ar" type="text" placeholder=" {{ __('courses.enter_description_ar') }}" autocomplete="off"></textarea>
                                                             <span class="form-text text-danger"
                                                                 id="description_ar_error"></span>
@@ -169,7 +169,7 @@
                                                             {{ __('courses.description_en') }}
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
-                                                            <textarea rows="5" class="form-control form-control-solid form-control-lg" name="description_en"
+                                                            <textarea rows="5" class="form-control form-control-solid form-control-lg summernote" name="description_en"
                                                                 id="description_en" type="text" placeholder=" {{ __('courses.enter_description_en') }}" autocomplete="off"></textarea>
 
                                                             <span class="form-text text-danger"

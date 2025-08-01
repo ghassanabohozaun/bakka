@@ -34,7 +34,7 @@
 
 
                     <p class="mb-3 fs-12">
-                        {!! Lang() == 'ar' ? $course->description_ar : $course->description_en !!}
+                        {!! \Illuminate\Support\Str::limit(strip_tags($course->{'description_' . Lang()}), $limit = 150, $end = '...') !!}
                     </p>
 
 

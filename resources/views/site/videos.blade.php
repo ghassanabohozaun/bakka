@@ -29,7 +29,6 @@
             </div>
             <p class="mb-5 "> </p>
 
-
             <!-- begin : Videos ------------------------------------------>
             <div class="row justify-content-center">
                 <div class="col-lg-12">

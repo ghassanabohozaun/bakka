@@ -27,6 +27,7 @@ Route::group(
 
         Route::get('/courses', [SiteController::class, 'courses'])->name('courses');
         Route::get('/courses-paging', [SiteController::class, 'coursesPaging'])->name('courses.paging');
+        Route::get('/courses-details/{slug?}', [SiteController::class,  'getCourseDetails'])->name('courses.get.details');
 
         // articles
         Route::get('/articles', [SiteController::class, 'articles'])->name('articles');

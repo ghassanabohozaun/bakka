@@ -18,7 +18,9 @@
 
                             <div class="img-course">
                                 @if ($course->photo)
-                                    <img src="{!! asset('adminBoard/uploadedImages/courses/' . $course->photo) !!}" alt="{!! Lang() == 'ar' ? $course->title_ar : $course->title_en !!}">
+                                    <a href="courses-details/{!! $course->{'title_' . Lang() . '_slug'} !!}">
+                                        <img src="{!! asset('adminBoard/uploadedImages/courses/' . $course->photo) !!}" alt="{!! Lang() == 'ar' ? $course->title_ar : $course->title_en !!}">
+                                    </a>
                                 @else
                                     <img src="{!! asset('site/images/courses.jpg') !!}" class="img-fluid" alt="{!! Lang() == 'ar' ? $course->title_ar : $course->title_en !!}">
                                 @endif
@@ -36,9 +38,15 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="fs-16 text-bold my-2 text-dark">
-                                    {!! Lang() == 'ar' ? $course->title_ar : $course->title_en !!}
-                                </div>
+
+                                <a href="courses-details/{!! $course->{'title_' . Lang() . '_slug'} !!}">
+                                    <div class="fs-16 text-bold my-2 text-dark">
+
+                                        {!! Lang() == 'ar' ? $course->title_ar : $course->title_en !!}
+
+                                    </div>
+                                </a>
+
                                 <p class="mb-3 fs-12">
                                     {!! Lang() == 'ar' ? $course->description_ar : $course->description_en !!}
                                 </p>

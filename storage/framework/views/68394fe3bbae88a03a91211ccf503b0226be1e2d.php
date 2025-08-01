@@ -19,7 +19,9 @@
 
                             <div class="img-course">
                                 <?php if($course->photo): ?>
-                                    <img src="<?php echo asset('adminBoard/uploadedImages/courses/' . $course->photo); ?>" alt="<?php echo Lang() == 'ar' ? $course->title_ar : $course->title_en; ?>">
+                                    <a href="courses-details/<?php echo $course->{'title_' . Lang() . '_slug'}; ?>">
+                                        <img src="<?php echo asset('adminBoard/uploadedImages/courses/' . $course->photo); ?>" alt="<?php echo Lang() == 'ar' ? $course->title_ar : $course->title_en; ?>">
+                                    </a>
                                 <?php else: ?>
                                     <img src="<?php echo asset('site/images/courses.jpg'); ?>" class="img-fluid" alt="<?php echo Lang() == 'ar' ? $course->title_ar : $course->title_en; ?>">
                                 <?php endif; ?>
@@ -38,10 +40,16 @@
                                         <?php endif; ?>
                                     </div>
                                 </div>
-                                <div class="fs-16 text-bold my-2 text-dark">
-                                    <?php echo Lang() == 'ar' ? $course->title_ar : $course->title_en; ?>
 
-                                </div>
+                                <a href="courses-details/<?php echo $course->{'title_' . Lang() . '_slug'}; ?>">
+                                    <div class="fs-16 text-bold my-2 text-dark">
+
+                                        <?php echo Lang() == 'ar' ? $course->title_ar : $course->title_en; ?>
+
+
+                                    </div>
+                                </a>
+
                                 <p class="mb-3 fs-12">
                                     <?php echo Lang() == 'ar' ? $course->description_ar : $course->description_en; ?>
 

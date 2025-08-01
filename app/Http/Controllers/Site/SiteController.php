@@ -194,6 +194,28 @@ class SiteController extends Controller
         }
     }
 
+    // get course details
+    public function getCourseDetails(string $slug)
+    {
+        if (!$slug) {
+            return redirect()->route('index');
+        }
+
+
+        if (Lang() == 'ar') {
+            $course = Course::withoutTrashed()->where('title_ar_slug', $slug)->first();
+        } else {
+            $course = Course::withoutTrashed()->where('title_en_slug', $slug)->first();
+        }
+
+
+        if (!$course) {
+            return redirect()->route('index');
+        }
+
+
+        return view('site.course-details', compact('course'));
+    }
     // videos
     public function videos()
     {
@@ -294,23 +316,45 @@ class SiteController extends Controller
         }
     }
 
+    // articles
+    public function articles()
+    {
+        $title = __('site.articles');
 
-        // articles
-        public function articles()
-        {
-            $title = __('site.articles');
+        if (Lang() == 'ar') {
+            $articles = Article::withoutTrashed()
+                ->orderByDesc('created_at')
+                ->where('status', 'on')
+                ->where(function ($q) {
+                    $q->where('language', 'ar')->orWhere('language', 'ar_en');
+                })
+                ->paginate(perPage: 3);
+        } else {
+            $articles = Article::withoutTrashed()
+                ->orderByDesc('created_at')
+                ->where('status', 'on')
+                ->where(function ($q) {
+                    $q->where('language', 'en')->orWhere('language', 'ar_en');
+                })
+                ->paginate(3);
+        }
+        return view('site.blog.articles', compact('title', 'articles'));
+    }
 
+    //articles Paging
+    public function articlesPaging(Request $request)
+    {
+        if ($request->ajax()) {
             if (Lang() == 'ar') {
-                 $articles = Article::withoutTrashed()
+                $articles = Article::withoutTrashed()
                     ->orderByDesc('created_at')
                     ->where('status', 'on')
                     ->where(function ($q) {
                         $q->where('language', 'ar')->orWhere('language', 'ar_en');
                     })
                     ->paginate(perPage: 3);
-
-             } else {
-                 $articles = Article::withoutTrashed()
+            } else {
+                $articles = Article::withoutTrashed()
                     ->orderByDesc('created_at')
                     ->where('status', 'on')
                     ->where(function ($q) {
@@ -318,56 +362,29 @@ class SiteController extends Controller
                     })
                     ->paginate(3);
             }
-            return view('site.blog.articles', compact('title', 'articles'));
+            return view('site.blog.articles-paging', compact('articles'))->render();
+        }
+    }
+
+    // article
+    public function article($val = null)
+    {
+        if (!$val) {
+            return redirect()->route('index');
         }
 
-        //articles Paging
-        public function articlesPaging(Request $request)
-        {
-            if ($request->ajax()) {
-                if (Lang() == 'ar') {
-                    $articles = Article::withoutTrashed()
-                        ->orderByDesc('created_at')
-                        ->where('status', 'on')
-                        ->where(function ($q) {
-                            $q->where('language', 'ar')->orWhere('language', 'ar_en');
-                        })
-                        ->paginate(perPage: 3);
-                } else {
-                    $articles = Article::withoutTrashed()
-                        ->orderByDesc('created_at')
-                        ->where('status', 'on')
-                        ->where(function ($q) {
-                            $q->where('language', 'en')->orWhere('language', 'ar_en');
-                        })
-                        ->paginate(3);
-                }
-                return view('site.blog.articles-paging', compact('articles'))->render();
-            }
+        if (Lang() == 'ar') {
+            $article = Article::withoutTrashed()->where('title_ar_slug', $val)->first();
+        } else {
+            $article = Article::withoutTrashed()->where('title_en_slug', $val)->first();
         }
 
-
-        // article
-        public function article( $val = null){
-            if (!$val) {
-                return redirect()->route('index');
-            }
-
-            if (Lang() == 'ar') {
-                $article = Article::withoutTrashed()->where('title_ar_slug', $val)->first();
-            }else{
-                $article = Article::withoutTrashed()->where('title_en_slug', $val)->first();
-            }
-
-
-            if(! $article){
-                return redirect()->route('index');
-            }
-
-            return view('site.blog.article', compact('article'));
-
-
+        if (!$article) {
+            return redirect()->route('index');
         }
+
+        return view('site.blog.article', compact('article'));
+    }
     // faqs
     public function faq()
     {

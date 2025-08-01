@@ -4,7 +4,9 @@
             <div class="item-course">
                 <div class="img-course">
                     <?php if($course->photo): ?>
-                        <img src="<?php echo asset('adminBoard/uploadedImages/courses/' . $course->photo); ?>" alt="<?php echo Lang() == 'ar' ? $course->title_ar : $course->title_en; ?>">
+                        <a href="courses-details/<?php echo $course->{'title_' . Lang() . '_slug'}; ?>">
+                            <img src="<?php echo asset('adminBoard/uploadedImages/courses/' . $course->photo); ?>" alt="<?php echo Lang() == 'ar' ? $course->title_ar : $course->title_en; ?>">
+                        </a>
                     <?php else: ?>
                         <img src="<?php echo asset('site/images/courses.jpg'); ?>" alt="<?php echo Lang() == 'ar' ? $course->title_ar : $course->title_en; ?>">
                     <?php endif; ?>
@@ -27,10 +29,14 @@
                     </div>
 
 
-                    <div class="fs-16 text-bold my-2 text-dark">
-                        <?php echo Lang() == 'ar' ? $course->title_ar : $course->title_en; ?>
+                    <a href="courses-details/<?php echo $course->{'title_' . Lang() . '_slug'}; ?>">
+                        <div class="fs-16 text-bold my-2 text-dark">
+                            <?php echo Lang() == 'ar' ? $course->title_ar : $course->title_en; ?>
 
-                    </div>
+                        </div>
+                    </a>
+
+
                     <p class="mb-3 fs-12">
                         <?php echo Lang() == 'ar' ? $course->description_ar : $course->description_en; ?>
 
@@ -77,29 +83,15 @@
 
                                 </a>
                             <?php endif; ?>
+
                         </div>
-                        <?php if(!empty($course->cost) || $course->cost != ''): ?>
-                            <div class="col-auto d-flex align-items-center">
-                                <?php if($course->show_cost == 'on'): ?>
-                                    <?php if(!empty($course->hours)): ?>
-                                        <?php if($course->discount != null || $course->discount != 0): ?>
-                                            <span class="net-price mr-2"><?php echo $course->discount; ?>$</span>
-                                            <span class="old-price"><?php echo $course->cost; ?>$</span>
-                                        <?php else: ?>
-                                            <span class="my_price"><?php echo $course->cost; ?>$</span>
-                                        <?php endif; ?>
-                                    <?php endif; ?>
-                                <?php endif; ?>
-                            </div>
-                        <?php endif; ?>
+
                     </div>
                 </div>
             </div>
         </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-
-    
 
 </div>
 

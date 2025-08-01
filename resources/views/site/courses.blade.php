@@ -31,7 +31,7 @@
 
             <div class="row justify-content-center">
                 <div class="col-lg-12">
-                    <div class="col-lg-11 px-md-0">
+                    <div class="col-lg-12 px-md-0">
                         @if ($courses->isEmpty())
                             <img src="{!! asset('site/images/noRecordFound.svg') !!}" class="img-fluid" id="no_data_img"
                                 title="{!! __('site.no_date') !!}">

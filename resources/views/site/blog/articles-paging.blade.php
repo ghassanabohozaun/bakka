@@ -36,8 +36,6 @@
                                 {!! trans('site.read_more') !!}
                             </a>
                         </div>
-
-
                     </div>
                 </div>
             </div>

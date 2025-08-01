@@ -4,7 +4,9 @@
             <div class="item-course">
                 <div class="img-course">
                     @if ($course->photo)
-                        <img src="{!! asset('adminBoard/uploadedImages/courses/' . $course->photo) !!}" alt="{!! Lang() == 'ar' ? $course->title_ar : $course->title_en !!}">
+                        <a href="courses-details/{!! $course->{'title_' . Lang() . '_slug'} !!}">
+                            <img src="{!! asset('adminBoard/uploadedImages/courses/' . $course->photo) !!}" alt="{!! Lang() == 'ar' ? $course->title_ar : $course->title_en !!}">
+                        </a>
                     @else
                         <img src="{!! asset('site/images/courses.jpg') !!}" alt="{!! Lang() == 'ar' ? $course->title_ar : $course->title_en !!}">
                     @endif
@@ -26,9 +28,13 @@
                     </div>
 
 
-                    <div class="fs-16 text-bold my-2 text-dark">
-                        {!! Lang() == 'ar' ? $course->title_ar : $course->title_en !!}
-                    </div>
+                    <a href="courses-details/{!! $course->{'title_' . Lang() . '_slug'} !!}">
+                        <div class="fs-16 text-bold my-2 text-dark">
+                            {!! Lang() == 'ar' ? $course->title_ar : $course->title_en !!}
+                        </div>
+                    </a>
+
+
                     <p class="mb-3 fs-12">
                         {!! Lang() == 'ar' ? $course->description_ar : $course->description_en !!}
                     </p>
@@ -71,33 +77,15 @@
                                     {!! __('site.enroll_now') !!}
                                 </a>
                             @endif
+
                         </div>
-                        @if (!empty($course->cost) || $course->cost != '')
-                            <div class="col-auto d-flex align-items-center">
-                                @if ($course->show_cost == 'on')
-                                    @if (!empty($course->hours))
-                                        @if ($course->discount != null || $course->discount != 0)
-                                            <span class="net-price mr-2">{!! $course->discount !!}$</span>
-                                            <span class="old-price">{!! $course->cost !!}$</span>
-                                        @else
-                                            <span class="my_price">{!! $course->cost !!}$</span>
-                                        @endif
-                                    @endif
-                                @endif
-                            </div>
-                        @endif
+
                     </div>
                 </div>
             </div>
         </div>
     @endforeach
 
-
-    {{-- <div class="d-none">
-        @if (student()->check())
-            <input type="hidden" id="mawhob_id" value="{!! student()->user()->id !!}" />
-        @endif
-    </div> --}}
 
 </div>
 

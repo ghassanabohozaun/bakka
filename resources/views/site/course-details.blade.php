@@ -120,4 +120,6 @@
         </div>
         </div>
     </section>
+
+    @include('site.index.whatsapp')
 @endsection

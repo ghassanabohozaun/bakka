@@ -66,8 +66,6 @@
                                     </div>
                                 <?php endif; ?>
 
-
-
                                 <div class="row justify-content-between align-items-center">
 
                                     <div class="col-auto">

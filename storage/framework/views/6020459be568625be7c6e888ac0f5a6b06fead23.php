@@ -36,7 +36,7 @@
 
 
                     <p class="mb-3 fs-12">
-                        <?php echo Lang() == 'ar' ? $course->description_ar : $course->description_en; ?>
+                        <?php echo \Illuminate\Support\Str::limit(strip_tags($course->{'description_' . Lang()}), $limit = 150, $end = '...'); ?>
 
                     </p>
 
@@ -83,15 +83,15 @@
                             <?php endif; ?>
 
                         </div>
-                        <?php if(!empty($course->cost) || $course->cost != ''): ?>
-                            <div class="col-auto d-flex align-items-center">
-                                <a href="courses-details/<?php echo $course->{'title_' . Lang() . '_slug'}; ?>" class="btn btn-info br-30 text-bold "
-                                    data-id="<?php echo $course->id; ?>">
-                                    <?php echo __('site.read_more'); ?>
 
-                                </a>
-                            </div>
-                        <?php endif; ?>
+                        <div class="col-auto d-flex align-items-center">
+                            <a href="courses-details/<?php echo $course->{'title_' . Lang() . '_slug'}; ?>" class="btn btn-info br-30 text-bold "
+                                data-id="<?php echo $course->id; ?>">
+                                <?php echo __('site.read_more'); ?>
+
+                            </a>
+                        </div>
+
                     </div>
                 </div>
             </div>

@@ -51,6 +51,7 @@ function reverseDate($date)
     $date = implode('-', $rev);
     return $date;
 }
+
 if (!function_exists('slug')) {
     function slug($string)
     {
@@ -65,6 +66,7 @@ if (!function_exists('returnSpaceBetweenString')) {
         return $string = str_replace('-', ' ', $string); // Replaces all spaces with hyphens.
     }
 }
+
 
 if (!function_exists('getServicesOnly')) {
     function getServicesOnly()

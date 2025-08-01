@@ -40,11 +40,9 @@ Route::group(
         Route::get('/videos', [SiteController::class, 'videos'])->name('videos');
         Route::get('/videos-paging', [SiteController::class, 'videosPaging'])->name('videos.paging');
 
-
         // photos
         Route::get('/photo-albums', [SiteController::class, 'photoAlbums'])->name('photo.albums');
         Route::get('/photo-albums-paging', [SiteController::class, 'photoAlbumsPaging'])->name('photo.albums.paging');
-
 
         // // external link
         // Route::get('/link/{link}/{id}', [SiteController::class, 'externalLink'])->name('site.external.link');

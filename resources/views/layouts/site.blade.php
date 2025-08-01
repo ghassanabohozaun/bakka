@@ -15,6 +15,7 @@
     <link rel="icon" type="image/jpg" href="{!! asset('adminBoard/uploadedImages/logos/' . setting()->site_icon) !!}">
     <link rel="shortcut icon" href="{!! asset('adminBoard/uploadedImages/logos/' . setting()->site_icon) !!}">
     <link rel="apple-touch-icon" sizes="180x180" href="{!! asset('adminBoard/uploadedImages/logos/' . setting()->site_icon) !!}">
+
     @if (Lang() == 'ar')
         <link href="{!! asset('site/css/style-ar.css') !!}" rel="stylesheet">
         <link href="{!! asset('site/css/whatsapp-rtl.css') !!}" rel="stylesheet">

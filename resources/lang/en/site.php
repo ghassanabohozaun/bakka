@@ -126,9 +126,8 @@ return [
     'email_email' => 'Email Must be in this format admin@admin.com',
 
     'baka_academy' => 'Bakka Academy',
-    'about_baka_academy'=>'Welcome to Bakkah Academy, the leading destination for distinguished medical education.
-                We offer a comprehensive range of accredited professional courses
-                for medical and paramedical staff, delivered by a select group of the best professors in medical specialties.',
-     'about_courses' =>'A comprehensive set of specialized medical courses.
-                        At Bakkah Academy, we offer a distinguished range of courses designed to develop medical and clinical skills.',
+    'about_baka_academy'=>'Welcome to Bakkah Academy, the leading destination for distinguished education.
+                We offer a comprehensive range of accredited professional courses , delivered by a select group of the best professors in all specialties.',
+     'about_courses' =>'A comprehensive set of specialized courses.
+                        At Bakkah Academy, we offer a distinguished range of courses designed to develop your skills.',
 ];

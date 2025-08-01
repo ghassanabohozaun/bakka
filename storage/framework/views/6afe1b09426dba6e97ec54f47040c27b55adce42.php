@@ -15,6 +15,7 @@
     <link rel="icon" type="image/jpg" href="<?php echo asset('adminBoard/uploadedImages/logos/' . setting()->site_icon); ?>">
     <link rel="shortcut icon" href="<?php echo asset('adminBoard/uploadedImages/logos/' . setting()->site_icon); ?>">
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo asset('adminBoard/uploadedImages/logos/' . setting()->site_icon); ?>">
+
     <?php if(Lang() == 'ar'): ?>
         <link href="<?php echo asset('site/css/style-ar.css'); ?>" rel="stylesheet">
         <link href="<?php echo asset('site/css/whatsapp-rtl.css'); ?>" rel="stylesheet">

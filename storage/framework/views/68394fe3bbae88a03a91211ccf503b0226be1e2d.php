@@ -19,9 +19,7 @@
 
                             <div class="img-course">
                                 <?php if($course->photo): ?>
-                                    <a href="courses-details/<?php echo $course->{'title_' . Lang() . '_slug'}; ?>">
-                                        <img src="<?php echo asset('adminBoard/uploadedImages/courses/' . $course->photo); ?>" alt="<?php echo Lang() == 'ar' ? $course->title_ar : $course->title_en; ?>">
-                                    </a>
+                                    <img src="<?php echo asset('adminBoard/uploadedImages/courses/' . $course->photo); ?>" alt="<?php echo Lang() == 'ar' ? $course->title_ar : $course->title_en; ?>">
                                 <?php else: ?>
                                     <img src="<?php echo asset('site/images/courses.jpg'); ?>" class="img-fluid" alt="<?php echo Lang() == 'ar' ? $course->title_ar : $course->title_en; ?>">
                                 <?php endif; ?>
@@ -41,14 +39,10 @@
                                     </div>
                                 </div>
 
-                                <a href="courses-details/<?php echo $course->{'title_' . Lang() . '_slug'}; ?>">
-                                    <div class="fs-16 text-bold my-2 text-dark">
+                                <div class="fs-16 text-bold my-2 text-dark">
+                                    <?php echo Lang() == 'ar' ? $course->title_ar : $course->title_en; ?>
 
-                                        <?php echo Lang() == 'ar' ? $course->title_ar : $course->title_en; ?>
-
-
-                                    </div>
-                                </a>
+                                </div>
 
                                 <p class="mb-3 fs-12">
                                     <?php echo Lang() == 'ar' ? $course->description_ar : $course->description_en; ?>
@@ -84,20 +78,13 @@
                                         </a>
                                     </div>
 
-                                    <?php if(!empty($course->cost) || $course->cost != ''): ?>
-                                        <div class="col-auto d-flex align-items-center">
-                                            <?php if($course->show_cost == 'on'): ?>
-                                                <?php if(!empty($course->cost)): ?>
-                                                    <?php if($course->discount != null || $course->discount != 0): ?>
-                                                        <span class="net-price mr-2"><?php echo $course->discount; ?>$</span>
-                                                        <span class="old-price"><?php echo $course->cost; ?>$</span>
-                                                    <?php else: ?>
-                                                        <span class="my_price"><?php echo $course->cost; ?>$</span>
-                                                    <?php endif; ?>
-                                                <?php endif; ?>
-                                            <?php endif; ?>
-                                        </div>
-                                    <?php endif; ?>
+                                    <div class="col-auto d-flex align-items-center">
+                                        <a href="courses-details/<?php echo $course->{'title_' . Lang() . '_slug'}; ?>"
+                                            class="btn btn-info br-30 text-bold " data-id="<?php echo $course->id; ?>">
+                                            <?php echo __('site.read_more'); ?>
+
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

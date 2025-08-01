@@ -62,8 +62,6 @@
                                     </div>
                                 @endif
 
-
-
                                 <div class="row justify-content-between align-items-center">
 
                                     <div class="col-auto">
@@ -73,20 +71,12 @@
                                         </a>
                                     </div>
 
-                                    @if (!empty($course->cost) || $course->cost != '')
-                                        <div class="col-auto d-flex align-items-center">
-                                            @if ($course->show_cost == 'on')
-                                                @if (!empty($course->cost))
-                                                    @if ($course->discount != null || $course->discount != 0)
-                                                        <span class="net-price mr-2">{!! $course->discount !!}$</span>
-                                                        <span class="old-price">{!! $course->cost !!}$</span>
-                                                    @else
-                                                        <span class="my_price">{!! $course->cost !!}$</span>
-                                                    @endif
-                                                @endif
-                                            @endif
-                                        </div>
-                                    @endif
+                                    <div class="col-auto d-flex align-items-center">
+                                        <a href="courses-details/{!! $course->{'title_' . Lang() . '_slug'} !!}"
+                                            class="btn btn-info br-30 text-bold " data-id="{!! $course->id !!}">
+                                            {!! __('site.read_more') !!}
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -25,9 +25,13 @@
 
                     </div>
 
-                    <div class="fs-16 text-bold my-2 text-dark">
-                        {!! Lang() == 'ar' ? $course->title_ar : $course->title_en !!}
-                    </div>
+
+                    <a href="{!! route('courses.get.details', $course->id) !!}">
+                        <div class="fs-16 text-bold my-2 text-dark">
+                            {!! Lang() == 'ar' ? $course->title_ar : $course->title_en !!}
+                        </div>
+                    </a>
+
 
                     <p class="mb-3 fs-12">
                         {!! Lang() == 'ar' ? $course->description_ar : $course->description_en !!}
@@ -53,7 +57,29 @@
 
                     <div class="row justify-content-between align-items-center">
                         <div class="col-auto">
-                            <a href="courses-details/{!! $course->{'title_' . Lang() . '_slug'} !!}" class="btn btn-primary br-30 text-bold "
+                            @if (student()->check())
+                                @if (App\Models\CourseStudent::where('student_id', student()->id())->where('course_id', $course->id)->get()->count())
+                                    <a href="javascript:void(0)" class="btn btn-primary br-30 text-bold"
+                                        data-id="{!! $course->id !!}">
+                                        {!! __('site.previously_enrolled') !!}
+                                    </a>
+                                @else
+                                    <a href="{!! route('student.checkout', $course->id) !!}" class="btn btn-primary br-30 text-bold "
+                                        data-id="{!! $course->id !!}">
+                                        {!! __('site.enroll_now') !!}
+                                    </a>
+                                @endif
+                            @else
+                                <a href="{!! route('get.student.login') !!}" class="btn btn-primary br-30 text-bold "
+                                    data-id="{!! $course->id !!}">
+                                    {!! __('site.enroll_now') !!}
+                                </a>
+                            @endif
+
+                        </div>
+
+                        <div class="col-auto d-flex align-items-center">
+                            <a href="courses-details/{!! $course->{'title_' . Lang() . '_slug'} !!}" class="btn btn-info br-30 text-bold "
                                 data-id="{!! $course->id !!}">
                                 {!! __('site.read_more') !!}
                             </a>

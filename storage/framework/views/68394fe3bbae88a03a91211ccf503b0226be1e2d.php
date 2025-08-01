@@ -77,28 +77,11 @@
                                 <div class="row justify-content-between align-items-center">
 
                                     <div class="col-auto">
-                                        <?php if(student()->check()): ?>
-                                            <?php if(App\Models\CourseStudent::where('student_id', student()->id())->where('course_id', $course->id)->get()->count()): ?>
-                                                <a href="javascript:void(0)" class="btn btn-primary br-30 text-bold"
-                                                    data-id="<?php echo $course->id; ?>">
-                                                    <?php echo __('site.previously_enrolled'); ?>
+                                        <a href="courses-details/<?php echo $course->{'title_' . Lang() . '_slug'}; ?>"
+                                            class="btn btn-primary br-30 text-bold " data-id="<?php echo $course->id; ?>">
+                                            <?php echo __('site.read_more'); ?>
 
-                                                </a>
-                                            <?php else: ?>
-                                                <a href="<?php echo route('student.checkout', $course->id); ?>"
-                                                    class="btn btn-primary br-30 text-bold "
-                                                    data-id="<?php echo $course->id; ?>">
-                                                    <?php echo __('site.enroll_now'); ?>
-
-                                                </a>
-                                            <?php endif; ?>
-                                        <?php else: ?>
-                                            <a href="<?php echo route('get.student.login'); ?>" class="btn btn-primary br-30 text-bold "
-                                                data-id="<?php echo $course->id; ?>">
-                                                <?php echo __('site.enroll_now'); ?>
-
-                                            </a>
-                                        <?php endif; ?>
+                                        </a>
                                     </div>
 
                                     <?php if(!empty($course->cost) || $course->cost != ''): ?>

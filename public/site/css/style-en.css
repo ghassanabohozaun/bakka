@@ -379,7 +379,7 @@ header { position: absolute; top: 0; width: 100%; z-index: 12; }
 .navbar .nav-item { text-align: center; position: relative; }
 .navbar .nav-item::after { content: ''; position: absolute; height: 15px; width: 1px; right: 0; background-color: #fff; top: calc(50% - 8px); }
 .navbar .nav-item:last-child::after { display: none; }
-.navbar .nav-item > a { color: #fff; -webkit-transition: 0.3s ease-in-out; transition: 0.3s ease-in-out; }
+.navbar .nav-item > a {color: #ff0000;font-weight: 700; -webkit-transition: 0.3s ease-in-out; transition: 0.3s ease-in-out; }
 .navbar .nav-item > a:hover { color: #F28705; font-weight: 400; background: #fff; }
 .navbar .nav-item .dropdown-menu { text-align: center; padding: 0; border: 0; border-radius: 0; }
 .navbar .nav-item .dropdown-menu .dropdown-item { border-bottom: 1px solid #f0f0f0; padding: 10px 1px; }
